@@ -11,6 +11,7 @@ Build the first five free primitives as Markdown/JSON/Python-local tools:
 - Learning Dossier Folder Template
 - Assessment Evidence Packet
 - Source Confidence Ledger
+- Answer-Layer Citation Readiness Card
 
 Acceptance criteria:
 

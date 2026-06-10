@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "required": [
+    "page_title",
+    "page_url_or_slug",
+    "author_or_owner",
+    "last_reviewed",
+    "source_ledger_ref",
+    "claim_list",
+    "uncertainty_notes",
+    "update_policy"
+  ],
+  "properties": {
+    "page_title": {"type": "string"},
+    "page_url_or_slug": {"type": "string"},
+    "author_or_owner": {"type": "string"},
+    "last_reviewed": {"type": "string"},
+    "source_ledger_ref": {"type": "string"},
+    "claim_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim", "evidence_type", "source_refs", "confidence", "citation_ready"],
+        "properties": {
+          "claim": {"type": "string"},
+          "evidence_type": {"type": "string"},
+          "source_refs": {"type": "array", "items": {"type": "string"}},
+          "confidence": {"type": "string"},
+          "citation_ready": {"enum": ["yes", "needs_review", "no"]},
+          "freshness_note": {"type": "string"}
+        }
+      }
+    },
+    "changed_since_publication": {"type": "array", "items": {"type": "string"}},
+    "uncertainty_notes": {"type": "array", "items": {"type": "string"}},
+    "update_policy": {"type": "string"}
+  }
+}

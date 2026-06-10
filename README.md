@@ -13,6 +13,7 @@ This repo is the open/free primitive library for Hypernovelty Institute: small t
 5. **Source Confidence Ledger** — track claims, sources, confidence, verification status, and downstream use.
 6. **Agent Permission Receipt Card** — document what an agent can read, write, expose, spend, publish, or trigger.
 7. **Assessment Evidence Packet** — add proof-of-learning evidence to the Learning Dossier verification layer.
+8. **Answer-Layer Citation Readiness Card** — prepare page-level claim/source/date/update receipts for answer-layer citation hygiene.
 
 ## Repo principles
 
@@ -29,6 +30,7 @@ python3 tools/novelty-load-calculator/novelty_load.py examples/individual/novelt
 python3 tools/change-triage/change_triage.py examples/individual/change_triage_example.json
 python3 tools/ai-delegation-contract-card/render_contract.py examples/creator/ai_delegation_contract_example.json
 python3 tools/agent-permission-receipt-card/render_receipt.py examples/team/agent_permission_receipt_example.json
+python3 tools/answer-layer-citation-readiness-card/render_card.py examples/publishing/answer_layer_citation_readiness_example.json
 python3 tools/source-confidence-ledger/source_ledger.py examples/publishing/source_confidence_example.json
 python3 scripts/validate_repo.py
 ```

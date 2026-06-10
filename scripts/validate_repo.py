@@ -9,6 +9,7 @@ required = [
  'tools/change-triage/change_triage.py',
  'tools/ai-delegation-contract-card/render_contract.py',
  'tools/agent-permission-receipt-card/render_receipt.py',
+ 'tools/answer-layer-citation-readiness-card/render_card.py',
  'tools/learning-dossier-folder-template/template/mission.md',
  'tools/learning-dossier-folder-template/template/assessment-evidence/assessment-evidence-template.md',
  'tools/learning-dossier-folder-template/template/assessment-evidence/examples/math-science-proportional-reasoning.md',
@@ -24,6 +25,7 @@ commands = [
  ['python3','tools/change-triage/change_triage.py','examples/individual/change_triage_example.json'],
  ['python3','tools/ai-delegation-contract-card/render_contract.py','examples/creator/ai_delegation_contract_example.json'],
  ['python3','tools/agent-permission-receipt-card/render_receipt.py','examples/team/agent_permission_receipt_example.json'],
+ ['python3','tools/answer-layer-citation-readiness-card/render_card.py','examples/publishing/answer_layer_citation_readiness_example.json'],
  ['python3','tools/source-confidence-ledger/source_ledger.py','examples/publishing/source_confidence_example.json'],
 ]
 for cmd in commands:
@@ -34,17 +36,32 @@ for cmd in commands:
         print(proc.stderr)
         sys.exit(proc.returncode)
 
-# Minimal stdlib schema check for safety-critical agent permission receipts.
-schema = json.loads((ROOT / 'schemas/agent-permission-receipt.schema.json').read_text())
-receipt = json.loads((ROOT / 'examples/team/agent_permission_receipt_example.json').read_text())
+# Minimal stdlib schema checks for locally validated JSON examples.
 errors = []
-for field in schema.get('required', []):
+
+agent_schema = json.loads((ROOT / 'schemas/agent-permission-receipt.schema.json').read_text())
+receipt = json.loads((ROOT / 'examples/team/agent_permission_receipt_example.json').read_text())
+for field in agent_schema.get('required', []):
     if field not in receipt:
         errors.append(f'agent receipt missing required field: {field}')
 for field in ['secrets_access', 'public_action']:
-    allowed = set(schema['properties'][field]['enum'])
+    allowed = set(agent_schema['properties'][field]['enum'])
     if receipt.get(field) not in allowed:
         errors.append(f'agent receipt invalid {field}: {receipt.get(field)}')
+
+citation_schema = json.loads((ROOT / 'schemas/answer-layer-citation-readiness.schema.json').read_text())
+citation = json.loads((ROOT / 'examples/publishing/answer_layer_citation_readiness_example.json').read_text())
+for field in citation_schema.get('required', []):
+    if field not in citation:
+        errors.append(f'citation readiness missing required field: {field}')
+allowed_ready = set(citation_schema['properties']['claim_list']['items']['properties']['citation_ready']['enum'])
+for idx, claim in enumerate(citation.get('claim_list', []), 1):
+    for field in citation_schema['properties']['claim_list']['items'].get('required', []):
+        if field not in claim:
+            errors.append(f'citation readiness claim {idx} missing required field: {field}')
+    if claim.get('citation_ready') not in allowed_ready:
+        errors.append(f'citation readiness claim {idx} invalid citation_ready: {claim.get("citation_ready")}')
+
 if errors:
     print('schema_check=failed')
     for err in errors:
@@ -53,4 +70,4 @@ if errors:
 print('validation=ok')
 print('checked_files=', len(required))
 print('checked_commands=', len(commands))
-print('schema_checks= 1')
+print('schema_checks= 2')

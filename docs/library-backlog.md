@@ -6,6 +6,7 @@
 - Add printable PDF/HTML worksheet variants.
 - Add sample packets for individual, school, creator, small business, nonprofit, and team contexts.
 - Add JSON schemas for every machine-readable example.
+- Extend source/provenance tools with page-level citation readiness examples and templates.
 
 ## Candidate free tools
 

@@ -1,0 +1,33 @@
+{
+  "page_title": "Surviving Hypernovelty: Why Source Receipts Matter",
+  "page_url_or_slug": "/essays/source-receipts-matter",
+  "author_or_owner": "Hypernovelty Institute editorial owner",
+  "last_reviewed": "2026-06-09",
+  "source_ledger_ref": "examples/publishing/source_confidence_example.json",
+  "claim_list": [
+    {
+      "claim": "Answer-layer systems make clear claim/source/date structure more important for public-facing knowledge pages.",
+      "evidence_type": "trend synthesis / publishing workflow rationale",
+      "source_refs": ["source_confidence_example.json claim 1"],
+      "confidence": "medium",
+      "citation_ready": "needs_review",
+      "freshness_note": "Confirm against current platform documentation before publication."
+    },
+    {
+      "claim": "A source-confidence ledger improves review discipline but does not guarantee factual correctness or third-party citation.",
+      "evidence_type": "internal editorial policy",
+      "source_refs": ["source_confidence_example.json claim 2"],
+      "confidence": "high",
+      "citation_ready": "yes",
+      "freshness_note": "Stable boundary statement; review when tool claims change."
+    }
+  ],
+  "changed_since_publication": [
+    "Draft example only; no public publication has occurred."
+  ],
+  "uncertainty_notes": [
+    "Specific answer-engine behavior changes frequently.",
+    "This artifact should be paired with primary-source checks for public factual claims."
+  ],
+  "update_policy": "Review dates, source links, and claims before public release and whenever a cited platform or source changes materially."
+}
