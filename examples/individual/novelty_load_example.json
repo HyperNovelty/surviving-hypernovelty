@@ -1,0 +1,8 @@
+{
+  "subject": "individual navigating AI/work/education change",
+  "changes": [
+    {"domain":"work","description":"AI tools are changing expected output speed","impact":5,"urgency":4,"uncertainty":4,"agency":3},
+    {"domain":"learning","description":"Need a durable system for tracking new skills","impact":4,"urgency":3,"uncertainty":3,"agency":4},
+    {"domain":"media","description":"Harder to tell signal from AI slop","impact":4,"urgency":3,"uncertainty":5,"agency":2}
+  ]
+}

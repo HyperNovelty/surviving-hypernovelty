@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "required": ["ledger", "claims"],
+  "properties": {
+    "ledger": {"type": "string"},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim", "verification_status", "sources"],
+        "properties": {
+          "claim": {"type": "string"},
+          "verification_status": {"enum": ["strong", "light", "unverified", "rejected"]},
+          "confidence": {"type": "string"},
+          "sources": {"type": "array", "items": {"type": "string"}},
+          "downstream_route": {"type": "string"}
+        }
+      }
+    }
+  }
+}

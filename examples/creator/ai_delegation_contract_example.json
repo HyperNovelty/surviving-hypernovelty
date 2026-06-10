@@ -1,0 +1,11 @@
+{
+  "title": "Draft-only article research assistant",
+  "owner": "Creator/operator",
+  "workflow": "Source gathering and draft outline support",
+  "approval_status": "draft-only",
+  "ai_may_do": ["Summarize provided sources", "Suggest outlines", "Flag claims needing verification"],
+  "ai_must_not_do": ["Publish or schedule content", "Invent sources", "Use private material in public copy without approval"],
+  "human_approval_required_for": ["Final claims", "Public posting", "Emailing subscribers", "Paid/account-connected actions"],
+  "evidence_required": ["Source list", "Claim confidence ledger", "Human review note"],
+  "escalation_triggers": ["Legal/medical/financial claims", "Private personal details", "Unverified quotes"]
+}

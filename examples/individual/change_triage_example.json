@@ -1,0 +1,8 @@
+{
+  "subject": "solo operator weekly change triage",
+  "changes": [
+    {"description":"Update AI workflow review gates","impact":5,"urgency":4,"reversibility":2,"ownership":"mine"},
+    {"description":"Monitor new school AI policy proposals","impact":4,"urgency":2,"reversibility":3,"ownership":"mine"},
+    {"description":"Try every new AI video app","impact":2,"urgency":1,"reversibility":5,"ownership":"mine"}
+  ]
+}

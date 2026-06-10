@@ -1,0 +1,19 @@
+{
+  "ledger": "example article source ledger",
+  "claims": [
+    {
+      "claim": "AI tutor demos are increasing, but durable learner-state workflows remain underdeveloped.",
+      "verification_status": "light",
+      "confidence": "medium",
+      "sources": ["internal Hypernovelty/Future of Education monitoring", "public AI education tool examples"],
+      "downstream_route": "Future of Education / Learning Dossier"
+    },
+    {
+      "claim": "Any public claim about a specific company policy should be checked against primary source text before publication.",
+      "verification_status": "strong",
+      "confidence": "high",
+      "sources": ["Hypernovelty source discipline policy"],
+      "downstream_route": "claim verification rule"
+    }
+  ]
+}
