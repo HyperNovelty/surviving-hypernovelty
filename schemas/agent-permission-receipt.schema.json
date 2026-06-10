@@ -1,6 +1,6 @@
 {
   "type": "object",
-  "required": ["agent_name", "owner", "purpose", "read_scopes", "write_scopes", "allowed_actions", "disallowed_actions", "human_approval_point"],
+  "required": ["agent_name", "owner", "purpose", "identity_auth", "read_scopes", "write_scopes", "allowed_actions", "disallowed_actions", "secrets_access", "public_action", "secrets_boundary", "audit_log", "rollback_owner", "human_approval_point", "escalation_triggers"],
   "properties": {
     "agent_name": {"type": "string"},
     "owner": {"type": "string"},

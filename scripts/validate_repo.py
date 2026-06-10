@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
+import json
 import subprocess, sys
 ROOT = Path(__file__).resolve().parents[1]
 required = [
@@ -32,6 +33,24 @@ for cmd in commands:
         print(proc.stdout)
         print(proc.stderr)
         sys.exit(proc.returncode)
+
+# Minimal stdlib schema check for safety-critical agent permission receipts.
+schema = json.loads((ROOT / 'schemas/agent-permission-receipt.schema.json').read_text())
+receipt = json.loads((ROOT / 'examples/team/agent_permission_receipt_example.json').read_text())
+errors = []
+for field in schema.get('required', []):
+    if field not in receipt:
+        errors.append(f'agent receipt missing required field: {field}')
+for field in ['secrets_access', 'public_action']:
+    allowed = set(schema['properties'][field]['enum'])
+    if receipt.get(field) not in allowed:
+        errors.append(f'agent receipt invalid {field}: {receipt.get(field)}')
+if errors:
+    print('schema_check=failed')
+    for err in errors:
+        print(err)
+    sys.exit(1)
 print('validation=ok')
 print('checked_files=', len(required))
 print('checked_commands=', len(commands))
+print('schema_checks= 1')

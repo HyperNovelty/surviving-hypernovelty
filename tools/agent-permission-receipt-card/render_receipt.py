@@ -10,10 +10,10 @@ def bullets(items):
 def risk_flags(d):
     actions = set(d.get('allowed_actions', []))
     flags = sorted(actions & RISKY_ACTIONS)
-    if d.get('secrets_access') == 'allowed':
-        flags.append('secrets_access_allowed')
-    if d.get('public_action') == 'allowed':
-        flags.append('public_action_allowed')
+    if d.get('secrets_access') in {'allowed', 'review_required'}:
+        flags.append(f"secrets_access_{d.get('secrets_access')}")
+    if d.get('public_action') in {'allowed', 'review_required'}:
+        flags.append(f"public_action_{d.get('public_action')}")
     return flags
 
 def render(d):

@@ -17,6 +17,7 @@ template/
   attempts/
   feedback/
   assessments/
+  assessment-evidence/
   misconceptions.md
   next-steps.md
   human-review.md
