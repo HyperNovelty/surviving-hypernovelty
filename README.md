@@ -11,6 +11,8 @@ This repo is the open/free primitive library for Hypernovelty Institute: small t
 3. **AI Delegation Contract Card** — define what an AI/tool may do, must not do, and must prove.
 4. **Learning Dossier Folder Template** — the “Next Classroom May Be a Folder” starter structure.
 5. **Source Confidence Ledger** — track claims, sources, confidence, verification status, and downstream use.
+6. **Agent Permission Receipt Card** — document what an agent can read, write, expose, spend, publish, or trigger.
+7. **Assessment Evidence Packet** — add proof-of-learning evidence to the Learning Dossier verification layer.
 
 ## Repo principles
 
@@ -26,6 +28,7 @@ This repo is the open/free primitive library for Hypernovelty Institute: small t
 python3 tools/novelty-load-calculator/novelty_load.py examples/individual/novelty_load_example.json
 python3 tools/change-triage/change_triage.py examples/individual/change_triage_example.json
 python3 tools/ai-delegation-contract-card/render_contract.py examples/creator/ai_delegation_contract_example.json
+python3 tools/agent-permission-receipt-card/render_receipt.py examples/team/agent_permission_receipt_example.json
 python3 tools/source-confidence-ledger/source_ledger.py examples/publishing/source_confidence_example.json
 python3 scripts/validate_repo.py
 ```

@@ -1,0 +1,18 @@
+{
+  "agent_name": "Draft-only signal scout",
+  "owner": "Hypernovelty operator",
+  "purpose": "Collect candidate public signals and create local review notes",
+  "identity_auth": "Runs locally under operator account; no external account write access",
+  "read_scopes": ["Public web pages", "Local repo docs", "Prior review-only research packets"],
+  "write_scopes": ["Local _research_runs/ folder only"],
+  "allowed_actions": ["summarize_sources", "write_local_review_packet"],
+  "disallowed_actions": ["publish_publicly", "email_external", "spend_money", "access_secrets", "change_dns", "deploy_production"],
+  "secrets_access": "not_allowed",
+  "public_action": "not_allowed",
+  "secrets_boundary": "Do not read, request, print, store, or infer secrets/tokens/credentials.",
+  "audit_log": "Every run writes a dated local review packet with sources inspected and non-actions.",
+  "rollback_owner": "Human operator deletes or reverts local artifacts if a packet is wrong.",
+  "human_approval_point": "Required before public posting, GitHub publication, account actions, paid tools, or outreach.",
+  "escalation_triggers": ["Credential request", "Public action request", "Legal/medical/financial certainty", "Private personal data"],
+  "notes": "Example receipt for review-only research automation."
+}

@@ -7,7 +7,9 @@ Build the first five free primitives as Markdown/JSON/Python-local tools:
 - Novelty Load Calculator
 - Change Triage Worksheet
 - AI Delegation Contract Card
+- Agent Permission Receipt Card
 - Learning Dossier Folder Template
+- Assessment Evidence Packet
 - Source Confidence Ledger
 
 Acceptance criteria:
