@@ -8,6 +8,7 @@ Build the first five free primitives as Markdown/JSON/Python-local tools:
 - Change Triage Worksheet
 - AI Delegation Contract Card
 - Agent Permission Receipt Card
+- Agent Toolchain Exposure Map
 - Learning Dossier Folder Template
 - Assessment Evidence Packet
 - Source Confidence Ledger

@@ -7,6 +7,7 @@
 - Add sample packets for individual, school, creator, small business, nonprofit, and team contexts.
 - Add JSON schemas for every machine-readable example.
 - Extend source/provenance tools with page-level citation readiness examples and templates.
+- Extend agent visibility tools with richer role-specific examples after the first Agent Toolchain Exposure Map.
 
 ## Candidate free tools
 

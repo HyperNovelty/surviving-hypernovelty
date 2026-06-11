@@ -1,0 +1,74 @@
+{
+  "type": "object",
+  "required": [
+    "workflow_name",
+    "workflow_owner",
+    "purpose",
+    "review_cadence",
+    "agents",
+    "handoffs",
+    "shared_boundaries",
+    "review_triggers"
+  ],
+  "properties": {
+    "workflow_name": {"type": "string"},
+    "workflow_owner": {"type": "string"},
+    "purpose": {"type": "string"},
+    "review_cadence": {"type": "string"},
+    "agents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "name",
+          "owner",
+          "identity",
+          "tools",
+          "data_touched",
+          "actions",
+          "outputs_to",
+          "secrets_access",
+          "human_checkpoint"
+        ],
+        "properties": {
+          "name": {"type": "string"},
+          "owner": {"type": "string"},
+          "identity": {"type": "string"},
+          "tools": {"type": "array", "items": {"type": "string"}},
+          "data_touched": {"type": "array", "items": {"type": "string"}},
+          "actions": {"type": "array", "items": {"type": "string"}},
+          "outputs_to": {"type": "array", "items": {"type": "string"}},
+          "secrets_access": {"enum": ["not_allowed", "review_required", "allowed"]},
+          "human_checkpoint": {"type": "string"},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "handoffs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "payload", "trigger", "human_checkpoint"],
+        "properties": {
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "payload": {"type": "string"},
+          "trigger": {"type": "string"},
+          "human_checkpoint": {"type": "string"}
+        }
+      }
+    },
+    "shared_boundaries": {
+      "type": "object",
+      "required": ["secrets_boundary", "public_action_boundary", "audit_evidence", "rollback_owner"],
+      "properties": {
+        "secrets_boundary": {"type": "string"},
+        "public_action_boundary": {"type": "string"},
+        "audit_evidence": {"type": "string"},
+        "rollback_owner": {"type": "string"}
+      }
+    },
+    "review_triggers": {"type": "array", "items": {"type": "string"}},
+    "notes": {"type": "string"}
+  }
+}

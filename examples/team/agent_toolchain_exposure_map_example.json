@@ -1,0 +1,74 @@
+{
+  "workflow_name": "Draft-to-review content assistant chain",
+  "workflow_owner": "Operations lead",
+  "purpose": "Draft internal knowledge-base updates from approved meeting notes and route them to a human editor before publication.",
+  "review_cadence": "Monthly, and before adding any new connector or external output destination.",
+  "agents": [
+    {
+      "name": "Meeting Notes Summarizer",
+      "owner": "Team coordinator",
+      "identity": "Shared automation account with read-only notes access",
+      "tools": ["meeting-notes folder", "internal summarization model"],
+      "data_touched": ["internal meeting notes", "project decisions"],
+      "actions": ["summarize", "tag_open_questions"],
+      "outputs_to": ["draft workspace"],
+      "secrets_access": "not_allowed",
+      "human_checkpoint": "Coordinator reviews summary before it enters the draft workspace.",
+      "notes": "No customer or credential data should be placed in meeting notes."
+    },
+    {
+      "name": "Knowledge Base Drafter",
+      "owner": "Documentation lead",
+      "identity": "Docs bot with draft-only permissions",
+      "tools": ["draft workspace", "style guide", "knowledge-base CMS draft mode"],
+      "data_touched": ["internal summaries", "public documentation pages"],
+      "actions": ["create_draft", "update_draft", "trigger_workflow"],
+      "outputs_to": ["CMS draft queue", "editor notification channel"],
+      "secrets_access": "not_allowed",
+      "human_checkpoint": "Editor must approve every CMS draft before publication.",
+      "notes": "Drafting is allowed; publishing is not."
+    },
+    {
+      "name": "Publish Readiness Checker",
+      "owner": "Editor",
+      "identity": "Local script run by editor account",
+      "tools": ["citation readiness checklist", "source confidence ledger"],
+      "data_touched": ["draft page", "source list", "claim list"],
+      "actions": ["check_claims", "flag_missing_sources"],
+      "outputs_to": ["editor review notes"],
+      "secrets_access": "not_allowed",
+      "human_checkpoint": "Editor resolves flags and manually publishes if appropriate.",
+      "notes": "Checker does not publish, email, spend, or change account settings."
+    }
+  ],
+  "handoffs": [
+    {
+      "from": "Meeting Notes Summarizer",
+      "to": "Knowledge Base Drafter",
+      "payload": "Approved summary plus open-question tags",
+      "trigger": "Coordinator marks summary ready",
+      "human_checkpoint": "Coordinator approval required before handoff."
+    },
+    {
+      "from": "Knowledge Base Drafter",
+      "to": "Publish Readiness Checker",
+      "payload": "CMS draft URL and source list",
+      "trigger": "Draft enters review queue",
+      "human_checkpoint": "Editor runs checker manually."
+    }
+  ],
+  "shared_boundaries": {
+    "secrets_boundary": "No credentials, private customer records, payroll data, student records, or API keys may be entered into the workflow.",
+    "public_action_boundary": "No agent may publish publicly, send external email, buy services, or change permissions. Humans perform those actions manually after review.",
+    "audit_evidence": "Keep summary approval, draft history, checker output, editor notes, and final publish decision in the project folder.",
+    "rollback_owner": "Documentation lead owns draft rollback; site owner owns public page rollback after publication."
+  },
+  "review_triggers": [
+    "Adding a new connector or output destination",
+    "Allowing external messaging or publication",
+    "Introducing customer, student, patient, payroll, credential, or other sensitive data",
+    "Changing from draft-only to write/publish permissions",
+    "A failed handoff, missing log, or unexpected tool action"
+  ],
+  "notes": "Example is fictional and intended for local review practice, not as a security or compliance certification."
+}
