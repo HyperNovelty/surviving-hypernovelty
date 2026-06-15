@@ -104,3 +104,15 @@ A regular research run should inspect incoming signals/tools and ask:
 5. Should it be routed to Hypernovelty, iPublishOS, Future of Education, Human Premium, or parked?
 
 Outputs should be review-only idea cards, not automatic publishing or product claims.
+
+## Current approved build order
+
+Jordan approved the 2026-06-11 expansion order:
+
+1. Agent Toolchain Exposure Map — built locally.
+2. Assessment Evidence Packet Lite — next bounded build.
+3. Answer-Layer Survival Receipt — public-page receipt example built locally.
+4. Policy Freshness Diff Card.
+5. Human Premium Work Surface Audit — Human Premium Trust Surface Card built locally.
+
+Record: `docs/approved-expansion-priority-2026-06-11.md`.

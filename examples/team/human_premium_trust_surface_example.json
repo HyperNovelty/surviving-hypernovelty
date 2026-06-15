@@ -1,0 +1,78 @@
+{
+  "surface_name": "Client onboarding trust surface",
+  "organization_or_team": "Local professional services team",
+  "review_owner": "Operations lead",
+  "last_reviewed": "2026-06-12",
+  "trust_context": "The team wants AI help reducing intake/admin drag without making new clients feel processed by a machine during the first trust-building moments.",
+  "stakeholders": [
+    "New client",
+    "Front-desk or intake coordinator",
+    "Account owner or practitioner",
+    "Operations lead"
+  ],
+  "surface_steps": [
+    {
+      "step": "Collect basic contact and scheduling details",
+      "current_owner": "Intake coordinator",
+      "trust_weight": "low",
+      "ai_posture": "remove",
+      "reason": "This is repeatable machine-work when the client has a clear path to human help.",
+      "risk_if_automated": "Annoyance if the form is long, broken, or hides a human contact option."
+    },
+    {
+      "step": "Summarize client context before first meeting",
+      "current_owner": "Intake coordinator with account owner review",
+      "trust_weight": "medium",
+      "ai_posture": "support",
+      "reason": "AI can reduce prep time, but a human should verify tone, omissions, and sensitive details.",
+      "risk_if_automated": "Wrong emphasis or missed nuance could shape the first human conversation poorly."
+    },
+    {
+      "step": "Acknowledge anxiety, urgency, or sensitive circumstances",
+      "current_owner": "Human practitioner or trained coordinator",
+      "trust_weight": "high",
+      "ai_posture": "leave_human",
+      "reason": "Presence and accountability are the premium; the client needs to feel met, not routed.",
+      "risk_if_automated": "Trust loss, perceived indifference, or accidental mishandling of sensitive context."
+    },
+    {
+      "step": "Decide whether the client needs escalation or special handling",
+      "current_owner": "Account owner or domain lead",
+      "trust_weight": "high",
+      "ai_posture": "protect",
+      "reason": "AI can flag possible issues, but responsibility must stay with a named human owner.",
+      "risk_if_automated": "Unaccountable triage, inappropriate routing, or false confidence."
+    }
+  ],
+  "human_premium_dimensions": [
+    "presence",
+    "judgment",
+    "accountability",
+    "discretion",
+    "relationship repair"
+  ],
+  "ai_roles": [
+    "Draft intake summaries for human review",
+    "Detect missing routine fields",
+    "Prepare a private checklist for the first meeting",
+    "Never send sensitive reassurance or escalation decisions without human approval"
+  ],
+  "protected_human_work": [
+    "First trust-building response",
+    "Sensitive emotional acknowledgment",
+    "Escalation decisions",
+    "Promises about outcomes, timing, cost, or obligations"
+  ],
+  "human_checkpoints": [
+    "Named owner reviews all AI-generated intake summaries before use",
+    "Client has a visible human contact path at every step",
+    "Escalation flags go to a human before any client-facing action",
+    "Pilot review after 10 onboarding cases or 30 days, whichever comes first"
+  ],
+  "decision": "pilot_with_review",
+  "boundary_notes": [
+    "Review aid only; not legal, medical, employment, compliance, or financial advice.",
+    "Actual workflow changes require the domain owner to approve the policy and scripts.",
+    "AI removes admin drag; it does not replace the trust-bearing human relationship."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "surface_name",
+    "organization_or_team",
+    "review_owner",
+    "last_reviewed",
+    "trust_context",
+    "stakeholders",
+    "surface_steps",
+    "human_premium_dimensions",
+    "ai_roles",
+    "protected_human_work",
+    "human_checkpoints",
+    "decision",
+    "boundary_notes"
+  ],
+  "properties": {
+    "surface_name": {"type": "string"},
+    "organization_or_team": {"type": "string"},
+    "review_owner": {"type": "string"},
+    "last_reviewed": {"type": "string"},
+    "trust_context": {"type": "string"},
+    "stakeholders": {"type": "array", "items": {"type": "string"}},
+    "surface_steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step", "current_owner", "trust_weight", "ai_posture", "reason"],
+        "properties": {
+          "step": {"type": "string"},
+          "current_owner": {"type": "string"},
+          "trust_weight": {"enum": ["low", "medium", "high"]},
+          "ai_posture": {"enum": ["remove", "support", "protect", "leave_human"]},
+          "reason": {"type": "string"},
+          "risk_if_automated": {"type": "string"}
+        }
+      }
+    },
+    "human_premium_dimensions": {"type": "array", "items": {"type": "string"}},
+    "ai_roles": {"type": "array", "items": {"type": "string"}},
+    "protected_human_work": {"type": "array", "items": {"type": "string"}},
+    "human_checkpoints": {"type": "array", "items": {"type": "string"}},
+    "decision": {"enum": ["draft", "pilot_with_review", "do_not_automate", "needs_owner_review"]},
+    "boundary_notes": {"type": "array", "items": {"type": "string"}}
+  }
+}

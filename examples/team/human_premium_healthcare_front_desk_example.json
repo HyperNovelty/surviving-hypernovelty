@@ -1,0 +1,81 @@
+{
+  "surface_name": "Healthcare front-desk trust surface",
+  "organization_or_team": "Small clinic or care-navigation team",
+  "review_owner": "Clinic operations lead with clinical/privacy owner review",
+  "last_reviewed": "2026-06-12",
+  "trust_context": "The team wants AI to reduce appointment, intake, and follow-up paperwork while preserving the human moments where patients need reassurance, privacy judgment, escalation, or accountable care navigation.",
+  "stakeholders": [
+    "Patient or caregiver",
+    "Front-desk coordinator",
+    "Nurse or care navigator",
+    "Clinician or domain lead",
+    "Privacy/compliance owner"
+  ],
+  "surface_steps": [
+    {
+      "step": "Confirm appointment logistics and routine reminders",
+      "current_owner": "Front-desk coordinator",
+      "trust_weight": "low",
+      "ai_posture": "remove",
+      "reason": "This is repeatable administrative burden when the patient has a visible human fallback and the message is approved by the practice.",
+      "risk_if_automated": "Patients may feel trapped if the reminder system makes rescheduling or human contact difficult."
+    },
+    {
+      "step": "Pre-fill non-sensitive intake fields already supplied by the patient",
+      "current_owner": "Front-desk coordinator with patient confirmation",
+      "trust_weight": "medium",
+      "ai_posture": "support",
+      "reason": "AI can reduce duplicate typing, but the patient or staff member must confirm the record before it is used.",
+      "risk_if_automated": "Incorrect demographics, contact details, or visit context could propagate into later workflow steps."
+    },
+    {
+      "step": "Respond to anxiety, confusion, grief, anger, or embarrassment",
+      "current_owner": "Trained human staff member",
+      "trust_weight": "high",
+      "ai_posture": "leave_human",
+      "reason": "The valuable work is human presence, tone, repair, and accountable listening. AI may prepare private notes but should not substitute for the trust-bearing exchange.",
+      "risk_if_automated": "The patient may experience the clinic as indifferent, unsafe, or evasive at the exact moment trust is being formed."
+    },
+    {
+      "step": "Flag possible escalation, safety, privacy, or special-handling needs",
+      "current_owner": "Nurse, clinician, or privacy/compliance owner",
+      "trust_weight": "high",
+      "ai_posture": "protect",
+      "reason": "AI may surface a possible flag, but a named human must decide whether and how to escalate.",
+      "risk_if_automated": "Unaccountable triage, missed urgency, inappropriate disclosure, or unauthorized handling of sensitive information."
+    }
+  ],
+  "human_premium_dimensions": [
+    "presence",
+    "privacy judgment",
+    "care navigation",
+    "accountability",
+    "relationship repair"
+  ],
+  "ai_roles": [
+    "Prepare routine reminder drafts from approved templates",
+    "Identify missing routine intake fields for staff review",
+    "Create a private prep checklist for the human staff member",
+    "Flag possible escalation for human review without sending patient-facing decisions"
+  ],
+  "protected_human_work": [
+    "Reassurance and emotional acknowledgment",
+    "Clinical, privacy, or safety escalation decisions",
+    "Promises about care, diagnosis, timing, cost, or outcomes",
+    "Sensitive conversation repair after confusion or system failure"
+  ],
+  "human_checkpoints": [
+    "Approved scripts/templates before any patient-facing automation is used",
+    "Named human fallback visible in every automated reminder or intake path",
+    "Escalation flags routed to a human before patient-facing action",
+    "Pilot review after 10 patient interactions or 30 days, whichever comes first",
+    "Privacy/compliance owner reviews data handling before any live workflow change"
+  ],
+  "decision": "needs_owner_review",
+  "boundary_notes": [
+    "Review aid only; not medical, legal, compliance, employment, or financial advice.",
+    "Do not use this example with real patient data in the repo or demo.",
+    "Any live clinic workflow requires domain-owner, privacy/compliance, and human staff approval.",
+    "The purpose is to remove machine-like burden while protecting trust-bearing human work."
+  ]
+}

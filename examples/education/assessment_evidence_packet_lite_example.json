@@ -1,0 +1,42 @@
+{
+  "packet_title": "Assessment Evidence Packet Lite — Local History Source Paragraph",
+  "learner": "Sample learner",
+  "assignment": "Write one paragraph explaining why a local newspaper source is stronger evidence than a social post for a town event.",
+  "date": "2026-06-11",
+  "learning_target": "Explain source reliability using evidence, not just preference.",
+  "allowed_help": {
+    "ai_allowed": "limited",
+    "human_help_allowed": "yes",
+    "rules": [
+      "AI may help brainstorm questions and define unfamiliar words.",
+      "AI may not write the final paragraph.",
+      "Learner must list any AI or human help used."
+    ]
+  },
+  "evidence": {
+    "learner_claim": "I can explain why the newspaper report is stronger because it names the meeting date, quotes an official notice, and can be checked against the town website.",
+    "process_trace": [
+      "First draft said the newspaper was better because it sounded professional.",
+      "Learner compared the newspaper claim against the town notice.",
+      "Learner revised the paragraph to mention date, named source, and checkable record."
+    ],
+    "revision_or_misconception_log": [
+      "Misconception: polished writing automatically means a source is reliable.",
+      "Revision: reliability depends on traceable evidence and checkable claims."
+    ],
+    "transfer_check": "Learner must pick one new claim from a school newsletter and name the primary source that would confirm it.",
+    "source_or_tool_notes": [
+      "Used AI to define primary source and secondary source.",
+      "Checked the fictional town notice provided by teacher."
+    ]
+  },
+  "human_review": {
+    "reviewer": "Teacher/mentor",
+    "review_needed": "yes",
+    "notes": [
+      "Ask learner to explain the difference between a source sounding credible and a source being checkable.",
+      "Do not use this packet as AI-detection evidence. Use it as learning evidence."
+    ],
+    "next_action": "Have learner complete the transfer check before marking the learning target met."
+  }
+}

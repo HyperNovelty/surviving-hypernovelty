@@ -40,6 +40,26 @@ def readiness_summary(claims):
     return status, counts
 
 
+def render_page_receipt(receipt):
+    if not receipt:
+        return "No public-page survival receipt supplied."
+    return f"""**Canonical URL:** {receipt.get('canonical_url', 'Not specified')}  
+**Intended audience:** {receipt.get('intended_audience', 'Not specified')}  
+**Citation-friendly summary:** {receipt.get('citation_friendly_summary', 'Not specified')}
+
+### Answer-layer risks
+{bullets(receipt.get('answer_layer_risks', []))}
+
+### Human reader checks
+{bullets(receipt.get('human_reader_checks', []))}
+
+### Do not claim
+{bullets(receipt.get('do_not_claim', []))}
+
+### Next review trigger
+{receipt.get('next_review_trigger', 'Not specified')}"""
+
+
 def render(data):
     errors = validate(data)
     validation_detail = bullets(errors) if errors else '- No validation errors'
@@ -71,6 +91,9 @@ def render(data):
 
 ## Changed since publication
 {bullets(data.get('changed_since_publication', []))}
+
+## Public-page survival receipt
+{render_page_receipt(data.get('page_receipt'))}
 
 ## Uncertainty notes
 {bullets(data.get('uncertainty_notes', []))}

@@ -1,0 +1,89 @@
+{
+  "surface_name": "Student support first-response surface",
+  "organization_or_team": "School or learning program support team",
+  "review_owner": "Program director or student support lead",
+  "last_reviewed": "2026-06-12",
+  "trust_context": "The team wants AI to reduce routine student-support load without turning a struggling student into a ticket, a risk score, or an automated discipline path.",
+  "stakeholders": [
+    "Student or learner",
+    "Parent, guardian, or trusted adult when appropriate",
+    "Teacher or coach",
+    "Student support lead",
+    "Program director"
+  ],
+  "surface_steps": [
+    {
+      "step": "Collect routine context about the support request",
+      "current_owner": "Student support coordinator",
+      "trust_weight": "low",
+      "ai_posture": "remove",
+      "reason": "AI can collect basic scheduling, course, assignment, and access details when the student has a visible path to human help.",
+      "risk_if_automated": "A long or confusing intake form may make the student feel ignored before any adult has listened."
+    },
+    {
+      "step": "Prepare a private support summary for the teacher or coach",
+      "current_owner": "Coordinator with teacher review",
+      "trust_weight": "medium",
+      "ai_posture": "support",
+      "reason": "AI can organize dates, missing work, access issues, and prior attempts so the human can respond faster.",
+      "risk_if_automated": "The summary may overstate certainty, flatten context, or miss signs that the student needs a human conversation."
+    },
+    {
+      "step": "Respond to discouragement, embarrassment, anxiety, conflict, or possible harm",
+      "current_owner": "Named trained human support lead",
+      "trust_weight": "high",
+      "ai_posture": "leave_human",
+      "reason": "The premium is presence, care, and accountability. Students should not receive automated reassurance or crisis-adjacent guidance.",
+      "risk_if_automated": "A student may feel dismissed, receive inappropriate guidance, or be routed away from a responsible adult."
+    },
+    {
+      "step": "Decide whether to escalate to a parent, counselor, administrator, or safeguarding process",
+      "current_owner": "Program director or designated safeguarding lead",
+      "trust_weight": "high",
+      "ai_posture": "protect",
+      "reason": "AI may flag patterns for review, but escalation changes obligations and must belong to a named human authority.",
+      "risk_if_automated": "Unaccountable escalation, missed duty of care, unfair labeling, or privacy breach."
+    },
+    {
+      "step": "Generate practice options or study next steps after human review",
+      "current_owner": "Teacher or coach",
+      "trust_weight": "medium",
+      "ai_posture": "support",
+      "reason": "AI can draft practice menus, reminders, and study plans once the human has checked the student's actual need and constraints.",
+      "risk_if_automated": "Generic advice may blame the student, overload them, or ignore access/support barriers."
+    }
+  ],
+  "human_premium_dimensions": [
+    "care",
+    "developmental judgment",
+    "accountability",
+    "privacy",
+    "relationship repair",
+    "fairness"
+  ],
+  "ai_roles": [
+    "Collect routine logistics with a human-contact fallback",
+    "Draft private support summaries for teacher review",
+    "Suggest practice options after a human checks fit",
+    "Flag missing context for a named human owner instead of making escalation decisions"
+  ],
+  "protected_human_work": [
+    "Emotional first response",
+    "Crisis-adjacent or safeguarding judgment",
+    "Discipline, grading, eligibility, or placement decisions",
+    "Parent or guardian escalation",
+    "Promises about outcomes, accommodations, timelines, or obligations"
+  ],
+  "human_checkpoints": [
+    "Every support summary is reviewed by a named teacher, coach, or support lead before use",
+    "Students always see a direct human-help path before and after any form",
+    "Any harm, safety, discrimination, disability, or family-status signal bypasses automation and goes to the designated human owner",
+    "Pilot review after 20 support requests or 30 days, whichever comes first"
+  ],
+  "decision": "pilot_with_review",
+  "boundary_notes": [
+    "Synthetic/example data only; no real student records or private education data.",
+    "Review aid only; not legal, medical, counseling, special-education, employment, or compliance advice.",
+    "AI can remove support-office drag; it does not replace the adult who carries duty of care."
+  ]
+}

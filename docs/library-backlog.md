@@ -9,6 +9,16 @@
 - Extend source/provenance tools with page-level citation readiness examples and templates.
 - Extend agent visibility tools with richer role-specific examples after the first Agent Toolchain Exposure Map.
 
+## Jordan-approved next expansion order — 2026-06-11
+
+See `docs/approved-expansion-priority-2026-06-11.md` for the local planning record.
+
+1. Agent Toolchain Exposure Map — built locally and repo validation passed.
+2. Assessment Evidence Packet Lite — next bounded build.
+3. Answer-Layer Survival Receipt — public-page receipt example built locally.
+4. Policy Freshness Diff Card.
+5. Human Premium Work Surface Audit.
+
 ## Candidate free tools
 
 ### Personal adaptation

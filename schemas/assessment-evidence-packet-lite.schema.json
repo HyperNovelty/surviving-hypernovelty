@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Assessment Evidence Packet Lite",
+  "type": "object",
+  "required": [
+    "packet_title",
+    "learner",
+    "assignment",
+    "learning_target",
+    "allowed_help",
+    "evidence",
+    "human_review"
+  ],
+  "properties": {
+    "packet_title": {"type": "string"},
+    "learner": {"type": "string"},
+    "assignment": {"type": "string"},
+    "date": {"type": "string"},
+    "learning_target": {"type": "string"},
+    "allowed_help": {
+      "type": "object",
+      "required": ["ai_allowed", "human_help_allowed", "rules"],
+      "properties": {
+        "ai_allowed": {"type": "string", "enum": ["yes", "no", "limited", "unknown"]},
+        "human_help_allowed": {"type": "string", "enum": ["yes", "no", "limited", "unknown"]},
+        "rules": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["learner_claim", "process_trace", "revision_or_misconception_log", "transfer_check", "source_or_tool_notes"],
+      "properties": {
+        "learner_claim": {"type": "string"},
+        "process_trace": {"type": "array", "items": {"type": "string"}},
+        "revision_or_misconception_log": {"type": "array", "items": {"type": "string"}},
+        "transfer_check": {"type": "string"},
+        "source_or_tool_notes": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "human_review": {
+      "type": "object",
+      "required": ["reviewer", "review_needed", "notes", "next_action"],
+      "properties": {
+        "reviewer": {"type": "string"},
+        "review_needed": {"type": "string", "enum": ["yes", "no", "maybe"]},
+        "notes": {"type": "array", "items": {"type": "string"}},
+        "next_action": {"type": "string"}
+      }
+    }
+  }
+}

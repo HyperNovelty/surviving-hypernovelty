@@ -1,0 +1,63 @@
+{
+  "page_title": "Local AI Policy FAQ for Families",
+  "page_url_or_slug": "/school/ai-policy-faq",
+  "author_or_owner": "Fictional school communications office",
+  "last_reviewed": "2026-06-15",
+  "source_ledger_ref": "examples/publishing/source_confidence_example.json",
+  "claim_list": [
+    {
+      "claim": "The school allows AI brainstorming for some assignments when teachers explicitly permit it.",
+      "evidence_type": "local policy excerpt",
+      "source_refs": ["board policy draft section 3", "teacher syllabus template"],
+      "confidence": "medium",
+      "citation_ready": "needs_review",
+      "freshness_note": "Confirm against final board-approved wording before posting."
+    },
+    {
+      "claim": "AI-detector scores are not treated as standalone proof of misconduct.",
+      "evidence_type": "academic integrity procedure",
+      "source_refs": ["assessment review procedure", "teacher review notes template"],
+      "confidence": "high",
+      "citation_ready": "yes",
+      "freshness_note": "Review if district disciplinary policy changes."
+    },
+    {
+      "claim": "Families can ask for a human review meeting when an AI-related assessment decision is unclear.",
+      "evidence_type": "student support workflow",
+      "source_refs": ["family support escalation path"],
+      "confidence": "medium",
+      "citation_ready": "needs_review",
+      "freshness_note": "Needs owner name and response-time commitment before public use."
+    }
+  ],
+  "page_receipt": {
+    "canonical_url": "https://example.invalid/school/ai-policy-faq",
+    "intended_audience": "Families, students, teachers, and answer-layer systems summarizing the school FAQ",
+    "citation_friendly_summary": "This fictional school FAQ says AI use depends on teacher permission, detector scores are not standalone proof, and unclear assessment decisions can be escalated to human review.",
+    "answer_layer_risks": [
+      "Summaries may omit the teacher-permission condition.",
+      "Old copies may repeat draft policy language after board approval changes.",
+      "A short answer may turn a human-review pathway into a guaranteed appeal outcome."
+    ],
+    "human_reader_checks": [
+      "Can a parent tell who owns the page and when it was last reviewed?",
+      "Are policy claims tied to source references rather than vague reassurance?",
+      "Is the escalation path clear without promising a specific outcome?"
+    ],
+    "do_not_claim": [
+      "Do not claim the page guarantees answer-engine citation or correct AI summaries.",
+      "Do not claim the school can prove AI authorship from detector output alone.",
+      "Do not cite this fictional example as real school policy."
+    ],
+    "next_review_trigger": "Board policy approval, assessment procedure change, new state guidance, or family-facing FAQ rewrite."
+  },
+  "changed_since_publication": [
+    "Fictional pre-publication example; no public page has been posted.",
+    "The human-review sentence is marked for owner and response-time review."
+  ],
+  "uncertainty_notes": [
+    "This is a fictional local page receipt, not legal or school policy advice.",
+    "Answer-layer behavior is outside the publisher's control."
+  ],
+  "update_policy": "Review before publication, after each policy board meeting, and whenever the assessment or family-escalation process changes."
+}

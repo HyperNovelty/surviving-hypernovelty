@@ -1,1 +1,69 @@
-<!doctype html><html><head><meta charset="utf-8"><title>Surviving Hypernovelty Starter Kit</title><style>body{margin:0;background:#101318;color:#f4efe5;font:16px/1.55 system-ui,Segoe UI,Arial;padding:40px}main{max-width:980px;margin:auto}.card{border:1px solid #3a4250;border-radius:16px;padding:20px;margin:16px 0;background:#171b22}a{color:#f1c66d}code{background:#222834;padding:2px 5px;border-radius:5px}h1{color:#f7d488}</style></head><body><main><h1>Surviving Hypernovelty Starter Kit</h1><p>Practical adaptation tools for living, working, learning, deciding, and staying sane when reality changes faster than institutions can update.</p><div class="card"><h2>Start here</h2><ul><li><a href="README.md">README</a></li><li><a href="docs/roadmap.md">Roadmap</a></li><li><a href="docs/free-vs-paid.md">Free vs Paid Boundary</a></li><li><a href="docs/research-run.md">Research Run</a></li><li><a href="docs/library-backlog.md">Library Backlog</a></li></ul></div><div class="card"><h2>Starter tools</h2><ol><li>Novelty Load Calculator</li><li>Change Triage Worksheet</li><li>AI Delegation Contract Card</li><li>Agent Permission Receipt Card</li><li>Learning Dossier Folder Template</li><li>Assessment Evidence Packet</li><li>Source Confidence Ledger</li></ol></div><div class="card"><h2>Verification</h2><p>Run <code>python3 scripts/validate_repo.py</code> from the repo root.</p><p>Status: local starter kit only. Public GitHub creation/publishing remains approval-gated.</p></div></main></body></html>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Surviving Hypernovelty Starter Kit</title>
+  <style>
+    body{margin:0;background:#101318;color:#f4efe5;font:16px/1.55 system-ui,Segoe UI,Arial;padding:40px}
+    main{max-width:980px;margin:auto}
+    .card{border:1px solid #3a4250;border-radius:16px;padding:20px;margin:16px 0;background:#171b22}
+    a{color:#f1c66d}
+    code{background:#222834;padding:2px 5px;border-radius:5px}
+    h1{color:#f7d488}
+    .note{border-left:4px solid #f1c66d;padding-left:14px;color:#e9dcc4}
+  </style>
+</head>
+<body>
+<main>
+  <h1>Surviving Hypernovelty Starter Kit</h1>
+  <p>Practical adaptation tools for living, working, learning, deciding, and staying sane when reality changes faster than institutions can update.</p>
+  <div class="card">
+    <h2>Start here</h2>
+    <ul>
+      <li><a href="README.md">README</a></li>
+      <li><a href="docs/roadmap.md">Roadmap</a></li>
+      <li><a href="docs/free-vs-paid.md">Free vs Paid Boundary</a></li>
+      <li><a href="docs/research-run.md">Research Run</a></li>
+      <li><a href="docs/library-backlog.md">Library Backlog</a></li>
+      <li><a href="docs/approved-expansion-priority-2026-06-11.md">Approved Expansion Priority</a></li>
+      <li><a href="docs/human_premium_service_readiness_review.md">Human Premium Service Readiness Review</a></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h2>Starter tools</h2>
+    <ol>
+      <li>Novelty Load Calculator</li>
+      <li>Change Triage Worksheet</li>
+      <li>AI Delegation Contract Card</li>
+      <li>Agent Permission Receipt Card</li>
+      <li>Agent Toolchain Exposure Map</li>
+      <li>Learning Dossier Folder Template</li>
+      <li>Assessment Evidence Packet</li>
+      <li>Assessment Evidence Packet Lite</li>
+      <li>Answer-Layer Citation Readiness Card</li>
+      <li>Human Premium Trust Surface Card</li>
+      <li>Source Confidence Ledger</li>
+    </ol>
+  </div>
+  <div class="card">
+    <h2>Human Premium card</h2>
+    <p class="note">Use this when the question is not “can AI do it?” but “would automating this weaken trust, care, judgment, discretion, or accountability?”</p>
+    <ul>
+      <li><a href="tools/human-premium-trust-surface-card/README.md">Human Premium Trust Surface Card README</a></li>
+      <li><a href="examples/team/human_premium_trust_surface_example.json">Generic client onboarding example</a></li>
+      <li><a href="examples/team/human_premium_healthcare_front_desk_example.json">Healthcare front-desk example</a></li>
+      <li><a href="examples/education/human_premium_student_support_example.json">Student support first-response example</a></li>
+      <li><a href="docs/rendered/human_premium_healthcare_front_desk_card.md">Rendered healthcare front-desk card</a></li>
+      <li><a href="docs/rendered/human_premium_student_support_card.md">Rendered student support card</a></li>
+      <li><a href="schemas/human-premium-trust-surface.schema.json">Schema</a></li>
+    </ul>
+    <p>Local commands: <code>python3 tools/human-premium-trust-surface-card/render_card.py examples/team/human_premium_healthcare_front_desk_example.json</code> or <code>python3 tools/human-premium-trust-surface-card/render_card.py examples/education/human_premium_student_support_example.json</code></p>
+  </div>
+  <div class="card">
+    <h2>Verification</h2>
+    <p>Run <code>python3 scripts/validate_repo.py</code> from the repo root.</p>
+    <p>Status: local starter kit only. Public GitHub creation/publishing remains approval-gated.</p>
+  </div>
+</main>
+</body>
+</html>

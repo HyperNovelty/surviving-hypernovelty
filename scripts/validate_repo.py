@@ -11,13 +11,23 @@ required = [
  'tools/agent-permission-receipt-card/render_receipt.py',
  'tools/agent-toolchain-exposure-map/render_map.py',
  'tools/answer-layer-citation-readiness-card/render_card.py',
+ 'tools/assessment-evidence-packet-lite/render_packet.py',
+ 'tools/human-premium-trust-surface-card/render_card.py',
  'tools/learning-dossier-folder-template/template/mission.md',
  'tools/learning-dossier-folder-template/template/assessment-evidence/assessment-evidence-template.md',
  'tools/learning-dossier-folder-template/template/assessment-evidence/examples/math-science-proportional-reasoning.md',
  'tools/learning-dossier-folder-template/template/assessment-evidence/examples/writing-research-source-checking.md',
  'tools/source-confidence-ledger/source_ledger.py',
  'schemas/agent-toolchain-exposure-map.schema.json',
+ 'schemas/assessment-evidence-packet-lite.schema.json',
+ 'schemas/human-premium-trust-surface.schema.json',
  'examples/team/agent_toolchain_exposure_map_example.json',
+ 'examples/education/assessment_evidence_packet_lite_example.json',
+ 'examples/team/human_premium_trust_surface_example.json',
+ 'examples/team/human_premium_healthcare_front_desk_example.json',
+ 'examples/education/human_premium_student_support_example.json',
+ 'examples/publishing/publisher_page_receipt_example.json',
+ 'docs/human_premium_service_readiness_review.md',
 ]
 missing = [p for p in required if not (ROOT/p).exists()]
 if missing:
@@ -30,6 +40,11 @@ commands = [
  ['python3','tools/agent-permission-receipt-card/render_receipt.py','examples/team/agent_permission_receipt_example.json'],
  ['python3','tools/agent-toolchain-exposure-map/render_map.py','examples/team/agent_toolchain_exposure_map_example.json'],
  ['python3','tools/answer-layer-citation-readiness-card/render_card.py','examples/publishing/answer_layer_citation_readiness_example.json'],
+ ['python3','tools/answer-layer-citation-readiness-card/render_card.py','examples/publishing/publisher_page_receipt_example.json'],
+ ['python3','tools/assessment-evidence-packet-lite/render_packet.py','examples/education/assessment_evidence_packet_lite_example.json'],
+ ['python3','tools/human-premium-trust-surface-card/render_card.py','examples/team/human_premium_trust_surface_example.json'],
+ ['python3','tools/human-premium-trust-surface-card/render_card.py','examples/team/human_premium_healthcare_front_desk_example.json'],
+ ['python3','tools/human-premium-trust-surface-card/render_card.py','examples/education/human_premium_student_support_example.json'],
  ['python3','tools/source-confidence-ledger/source_ledger.py','examples/publishing/source_confidence_example.json'],
 ]
 for cmd in commands:
@@ -54,17 +69,29 @@ for field in ['secrets_access', 'public_action']:
         errors.append(f'agent receipt invalid {field}: {receipt.get(field)}')
 
 citation_schema = json.loads((ROOT / 'schemas/answer-layer-citation-readiness.schema.json').read_text())
-citation = json.loads((ROOT / 'examples/publishing/answer_layer_citation_readiness_example.json').read_text())
-for field in citation_schema.get('required', []):
-    if field not in citation:
-        errors.append(f'citation readiness missing required field: {field}')
 allowed_ready = set(citation_schema['properties']['claim_list']['items']['properties']['citation_ready']['enum'])
-for idx, claim in enumerate(citation.get('claim_list', []), 1):
-    for field in citation_schema['properties']['claim_list']['items'].get('required', []):
-        if field not in claim:
-            errors.append(f'citation readiness claim {idx} missing required field: {field}')
-    if claim.get('citation_ready') not in allowed_ready:
-        errors.append(f'citation readiness claim {idx} invalid citation_ready: {claim.get("citation_ready")}')
+for example_path in [
+    'examples/publishing/answer_layer_citation_readiness_example.json',
+    'examples/publishing/publisher_page_receipt_example.json',
+]:
+    citation = json.loads((ROOT / example_path).read_text())
+    for field in citation_schema.get('required', []):
+        if field not in citation:
+            errors.append(f'{example_path} missing required field: {field}')
+    for idx, claim in enumerate(citation.get('claim_list', []), 1):
+        for field in citation_schema['properties']['claim_list']['items'].get('required', []):
+            if field not in claim:
+                errors.append(f'{example_path} claim {idx} missing required field: {field}')
+        if claim.get('citation_ready') not in allowed_ready:
+            errors.append(f'{example_path} claim {idx} invalid citation_ready: {claim.get("citation_ready")}')
+    if 'page_receipt' in citation:
+        receipt = citation.get('page_receipt') or {}
+        for field in ['canonical_url', 'intended_audience', 'citation_friendly_summary', 'next_review_trigger']:
+            if not receipt.get(field):
+                errors.append(f'{example_path} page_receipt missing required local field: {field}')
+        for field in ['answer_layer_risks', 'human_reader_checks', 'do_not_claim']:
+            if not receipt.get(field):
+                errors.append(f'{example_path} page_receipt missing required local list: {field}')
 
 toolchain_schema = json.loads((ROOT / 'schemas/agent-toolchain-exposure-map.schema.json').read_text())
 toolchain = json.loads((ROOT / 'examples/team/agent_toolchain_exposure_map_example.json').read_text())
@@ -88,6 +115,51 @@ for field in toolchain_schema['properties']['shared_boundaries'].get('required',
     if field not in toolchain.get('shared_boundaries', {}):
         errors.append(f'agent toolchain map shared_boundaries missing required field: {field}')
 
+assessment_schema = json.loads((ROOT / 'schemas/assessment-evidence-packet-lite.schema.json').read_text())
+assessment = json.loads((ROOT / 'examples/education/assessment_evidence_packet_lite_example.json').read_text())
+for field in assessment_schema.get('required', []):
+    if field not in assessment:
+        errors.append(f'assessment packet missing required field: {field}')
+allowed_ai = set(assessment_schema['properties']['allowed_help']['properties']['ai_allowed']['enum'])
+if assessment.get('allowed_help', {}).get('ai_allowed') not in allowed_ai:
+    errors.append(f'assessment packet invalid ai_allowed: {assessment.get("allowed_help", {}).get("ai_allowed")}')
+allowed_review = set(assessment_schema['properties']['human_review']['properties']['review_needed']['enum'])
+if assessment.get('human_review', {}).get('review_needed') not in allowed_review:
+    errors.append(f'assessment packet invalid review_needed: {assessment.get("human_review", {}).get("review_needed")}')
+for section, required_fields in [
+    ('allowed_help', assessment_schema['properties']['allowed_help'].get('required', [])),
+    ('evidence', assessment_schema['properties']['evidence'].get('required', [])),
+    ('human_review', assessment_schema['properties']['human_review'].get('required', [])),
+]:
+    for field in required_fields:
+        if field not in assessment.get(section, {}):
+            errors.append(f'assessment packet {section} missing required field: {field}')
+
+human_premium_schema = json.loads((ROOT / 'schemas/human-premium-trust-surface.schema.json').read_text())
+allowed_decisions = set(human_premium_schema['properties']['decision']['enum'])
+step_schema = human_premium_schema['properties']['surface_steps']['items']
+allowed_trust = set(step_schema['properties']['trust_weight']['enum'])
+allowed_posture = set(step_schema['properties']['ai_posture']['enum'])
+for example_path in [
+    'examples/team/human_premium_trust_surface_example.json',
+    'examples/team/human_premium_healthcare_front_desk_example.json',
+    'examples/education/human_premium_student_support_example.json',
+]:
+    human_premium = json.loads((ROOT / example_path).read_text())
+    for field in human_premium_schema.get('required', []):
+        if field not in human_premium:
+            errors.append(f'{example_path} missing required field: {field}')
+    if human_premium.get('decision') not in allowed_decisions:
+        errors.append(f'{example_path} invalid decision: {human_premium.get("decision")}')
+    for idx, step in enumerate(human_premium.get('surface_steps', []), 1):
+        for field in step_schema.get('required', []):
+            if field not in step:
+                errors.append(f'{example_path} step {idx} missing required field: {field}')
+        if step.get('trust_weight') not in allowed_trust:
+            errors.append(f'{example_path} step {idx} invalid trust_weight: {step.get("trust_weight")}')
+        if step.get('ai_posture') not in allowed_posture:
+            errors.append(f'{example_path} step {idx} invalid ai_posture: {step.get("ai_posture")}')
+
 if errors:
     print('schema_check=failed')
     for err in errors:
@@ -96,4 +168,4 @@ if errors:
 print('validation=ok')
 print('checked_files=', len(required))
 print('checked_commands=', len(commands))
-print('schema_checks= 3')
+print('schema_checks= 5')
