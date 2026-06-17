@@ -1,8 +1,8 @@
 # Surviving Hypernovelty
 
-Practical adaptation tools for living, working, learning, deciding, and staying sane when reality changes faster than institutions can update.
+Early public candidate for practical adaptation tools for living, working, learning, deciding, and staying sane when reality changes faster than institutions can update.
 
-This repo is the open/free primitive library for Hypernovelty Institute: small tools, templates, schemas, worksheets, and local-first demos that help people convert overwhelm into reviewable decisions and practices.
+This repo is a local-first starter-kit candidate: small tools, templates, schemas, worksheets, and synthetic demos that help people convert overwhelm into reviewable decisions and practices.
 
 ## Starter kit
 
@@ -23,7 +23,7 @@ This repo is the open/free primitive library for Hypernovelty Institute: small t
 
 - Useful before clever.
 - Local-first and privacy-preserving by default.
-- Free primitives first; paid tools later only where customization, hosting, support, or institutional review adds real value.
+- Free primitives first; any hosted, paid, institutional, or customer-facing use requires separate human review.
 - Human approval remains explicit where decisions affect public actions, accounts, money, medicine, law, schooling, or other high-stakes domains.
 - Genericity test: if a quick AI prompt can produce equivalent value, the tool needs sharper context, evidence, workflow, examples, or should be parked.
 
@@ -49,6 +49,9 @@ python3 scripts/validate_repo.py
 
 Open `START_HERE.html` for a browser-readable overview.
 
+For publication boundaries, see `docs/PUBLICATION_BOUNDARY.md`. For a 5-minute
+review path, see `docs/REVIEWER_QUICKSTART.md`.
+
 ## Status
 
-Local starter kit v0.1. Public publishing/GitHub repo creation should remain human-approved.
+Local starter kit v0.1 and early public candidate. Public publishing/GitHub repo creation should remain human-approved.
