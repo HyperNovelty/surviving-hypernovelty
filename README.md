@@ -52,6 +52,9 @@ Open `START_HERE.html` for a browser-readable overview.
 For publication boundaries, see `docs/PUBLICATION_BOUNDARY.md`. For a 5-minute
 review path, see `docs/REVIEWER_QUICKSTART.md`.
 
+Run `python3 scripts/build_demo_index.py` to generate `build/demo_index.html`, a
+local reviewer-friendly index of the synthetic starter-tool demos.
+
 ## Status
 
 Local starter kit v0.1 and early public candidate. Public publishing/GitHub repo creation should remain human-approved.

@@ -18,6 +18,7 @@ required = [
  'tools/learning-dossier-folder-template/template/assessment-evidence/examples/math-science-proportional-reasoning.md',
  'tools/learning-dossier-folder-template/template/assessment-evidence/examples/writing-research-source-checking.md',
  'tools/source-confidence-ledger/source_ledger.py',
+ 'scripts/build_demo_index.py',
  'schemas/agent-toolchain-exposure-map.schema.json',
  'schemas/assessment-evidence-packet-lite.schema.json',
  'schemas/human-premium-trust-surface.schema.json',
@@ -46,6 +47,7 @@ commands = [
  ['python3','tools/human-premium-trust-surface-card/render_card.py','examples/team/human_premium_healthcare_front_desk_example.json'],
  ['python3','tools/human-premium-trust-surface-card/render_card.py','examples/education/human_premium_student_support_example.json'],
  ['python3','tools/source-confidence-ledger/source_ledger.py','examples/publishing/source_confidence_example.json'],
+ ['python3','scripts/build_demo_index.py'],
 ]
 for cmd in commands:
     proc = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True)
@@ -169,3 +171,13 @@ print('validation=ok')
 print('checked_files=', len(required))
 print('checked_commands=', len(commands))
 print('schema_checks= 5')
+
+demo_index = ROOT / 'build/demo_index.html'
+if not demo_index.exists():
+    print('demo_index_check=failed missing build/demo_index.html')
+    sys.exit(1)
+demo_text = demo_index.read_text(encoding='utf-8')
+if 'Surviving Hypernovelty Demo Index' not in demo_text or 'Local starter-kit demos' not in demo_text:
+    print('demo_index_check=failed unexpected content')
+    sys.exit(1)
+print('demo_index_check=ok')

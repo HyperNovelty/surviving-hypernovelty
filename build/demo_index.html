@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Surviving Hypernovelty Demo Index</title>
+  <style>
+    body { margin: 0; padding: 40px; font: 16px/1.55 system-ui, Segoe UI, Arial, sans-serif; background: #f7f5ef; color: #20242a; }
+    main { max-width: 1040px; margin: auto; }
+    h1 { margin-bottom: 0; }
+    a { color: #235789; }
+    .boundary { border-left: 4px solid #9b5de5; padding: 12px 16px; background: #fff; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+    .card { background: #fff; border: 1px solid #d9d4c7; border-radius: 8px; padding: 18px; }
+    pre { white-space: pre-wrap; background: #20242a; color: #f7f5ef; padding: 10px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Surviving Hypernovelty Demo Index</h1>
+    <p>Local starter-kit demos generated from existing synthetic examples.</p>
+    <section class="boundary">
+      <b>Boundary:</b> review aid only. No private sources, customer data, account actions, network calls, funding claims, or adoption claims are included in this demo index.
+    </section>
+    <h2>Starter Tool Demos</h2>
+    <div class="grid">
+      
+      <section class="card">
+        <h2>Novelty Load Calculator</h2>
+        <p>Estimates how much simultaneous change a person or team is carrying.</p>
+        <p><b>Example:</b> <a href="../examples/individual/novelty_load_example.json">examples/individual/novelty_load_example.json</a></p>
+        <p><b>Example summary:</b> individual navigating AI/work/education change</p>
+        <p><b>Tool:</b> <a href="../tools/novelty-load-calculator/novelty_load.py">tools/novelty-load-calculator/novelty_load.py</a></p>
+        <pre>python3 tools/novelty-load-calculator/novelty_load.py examples/individual/novelty_load_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Change Triage Worksheet</h2>
+        <p>Sorts changes into act, monitor, delegate, ignore, or learn-later buckets.</p>
+        <p><b>Example:</b> <a href="../examples/individual/change_triage_example.json">examples/individual/change_triage_example.json</a></p>
+        <p><b>Example summary:</b> solo operator weekly change triage</p>
+        <p><b>Tool:</b> <a href="../tools/change-triage/change_triage.py">tools/change-triage/change_triage.py</a></p>
+        <pre>python3 tools/change-triage/change_triage.py examples/individual/change_triage_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>AI Delegation Contract Card</h2>
+        <p>Turns a synthetic delegation boundary into a reviewable contract card.</p>
+        <p><b>Example:</b> <a href="../examples/creator/ai_delegation_contract_example.json">examples/creator/ai_delegation_contract_example.json</a></p>
+        <p><b>Example summary:</b> Draft-only article research assistant</p>
+        <p><b>Tool:</b> <a href="../tools/ai-delegation-contract-card/render_contract.py">tools/ai-delegation-contract-card/render_contract.py</a></p>
+        <pre>python3 tools/ai-delegation-contract-card/render_contract.py examples/creator/ai_delegation_contract_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Agent Permission Receipt Card</h2>
+        <p>Documents what an agent can read, write, expose, spend, publish, or trigger.</p>
+        <p><b>Example:</b> <a href="../examples/team/agent_permission_receipt_example.json">examples/team/agent_permission_receipt_example.json</a></p>
+        <p><b>Example summary:</b> Collect candidate public signals and create local review notes</p>
+        <p><b>Tool:</b> <a href="../tools/agent-permission-receipt-card/render_receipt.py">tools/agent-permission-receipt-card/render_receipt.py</a></p>
+        <pre>python3 tools/agent-permission-receipt-card/render_receipt.py examples/team/agent_permission_receipt_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Agent Toolchain Exposure Map</h2>
+        <p>Maps agent/tool workflows across identities, data touched, outputs, and checkpoints.</p>
+        <p><b>Example:</b> <a href="../examples/team/agent_toolchain_exposure_map_example.json">examples/team/agent_toolchain_exposure_map_example.json</a></p>
+        <p><b>Example summary:</b> Draft internal knowledge-base updates from approved meeting notes and route them to a human editor before publication.</p>
+        <p><b>Tool:</b> <a href="../tools/agent-toolchain-exposure-map/render_map.py">tools/agent-toolchain-exposure-map/render_map.py</a></p>
+        <pre>python3 tools/agent-toolchain-exposure-map/render_map.py examples/team/agent_toolchain_exposure_map_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Assessment Evidence Packet Lite</h2>
+        <p>Renders a compact proof-of-learning packet from a synthetic education example.</p>
+        <p><b>Example:</b> <a href="../examples/education/assessment_evidence_packet_lite_example.json">examples/education/assessment_evidence_packet_lite_example.json</a></p>
+        <p><b>Example summary:</b> Synthetic example fixture.</p>
+        <p><b>Tool:</b> <a href="../tools/assessment-evidence-packet-lite/render_packet.py">tools/assessment-evidence-packet-lite/render_packet.py</a></p>
+        <pre>python3 tools/assessment-evidence-packet-lite/render_packet.py examples/education/assessment_evidence_packet_lite_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Answer-Layer Citation Readiness Card</h2>
+        <p>Reviews page-level claim/source/date/update readiness for answer-layer citation hygiene.</p>
+        <p><b>Example:</b> <a href="../examples/publishing/answer_layer_citation_readiness_example.json">examples/publishing/answer_layer_citation_readiness_example.json</a></p>
+        <p><b>Example summary:</b> Surviving Hypernovelty: Why Source Receipts Matter</p>
+        <p><b>Tool:</b> <a href="../tools/answer-layer-citation-readiness-card/render_card.py">tools/answer-layer-citation-readiness-card/render_card.py</a></p>
+        <pre>python3 tools/answer-layer-citation-readiness-card/render_card.py examples/publishing/answer_layer_citation_readiness_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Human Premium Trust Surface Card</h2>
+        <p>Identifies what AI should remove, support, protect, or leave human in trust-sensitive work.</p>
+        <p><b>Example:</b> <a href="../examples/team/human_premium_trust_surface_example.json">examples/team/human_premium_trust_surface_example.json</a></p>
+        <p><b>Example summary:</b> 4 surface steps</p>
+        <p><b>Tool:</b> <a href="../tools/human-premium-trust-surface-card/render_card.py">tools/human-premium-trust-surface-card/render_card.py</a></p>
+        <pre>python3 tools/human-premium-trust-surface-card/render_card.py examples/team/human_premium_trust_surface_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Source Confidence Ledger</h2>
+        <p>Tracks claims, source confidence, verification status, and downstream use.</p>
+        <p><b>Example:</b> <a href="../examples/publishing/source_confidence_example.json">examples/publishing/source_confidence_example.json</a></p>
+        <p><b>Example summary:</b> example article source ledger</p>
+        <p><b>Tool:</b> <a href="../tools/source-confidence-ledger/source_ledger.py">tools/source-confidence-ledger/source_ledger.py</a></p>
+        <pre>python3 tools/source-confidence-ledger/source_ledger.py examples/publishing/source_confidence_example.json</pre>
+      </section>
+    </div>
+    <h2>All Example Files Read</h2>
+    <ul>
+          <li><a href="../examples/creator/ai_delegation_contract_example.json">examples/creator/ai_delegation_contract_example.json</a> - Draft-only article research assistant</li>
+          <li><a href="../examples/education/assessment_evidence_packet_lite_example.json">examples/education/assessment_evidence_packet_lite_example.json</a> - Synthetic example fixture.</li>
+          <li><a href="../examples/education/human_premium_student_support_example.json">examples/education/human_premium_student_support_example.json</a> - 5 surface steps</li>
+          <li><a href="../examples/individual/change_triage_example.json">examples/individual/change_triage_example.json</a> - solo operator weekly change triage</li>
+          <li><a href="../examples/individual/novelty_load_example.json">examples/individual/novelty_load_example.json</a> - individual navigating AI/work/education change</li>
+          <li><a href="../examples/publishing/answer_layer_citation_readiness_example.json">examples/publishing/answer_layer_citation_readiness_example.json</a> - Surviving Hypernovelty: Why Source Receipts Matter</li>
+          <li><a href="../examples/publishing/publisher_page_receipt_example.json">examples/publishing/publisher_page_receipt_example.json</a> - Local AI Policy FAQ for Families</li>
+          <li><a href="../examples/publishing/source_confidence_example.json">examples/publishing/source_confidence_example.json</a> - example article source ledger</li>
+          <li><a href="../examples/team/agent_permission_receipt_example.json">examples/team/agent_permission_receipt_example.json</a> - Collect candidate public signals and create local review notes</li>
+          <li><a href="../examples/team/agent_toolchain_exposure_map_example.json">examples/team/agent_toolchain_exposure_map_example.json</a> - Draft internal knowledge-base updates from approved meeting notes and route them to a human editor before publication.</li>
+          <li><a href="../examples/team/human_premium_healthcare_front_desk_example.json">examples/team/human_premium_healthcare_front_desk_example.json</a> - 4 surface steps</li>
+          <li><a href="../examples/team/human_premium_trust_surface_example.json">examples/team/human_premium_trust_surface_example.json</a> - 4 surface steps</li>
+    </ul>
+  </main>
+</body>
+</html>
