@@ -112,7 +112,7 @@ Jordan approved the 2026-06-11 expansion order:
 1. Agent Toolchain Exposure Map — built locally.
 2. Assessment Evidence Packet Lite — next bounded build.
 3. Answer-Layer Survival Receipt — public-page receipt example built locally.
-4. Policy Freshness Diff Card.
+4. Policy Freshness Diff Card — built locally.
 5. Human Premium Work Surface Audit — Human Premium Trust Surface Card built locally.
 
 Record: `docs/approved-expansion-priority-2026-06-11.md`.

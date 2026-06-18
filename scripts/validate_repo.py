@@ -13,6 +13,7 @@ required = [
  'tools/answer-layer-citation-readiness-card/render_card.py',
  'tools/assessment-evidence-packet-lite/render_packet.py',
  'tools/human-premium-trust-surface-card/render_card.py',
+ 'tools/policy-freshness-diff-card/render_card.py',
  'tools/learning-dossier-folder-template/template/mission.md',
  'tools/learning-dossier-folder-template/template/assessment-evidence/assessment-evidence-template.md',
  'tools/learning-dossier-folder-template/template/assessment-evidence/examples/math-science-proportional-reasoning.md',
@@ -22,13 +23,16 @@ required = [
  'schemas/agent-toolchain-exposure-map.schema.json',
  'schemas/assessment-evidence-packet-lite.schema.json',
  'schemas/human-premium-trust-surface.schema.json',
+ 'schemas/policy-freshness-diff-card.schema.json',
  'examples/team/agent_toolchain_exposure_map_example.json',
  'examples/education/assessment_evidence_packet_lite_example.json',
  'examples/team/human_premium_trust_surface_example.json',
  'examples/team/human_premium_healthcare_front_desk_example.json',
  'examples/education/human_premium_student_support_example.json',
+ 'examples/institution/policy_freshness_diff_card_example.json',
  'examples/publishing/publisher_page_receipt_example.json',
  'docs/human_premium_service_readiness_review.md',
+ 'docs/rendered/policy_freshness_diff_card_example.md',
 ]
 missing = [p for p in required if not (ROOT/p).exists()]
 if missing:
@@ -46,6 +50,7 @@ commands = [
  ['python3','tools/human-premium-trust-surface-card/render_card.py','examples/team/human_premium_trust_surface_example.json'],
  ['python3','tools/human-premium-trust-surface-card/render_card.py','examples/team/human_premium_healthcare_front_desk_example.json'],
  ['python3','tools/human-premium-trust-surface-card/render_card.py','examples/education/human_premium_student_support_example.json'],
+ ['python3','tools/policy-freshness-diff-card/render_card.py','examples/institution/policy_freshness_diff_card_example.json'],
  ['python3','tools/source-confidence-ledger/source_ledger.py','examples/publishing/source_confidence_example.json'],
  ['python3','scripts/build_demo_index.py'],
 ]
@@ -162,6 +167,30 @@ for example_path in [
         if step.get('ai_posture') not in allowed_posture:
             errors.append(f'{example_path} step {idx} invalid ai_posture: {step.get("ai_posture")}')
 
+policy_schema = json.loads((ROOT / 'schemas/policy-freshness-diff-card.schema.json').read_text())
+policy = json.loads((ROOT / 'examples/institution/policy_freshness_diff_card_example.json').read_text())
+for field in policy_schema.get('required', []):
+    if field not in policy:
+        errors.append(f'policy freshness diff missing required field: {field}')
+allowed_evidence = set(policy_schema['properties']['evidence_strength']['enum'])
+allowed_verdicts = set(policy_schema['properties']['freshness_verdict']['enum'])
+allowed_change_types = set(policy_schema['properties']['proposed_diff']['properties']['change_type']['enum'])
+if policy.get('evidence_strength') not in allowed_evidence:
+    errors.append(f'policy freshness diff invalid evidence_strength: {policy.get("evidence_strength")}')
+if policy.get('freshness_verdict') not in allowed_verdicts:
+    errors.append(f'policy freshness diff invalid freshness_verdict: {policy.get("freshness_verdict")}')
+for field in policy_schema['properties']['proposed_diff'].get('required', []):
+    if field not in policy.get('proposed_diff', {}):
+        errors.append(f'policy freshness diff proposed_diff missing required field: {field}')
+if policy.get('proposed_diff', {}).get('change_type') not in allowed_change_types:
+    errors.append(f'policy freshness diff invalid change_type: {policy.get("proposed_diff", {}).get("change_type")}')
+for field in policy_schema['properties']['review'].get('required', []):
+    if field not in policy.get('review', {}):
+        errors.append(f'policy freshness diff review missing required field: {field}')
+rendered_policy = (ROOT / 'docs/rendered/policy_freshness_diff_card_example.md').read_text(encoding='utf-8')
+if 'Policy Freshness Diff Card' not in rendered_policy or 'Review aid only' not in rendered_policy:
+    errors.append('policy freshness rendered example missing expected headings/boundary')
+
 if errors:
     print('schema_check=failed')
     for err in errors:
@@ -170,7 +199,7 @@ if errors:
 print('validation=ok')
 print('checked_files=', len(required))
 print('checked_commands=', len(commands))
-print('schema_checks= 5')
+print('schema_checks= 6')
 
 demo_index = ROOT / 'build/demo_index.html'
 if not demo_index.exists():

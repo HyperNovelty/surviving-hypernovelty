@@ -61,6 +61,12 @@ TOOL_DEMOS = [
         "description": "Identifies what AI should remove, support, protect, or leave human in trust-sensitive work.",
     },
     {
+        "name": "Policy Freshness Diff Card",
+        "tool": "tools/policy-freshness-diff-card/render_card.py",
+        "example": "examples/institution/policy_freshness_diff_card_example.json",
+        "description": "Compares a policy or rule against a new signal and proposes a bounded owner-reviewed diff.",
+    },
+    {
         "name": "Source Confidence Ledger",
         "tool": "tools/source-confidence-ledger/source_ledger.py",
         "example": "examples/publishing/source_confidence_example.json",

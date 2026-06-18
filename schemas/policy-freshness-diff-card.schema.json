@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Policy Freshness Diff Card",
+  "type": "object",
+  "required": [
+    "policy_name",
+    "policy_owner",
+    "context",
+    "current_rule",
+    "change_signal",
+    "evidence_strength",
+    "freshness_verdict",
+    "affected_people",
+    "proposed_diff",
+    "review"
+  ],
+  "properties": {
+    "policy_name": {"type": "string"},
+    "policy_owner": {"type": "string"},
+    "context": {"type": "string"},
+    "current_rule": {"type": "string"},
+    "change_signal": {"type": "string"},
+    "evidence_strength": {
+      "type": "string",
+      "enum": ["weak", "moderate", "strong", "local_confirmed"]
+    },
+    "freshness_verdict": {
+      "type": "string",
+      "enum": ["still_current", "monitor", "interim_update_needed", "owner_review_required"]
+    },
+    "affected_people": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "stale_assumption": {"type": "string"},
+    "proposed_diff": {
+      "type": "object",
+      "required": ["change_type", "interim_language", "what_not_to_change_yet"],
+      "properties": {
+        "change_type": {
+          "type": "string",
+          "enum": ["clarify", "narrow", "expand", "pause", "replace", "no_change"]
+        },
+        "interim_language": {"type": "string"},
+        "what_not_to_change_yet": {"type": "string"}
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": ["decision_owner", "next_review_date", "review_triggers", "human_checks"],
+      "properties": {
+        "decision_owner": {"type": "string"},
+        "next_review_date": {"type": "string"},
+        "review_triggers": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "human_checks": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "notes": {"type": "string"}
+  }
+}

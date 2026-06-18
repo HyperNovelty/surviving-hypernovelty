@@ -18,6 +18,7 @@ This repo is a local-first starter-kit candidate: small tools, templates, schema
 10. **Assessment Evidence Packet Lite** — one-assignment/week proof-of-learning bundle that avoids AI-detector false certainty.
 11. **Human Premium Trust Surface Card** — decide what AI should remove, support, protect, or leave human in trust-sensitive work. Current examples cover generic client onboarding, healthcare front desk/care navigation, and student support first response.
 12. **Human Premium Service Readiness Review** — consolidated practical screen for deciding whether a service workflow is ready for AI support without weakening trust-bearing human work.
+13. **Policy Freshness Diff Card** — compare a policy/rule against a new signal and propose a bounded, owner-reviewed interim update.
 
 ## Repo principles
 
@@ -43,6 +44,8 @@ python3 tools/human-premium-trust-surface-card/render_card.py examples/team/huma
 python3 tools/human-premium-trust-surface-card/render_card.py examples/education/human_premium_student_support_example.json
 # rendered example: docs/rendered/human_premium_healthcare_front_desk_card.md
 # rendered example: docs/rendered/human_premium_student_support_card.md
+python3 tools/policy-freshness-diff-card/render_card.py examples/institution/policy_freshness_diff_card_example.json
+# rendered example: docs/rendered/policy_freshness_diff_card_example.md
 python3 tools/source-confidence-ledger/source_ledger.py examples/publishing/source_confidence_example.json
 python3 scripts/validate_repo.py
 ```

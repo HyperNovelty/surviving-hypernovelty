@@ -1,0 +1,35 @@
+{
+  "policy_name": "Fictional college classroom AI-use note, June update",
+  "policy_owner": "Teaching and learning committee",
+  "context": "A small college has a one-paragraph syllabus rule that says students may use AI only with instructor permission, but instructors are receiving repeated questions about tutoring, brainstorming, grammar help, and citation checking.",
+  "current_rule": "Students may use AI tools only when an instructor gives explicit permission for the assignment.",
+  "change_signal": "Students report learning AI practices from peers and short videos before formal guidance reaches them; instructors want a reusable way to distinguish allowed help, disclosure, and evidence-of-learning expectations.",
+  "evidence_strength": "moderate",
+  "freshness_verdict": "interim_update_needed",
+  "affected_people": [
+    "students who need clear day-to-day permission boundaries",
+    "instructors who must explain acceptable help without rewriting every syllabus",
+    "academic support staff who coach students before assignments are due"
+  ],
+  "stale_assumption": "A single permission sentence is enough for learners to know which AI uses are acceptable and what evidence they must preserve.",
+  "proposed_diff": {
+    "change_type": "clarify",
+    "interim_language": "For each major assignment, the instructor should state: allowed AI uses, disallowed AI uses, required disclosure wording, required evidence of thinking or source trail, and when to ask before using a tool.",
+    "what_not_to_change_yet": "Do not replace course-level academic-integrity policy or create detector-based discipline rules from this interim note alone. Keep final authority with the instructor and existing review process."
+  },
+  "review": {
+    "decision_owner": "Associate dean for teaching, with faculty senate consultation",
+    "next_review_date": "2026-08-15",
+    "review_triggers": [
+      "three or more departments request conflicting AI-use language",
+      "new campus academic-integrity guidance is approved",
+      "students report that disclosure expectations are unclear"
+    ],
+    "human_checks": [
+      "faculty representative checks classroom practicality",
+      "student support representative checks learner clarity",
+      "accessibility reviewer checks whether the language disadvantages assistive technology users"
+    ]
+  },
+  "notes": "Synthetic example only. It is designed to connect policy freshness review with evidence-of-learning practices, not to prescribe a universal campus rule."
+}
