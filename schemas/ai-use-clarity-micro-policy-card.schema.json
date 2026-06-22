@@ -1,0 +1,107 @@
+{
+  "type": "object",
+  "required": [
+    "title",
+    "owner",
+    "purpose",
+    "review_cadence",
+    "status",
+    "policy_context",
+    "allowed_uses",
+    "disallowed_uses",
+    "required_evidence",
+    "human_review_triggers",
+    "boundary_note"
+  ],
+  "properties": {
+    "title": { "type": "string" },
+    "owner": { "type": "string" },
+    "purpose": { "type": "string" },
+    "review_cadence": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["DRAFT", "REVIEW REQUIRED", "APPROVED LOCAL USE", "REVIEW AID ONLY"]
+    },
+    "policy_context": {
+      "type": "object",
+      "required": ["setting", "task", "learner_owned_work"],
+      "properties": {
+        "setting": { "type": "string" },
+        "task": { "type": "string" },
+        "learner_owned_work": {
+          "type": "array",
+          "items": { "type": "string" },
+          "minItems": 1
+        }
+      }
+    },
+    "allowed_uses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["use", "timing", "requires_disclosure"],
+        "properties": {
+          "use": { "type": "string" },
+          "timing": {
+            "type": "string",
+            "enum": ["before_drafting", "after_drafting", "during_revision", "manual_verification"]
+          },
+          "requires_disclosure": { "type": "boolean" }
+        }
+      },
+      "minItems": 1
+    },
+    "disallowed_uses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["use", "reason"],
+        "properties": {
+          "use": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      },
+      "minItems": 1
+    },
+    "required_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["evidence", "required_when"],
+        "properties": {
+          "evidence": { "type": "string" },
+          "required_when": {
+            "type": "string",
+            "enum": ["always", "any_ai_use", "source_based_claim", "revision_after_feedback"]
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "human_review_triggers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["trigger", "response"],
+        "properties": {
+          "trigger": { "type": "string" },
+          "response": {
+            "type": "string",
+            "enum": ["clarify", "repair", "escalate_to_local_policy_owner"]
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "sections": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "review_flags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "boundary_note": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}

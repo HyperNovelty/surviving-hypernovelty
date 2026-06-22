@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Adaptation Debt Ledger Form</title>
+  <link rel="stylesheet" href="shared/form_styles.css">
+</head>
+<body>
+  <main>
+    <div class="topbar"><div><h1 id="form-title"></h1><p id="form-summary"></p></div><p><a href="index.html">All forms</a></p></div>
+    <section class="boundary"><strong>Boundary:</strong> <span id="boundary-text"></span></section>
+    <p class="links" id="source-links"></p>
+    <section class="layout">
+      <form id="primitive-form" class="panel form-grid"></form>
+      <section class="panel preview">
+        <h2>Markdown preview</h2>
+        <div class="actions"><button type="button" id="copy-markdown">Copy Markdown</button><button type="button" id="download-markdown" class="secondary">Download Markdown</button><button type="button" id="download-json" class="secondary">Download JSON</button><button type="button" id="reset-example" class="secondary">Reset to Example</button><button type="button" id="clear-draft" class="secondary">Clear Draft</button></div>
+        <pre id="markdown-preview"></pre><p id="form-status" class="status"></p>
+      </section>
+    </section>
+  </main>
+  <script>
+    window.FORM_SPEC = {
+      slug: "adaptation-debt-ledger",
+      title: "Adaptation Debt Ledger",
+      summary: "Edit stale assumptions, symptoms, affected people, owners, cheap next reviews, and top repair priorities.",
+      links: [
+        { label: "README", href: "../tools/adaptation-debt-ledger/README.md" },
+        { label: "Example JSON", href: "../examples/institution/adaptation_debt_ledger_example.json" },
+        { label: "Schema", href: "../schemas/adaptation-debt-ledger.schema.json" },
+        { label: "Rendered example", href: "../docs/rendered/adaptation_debt_ledger_example.md" }
+      ],
+      requiredFields: ["title", "owner", "purpose", "review_cadence", "status", "adaptation_debts", "top_repair_queue", "boundary_note"],
+      fields: [
+        { id: "title", label: "Title" },
+        { id: "status", label: "Status" },
+        { id: "owner", label: "Owner" },
+        { id: "purpose", label: "Purpose", type: "textarea", rows: 3 },
+        { id: "review_cadence", label: "Review cadence" },
+        { id: "adaptation_debts", label: "Adaptation debts", type: "textarea", rows: 7, hint: "One per line: Stale assumption | visible symptom | who carries it | cheap next review | owner | priority" },
+        { id: "top_repair_queue", label: "Top repair queue", type: "textarea", rows: 4, hint: "One per line: Action | owner | priority" },
+        { id: "review_flags", label: "Review flags", type: "textarea", rows: 3 },
+        { id: "boundary_note", label: "Boundary note", type: "textarea", rows: 3 },
+        { id: "notes", label: "Notes", type: "textarea", rows: 3 }
+      ],
+      example: {
+        title: "Small college AI-policy adaptation debts",
+        status: "REVIEW AID ONLY",
+        owner: "Academic operations lead",
+        purpose: "Prioritize stale assumptions created by fast AI, platform, and policy change without blaming individuals.",
+        review_cadence: "Monthly during policy-transition periods.",
+        adaptation_debts: "AI use is rare enough to handle case by case | Students and faculty ask the same boundary questions repeatedly | Students, Instructors, Advisors | Create assignment-level AI-use clarity cards for top 3 courses | Academic affairs | high\nAcademic integrity is mainly detector enforcement | False-positive fear and weak proof-of-learning records | Students, Faculty, Conduct staff | Pilot visible-thinking repair tickets before detector escalation | Teaching center | high\nPolicy pages only need annual review | Guidance goes stale after major platform or regulator updates | Department chairs, Students | Add signal-to-policy diff check after major AI education updates | Policy owner | medium",
+        top_repair_queue: "Convert one high-friction assignment into an AI Use Clarity Micro-Policy Card | Academic affairs | high\nPilot Visible Thinking Repair Ticket for weak-evidence submissions | Teaching center | high\nSet a monthly owner-reviewed AI policy freshness check | Policy owner | medium",
+        review_flags: "Qualitative prioritization only\nDo not frame as compliance/risk score\nAvoid blaming individuals for institutional lag",
+        boundary_note: "Review aid only. This ledger is not a formal risk assessment, legal review, compliance assurance, or accreditation document.",
+        notes: "Synthetic example for local practice and Hypernovelty article/product development."
+      },
+      toJson: function (data) {
+        return {
+          title: data.title, owner: data.owner, purpose: data.purpose, review_cadence: data.review_cadence, status: data.status,
+          adaptation_debts: FormRuntime.rows(data.adaptation_debts, ["stale_assumption", "visible_symptom", "carriers", "cheap_next_review", "owner", "priority"]).map(function (debt) {
+            debt.carriers = FormRuntime.lines(String(debt.carriers || "").replace(/,/g, "\n"));
+            return debt;
+          }),
+          top_repair_queue: FormRuntime.rows(data.top_repair_queue, ["action", "owner", "priority"]),
+          review_flags: FormRuntime.lines(data.review_flags), boundary_note: data.boundary_note, notes: data.notes
+        };
+      },
+      fromJson: function (json) {
+        return {
+          title: json.title,
+          status: json.status,
+          owner: json.owner,
+          purpose: json.purpose,
+          review_cadence: json.review_cadence,
+          adaptation_debts: FormRuntime.rowText(json.adaptation_debts, ["stale_assumption", "visible_symptom", "carriers", "cheap_next_review", "owner", "priority"]),
+          top_repair_queue: FormRuntime.rowText(json.top_repair_queue, ["action", "owner", "priority"]),
+          review_flags: FormRuntime.joinList(json.review_flags),
+          boundary_note: json.boundary_note,
+          notes: json.notes
+        };
+      },
+      toMarkdown: function (data) {
+        var debts = FormRuntime.rows(data.adaptation_debts, ["assumption", "symptom", "carriers", "review", "owner", "priority"]);
+        var queue = FormRuntime.rows(data.top_repair_queue, ["action", "owner", "priority"]);
+        return "# Adaptation Debt Ledger: " + data.title + "\n\n" +
+          "**Status:** " + data.status + "  \n**Owner:** " + data.owner + "  \n**Purpose:** " + data.purpose + "  \n**Review cadence:** " + data.review_cadence + "\n\n" +
+          "## Debt ledger\n" + FormRuntime.table(["Stale assumption", "Visible symptom", "Who carries it", "Cheap next review", "Owner", "Priority"], debts.map(function (d) { return [d.assumption, d.symptom, d.carriers, d.review, d.owner, d.priority]; })) + "\n\n" +
+          "## Top repair queue\n" + FormRuntime.table(["Action", "Owner", "Priority"], queue.map(function (q) { return [q.action, q.owner, q.priority]; })) + "\n\n" +
+          "## Review flags\n" + FormRuntime.list(FormRuntime.lines(data.review_flags)) + "\n\n## Boundary note\n" + data.boundary_note + "\n\n## Notes\n" + data.notes + "\n";
+      }
+    };
+  </script>
+  <script src="shared/form_runtime.js"></script>
+</body>
+</html>

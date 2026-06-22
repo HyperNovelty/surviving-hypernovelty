@@ -1,0 +1,120 @@
+{
+  "title": "First-year writing assignment AI-use rule",
+  "owner": "Course instructor",
+  "purpose": "Make one assignment-level AI-use boundary clear before learners start work.",
+  "review_cadence": "Before each assignment cycle or when institution policy changes.",
+  "status": "REVIEW REQUIRED",
+  "policy_context": {
+    "setting": "First-year writing course",
+    "task": "Source-based research paragraph and revision",
+    "learner_owned_work": [
+      "Thesis",
+      "Evidence selection",
+      "Source interpretation",
+      "Final wording"
+    ]
+  },
+  "allowed_uses": [
+    {
+      "use": "Ask AI to generate possible research questions before choosing one",
+      "timing": "before_drafting",
+      "requires_disclosure": true
+    },
+    {
+      "use": "Ask for grammar or clarity feedback after writing a draft",
+      "timing": "after_drafting",
+      "requires_disclosure": true
+    },
+    {
+      "use": "Ask for a checklist of source-citation items to verify manually",
+      "timing": "manual_verification",
+      "requires_disclosure": true
+    }
+  ],
+  "disallowed_uses": [
+    {
+      "use": "Submit AI-generated paragraphs as original work",
+      "reason": "Final wording and reasoning must remain learner-owned"
+    },
+    {
+      "use": "Invent or accept citations without checking the source",
+      "reason": "Citation trails must be manually verifiable"
+    },
+    {
+      "use": "Use AI to avoid reading assigned sources or explaining reasoning in your own words",
+      "reason": "The assignment assesses source interpretation and explanation"
+    }
+  ],
+  "required_evidence": [
+    {
+      "evidence": "One short disclosure note describing any AI help used",
+      "required_when": "any_ai_use"
+    },
+    {
+      "evidence": "Source notes showing which claims came from which assigned source",
+      "required_when": "source_based_claim"
+    },
+    {
+      "evidence": "A visible revision note explaining what changed after feedback",
+      "required_when": "revision_after_feedback"
+    }
+  ],
+  "human_review_triggers": [
+    {
+      "trigger": "Student cannot explain a claim in their own words",
+      "response": "clarify"
+    },
+    {
+      "trigger": "Citation trail is missing or source cannot be found",
+      "response": "repair"
+    },
+    {
+      "trigger": "AI use falls outside the allowed list",
+      "response": "escalate_to_local_policy_owner"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Task context",
+      "body": "Learners may use AI for brainstorming questions and checking grammar after drafting, but the thesis, evidence selection, source interpretation, and final wording remain learner-owned."
+    },
+    {
+      "heading": "Allowed uses",
+      "items": [
+        "Ask AI to generate possible research questions before choosing one",
+        "Ask for grammar or clarity feedback after writing a draft",
+        "Ask for a checklist of source-citation items to verify manually"
+      ]
+    },
+    {
+      "heading": "Disallowed uses",
+      "items": [
+        "Submit AI-generated paragraphs as original work",
+        "Invent or accept citations without checking the source",
+        "Use AI to avoid reading assigned sources or explaining reasoning in your own words"
+      ]
+    },
+    {
+      "heading": "Required evidence",
+      "items": [
+        "One short disclosure note describing any AI help used",
+        "Source notes showing which claims came from which assigned source",
+        "A visible revision note explaining what changed after feedback"
+      ]
+    },
+    {
+      "heading": "Human review trigger",
+      "items": [
+        "Student cannot explain a claim in their own words",
+        "Citation trail is missing or source cannot be found",
+        "AI use falls outside the allowed list"
+      ]
+    }
+  ],
+  "review_flags": [
+    "Requires local policy-owner/instructor approval before classroom use",
+    "Not legal/compliance advice"
+  ],
+  "boundary_note": "Review aid only. Local school, instructor, or workplace policy controls final allowed use. Do not use this card as legal, academic-integrity, or compliance advice.",
+  "notes": "Synthetic example designed to avoid shaming informal AI use while making boundaries concrete."
+}

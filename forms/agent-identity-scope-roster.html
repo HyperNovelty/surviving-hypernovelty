@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Agent Identity &amp; Scope Roster Form</title>
+  <link rel="stylesheet" href="shared/form_styles.css">
+</head>
+<body>
+  <main>
+    <div class="topbar">
+      <div>
+        <h1 id="form-title">Agent Identity &amp; Scope Roster</h1>
+        <p id="form-summary"></p>
+      </div>
+      <p><a href="index.html">All forms</a></p>
+    </div>
+    <section class="boundary"><strong>Boundary:</strong> <span id="boundary-text"></span></section>
+    <p class="links" id="source-links"></p>
+    <section class="layout">
+      <form id="primitive-form" class="panel form-grid"></form>
+      <section class="panel preview">
+        <h2>Markdown preview</h2>
+        <div class="actions">
+          <button type="button" id="copy-markdown">Copy Markdown</button>
+          <button type="button" id="download-markdown" class="secondary">Download Markdown</button>
+          <button type="button" id="download-json" class="secondary">Download JSON</button>
+          <button type="button" id="reset-example" class="secondary">Reset to Example</button>
+          <button type="button" id="clear-draft" class="secondary">Clear Draft</button>
+        </div>
+        <pre id="markdown-preview"></pre>
+        <p id="form-status" class="status"></p>
+      </section>
+    </section>
+  </main>
+  <script>
+    window.FORM_SPEC = {
+      slug: "agent-identity-scope-roster",
+      title: "Agent Identity & Scope Roster",
+      summary: "Edit a local-only roster of agents, owners, scopes, permissions, logs, and escalation triggers.",
+      links: [
+        { label: "README", href: "../tools/agent-identity-scope-roster/README.md" },
+        { label: "Example JSON", href: "../examples/team/agent_identity_scope_roster_example.json" },
+        { label: "Schema", href: "../schemas/agent-identity-scope-roster.schema.json" },
+        { label: "Rendered example", href: "../docs/rendered/agent_identity_scope_roster_example.md" }
+      ],
+      requiredFields: ["roster_name", "roster_owner", "purpose", "data_boundary", "review_cadence", "agents", "escalation_triggers", "boundary_note"],
+      fields: [
+        { id: "roster_name", label: "Roster name" },
+        { id: "roster_owner", label: "Roster owner" },
+        { id: "purpose", label: "Purpose", type: "textarea", rows: 3 },
+        { id: "data_boundary", label: "Data boundary", type: "textarea", rows: 3 },
+        { id: "review_cadence", label: "Review cadence" },
+        { id: "agents", label: "Agents", type: "textarea", rows: 10, hint: "One per line: Agent | Owner | Purpose | Identity type | Auth surface | Data classes | Read scopes | Write scopes | Approval state | Expiry/review date | Per-agent review cadence | Secrets access | Public action | Spend authority | Allowed actions | Blocked actions | Connected tools | Output destinations | Log location | Risk notes" },
+        { id: "escalation_triggers", label: "Escalation triggers", type: "textarea", rows: 5, hint: "One trigger per line." },
+        { id: "boundary_note", label: "Boundary note", type: "textarea", rows: 3 },
+        { id: "notes", label: "Notes", type: "textarea", rows: 3 }
+      ],
+      example: {
+        roster_name: "Small nonprofit local AI helper roster",
+        roster_owner: "Operations director",
+        purpose: "Inventory draft-only AI helpers before deciding whether any should receive broader access, external outputs, or recurring automation.",
+        data_boundary: "Synthetic or approved internal planning notes only. No donor records, payroll, credentials, student/client files, health data, or private legal/financial records.",
+        review_cadence: "Monthly, and before adding any connector, credential, external output, or production workflow.",
+        agents: "Meeting Notes Summarizer | Program coordinator | Summarize approved staff meeting notes into internal action drafts. | Local script run by coordinator | Coordinator laptop; no separate service account | internal meeting notes, project task notes | approved notes folder | local draft summaries folder | approved_local_only | 2026-07-31 | Monthly | not_allowed | not_allowed | none | summarize, extract_open_questions | email_external, publish, delete_source_notes, access_secrets | local Python renderer | local draft folder | project-folder/logs/meeting-summary-runs.md | Keep raw notes out of public packets; coordinator reviews before reuse.\nGrant Evidence Packet Drafter | Executive director | Draft local-only grant evidence packet sections from approved public project artifacts and internal metrics. | Draft-only assistant account | Manually pasted approved source snippets; no live account connectors | public project descriptions, aggregated program metrics, private funding strategy notes | approved public artifacts, manual excerpts only | draft-only application packet folder | review_required | 2026-07-15 | Before each funder use | not_allowed | review_required | none | draft_text, flag_missing_evidence, create_review_checklist | submit_form, email_external, invent_metrics, store_credentials, make_legal_claims | local writing assistant, source confidence ledger | local grant packet review folder | funding-packets/logs/draft-runs.md | Useful for grant readiness, but every funder-specific claim needs human/source review before submission.\nWebsite Draft QA Checker | Communications lead | Run local QA over staged website draft pages before a human decides whether to deploy. | Local CLI checker | No account login; local static files only | staged public website drafts, source links, QA notes | staged site folder | local QA report folder | approved_local_only | 2026-07-31 | Before every deploy decision | not_allowed | not_allowed | none | check_links, flag_boundary_language, generate_report | deploy_production, change_dns, post_social, email_subscribers | local HTML parser, link checker | local QA report | site-qa/logs/local-checks.md | QA report is evidence for a human gate, not deployment approval.",
+        escalation_triggers: "Adding credentials, API keys, browser login, or service-account auth\nAllowing external messages, public publishing, form submission, production deploy, DNS/account changes, or spend\nIntroducing customer, student, patient, donor, payroll, legal, financial, health, or other sensitive data\nChanging any local-only agent to a recurring or unattended workflow\nMissing logs, unexpected output destination, failed handoff, or unclear owner",
+        boundary_note: "Visibility and review aid only. Do not store secrets in this roster. Local development is allowed; public actions, outreach, submissions, spend, real private data, and legal/compliance claims need separate human approval.",
+        notes: "Fictional example for local practice. It supports internal preparation for grant/partner review by showing governance discipline without claiming certification."
+      },
+      toJson: function (data) {
+        return {
+          roster_name: data.roster_name,
+          roster_owner: data.roster_owner,
+          purpose: data.purpose,
+          data_boundary: data.data_boundary,
+          review_cadence: data.review_cadence,
+          agents: FormRuntime.rows(data.agents, ["agent_name", "owner", "purpose", "identity_type", "auth_surface", "data_classes", "read_scopes", "write_scopes", "approval_state", "expiry_review_date", "review_cadence", "secrets_access", "public_action", "spend_authority", "allowed_actions", "blocked_actions", "connected_tools", "output_destinations", "log_location", "risk_notes"]).map(function (agent) {
+            ["data_classes", "read_scopes", "write_scopes", "allowed_actions", "blocked_actions", "connected_tools", "output_destinations"].forEach(function (field) {
+              agent[field] = FormRuntime.lines(String(agent[field] || "").replace(/,/g, "\n"));
+            });
+            return agent;
+          }),
+          escalation_triggers: FormRuntime.lines(data.escalation_triggers),
+          boundary_note: data.boundary_note,
+          notes: data.notes
+        };
+      },
+      fromJson: function (json) {
+        return {
+          roster_name: json.roster_name,
+          roster_owner: json.roster_owner,
+          purpose: json.purpose,
+          data_boundary: json.data_boundary,
+          review_cadence: json.review_cadence,
+          agents: FormRuntime.rowText(json.agents, ["agent_name", "owner", "purpose", "identity_type", "auth_surface", "data_classes", "read_scopes", "write_scopes", "approval_state", "expiry_review_date", "review_cadence", "secrets_access", "public_action", "spend_authority", "allowed_actions", "blocked_actions", "connected_tools", "output_destinations", "log_location", "risk_notes"]),
+          escalation_triggers: FormRuntime.joinList(json.escalation_triggers),
+          boundary_note: json.boundary_note,
+          notes: json.notes
+        };
+      },
+      toMarkdown: function (data) {
+        var agents = FormRuntime.rows(data.agents, ["agent", "owner", "purpose", "identity", "auth", "data", "read", "write", "approval", "expiry", "cadence", "secrets", "public", "spend", "allowed", "blocked", "tools", "outputs", "log", "risk"]);
+        return "# Agent Identity & Scope Roster: " + data.roster_name + "\n\n" +
+          "**Status:** REVIEW REQUIRED  \n**Roster owner:** " + data.roster_owner + "  \n**Purpose:** " + data.purpose + "  \n**Data boundary:** " + data.data_boundary + "  \n**Review cadence:** " + data.review_cadence + "\n\n" +
+          "## Identity scope table\n" +
+          FormRuntime.table(["Agent", "Owner", "Purpose", "Identity type", "Auth surface", "Data classes", "Read scopes", "Write scopes", "Approval state", "Expiry/review date", "Review cadence"], agents.map(function (a) { return [a.agent, a.owner, a.purpose, a.identity, a.auth, a.data, a.read, a.write, a.approval, a.expiry, a.cadence]; })) + "\n\n" +
+          "## Permissions and controls\n" +
+          FormRuntime.table(["Agent", "Secrets access", "Public action", "Spend authority", "Allowed actions", "Blocked actions", "Connected tools", "Output destinations", "Log location", "Risk notes"], agents.map(function (a) { return [a.agent, a.secrets, a.public, a.spend, a.allowed, a.blocked, a.tools, a.outputs, a.log, a.risk]; })) + "\n\n" +
+          "## Escalation triggers\n" + FormRuntime.list(FormRuntime.lines(data.escalation_triggers)) + "\n\n" +
+          "## Boundary note\n" + data.boundary_note + "\n\n## Notes\n" + data.notes + "\n";
+      }
+    };
+  </script>
+  <script src="shared/form_runtime.js"></script>
+</body>
+</html>

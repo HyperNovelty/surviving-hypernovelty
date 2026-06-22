@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Visible Thinking Repair Ticket Form</title>
+  <link rel="stylesheet" href="shared/form_styles.css">
+</head>
+<body>
+  <main>
+    <div class="topbar"><div><h1 id="form-title"></h1><p id="form-summary"></p></div><p><a href="index.html">All forms</a></p></div>
+    <section class="boundary"><strong>Boundary:</strong> <span id="boundary-text"></span></section>
+    <p class="links" id="source-links"></p>
+    <section class="layout">
+      <form id="primitive-form" class="panel form-grid"></form>
+      <section class="panel preview">
+        <h2>Markdown preview</h2>
+        <div class="actions"><button type="button" id="copy-markdown">Copy Markdown</button><button type="button" id="download-markdown" class="secondary">Download Markdown</button><button type="button" id="download-json" class="secondary">Download JSON</button><button type="button" id="reset-example" class="secondary">Reset to Example</button><button type="button" id="clear-draft" class="secondary">Clear Draft</button></div>
+        <pre id="markdown-preview"></pre><p id="form-status" class="status"></p>
+      </section>
+    </section>
+  </main>
+  <script>
+    window.FORM_SPEC = {
+      slug: "visible-thinking-repair-ticket",
+      title: "Visible Thinking Repair Ticket",
+      summary: "Edit a learning-evidence repair ticket without treating AI-detector output as proof.",
+      links: [
+        { label: "README", href: "../tools/visible-thinking-repair-ticket/README.md" },
+        { label: "Example JSON", href: "../examples/education/visible_thinking_repair_ticket_example.json" },
+        { label: "Schema", href: "../schemas/visible-thinking-repair-ticket.schema.json" },
+        { label: "Rendered example", href: "../docs/rendered/visible_thinking_repair_ticket_example.md" }
+      ],
+      requiredFields: ["title", "owner", "purpose", "review_cadence", "status", "missing_evidence", "repair_requests", "acceptable_repair_outcomes", "boundary_note"],
+      fields: [
+        { id: "title", label: "Title" },
+        { id: "status", label: "Status" },
+        { id: "owner", label: "Owner" },
+        { id: "purpose", label: "Purpose", type: "textarea", rows: 3 },
+        { id: "review_cadence", label: "Review cadence" },
+        { id: "missing_evidence", label: "Missing evidence", type: "textarea", rows: 5, hint: "One per line: Gap | severity" },
+        { id: "repair_requests", label: "Repair requests", type: "textarea", rows: 5, hint: "One per line: Request | evidence type" },
+        { id: "acceptable_repair_outcomes", label: "Acceptable repair outcomes", type: "textarea", rows: 4, hint: "One per line: Outcome | disposition" },
+        { id: "review_flags", label: "Review flags", type: "textarea", rows: 3 },
+        { id: "boundary_note", label: "Boundary note", type: "textarea", rows: 3 },
+        { id: "notes", label: "Notes", type: "textarea", rows: 3 }
+      ],
+      example: {
+        title: "Research paragraph missing source trail",
+        status: "REPAIR NEEDED",
+        owner: "Teacher / learning reviewer",
+        purpose: "Give a learner a low-conflict repair path when submitted work lacks enough visible thinking evidence.",
+        review_cadence: "Per assignment or after a weak-evidence submission.",
+        missing_evidence: "Which source supports the main claim is unclear | high\nStudent reasoning between quote and conclusion is not visible | high\nAI-use disclosure says \"grammar only,\" but revision trail is absent | medium",
+        repair_requests: "Explain the paragraph claim aloud or in 5-7 sentences in your own words | oral_explanation\nMark which sentence is supported by which source note | source_mapping\nSubmit a short revision note naming any AI help and what you accepted/rejected | revision_note",
+        acceptable_repair_outcomes: "Evidence now supports the claim and learner can explain it | accept\nClaim is narrowed or removed | revise\nTeacher schedules a short conference if evidence remains unclear | conference",
+        review_flags: "Not proof of authorship\nDo not use as detector evidence\nUse local educator judgment for grading/conduct decisions",
+        boundary_note: "Review aid only. This is not forensic proof, misconduct determination, or detector validation. It is a learning-evidence repair workflow.",
+        notes: "Synthetic example aligned with the Next Classroom May Be a Folder."
+      },
+      toJson: function (data) {
+        return {
+          title: data.title, owner: data.owner, purpose: data.purpose, review_cadence: data.review_cadence, status: data.status,
+          missing_evidence: FormRuntime.rows(data.missing_evidence, ["gap", "severity"]),
+          repair_requests: FormRuntime.rows(data.repair_requests, ["request", "evidence_type"]),
+          acceptable_repair_outcomes: FormRuntime.rows(data.acceptable_repair_outcomes, ["outcome", "disposition"]),
+          review_flags: FormRuntime.lines(data.review_flags), boundary_note: data.boundary_note, notes: data.notes
+        };
+      },
+      fromJson: function (json) {
+        return {
+          title: json.title,
+          status: json.status,
+          owner: json.owner,
+          purpose: json.purpose,
+          review_cadence: json.review_cadence,
+          missing_evidence: FormRuntime.rowText(json.missing_evidence, ["gap", "severity"]),
+          repair_requests: FormRuntime.rowText(json.repair_requests, ["request", "evidence_type"]),
+          acceptable_repair_outcomes: FormRuntime.rowText(json.acceptable_repair_outcomes, ["outcome", "disposition"]),
+          review_flags: FormRuntime.joinList(json.review_flags),
+          boundary_note: json.boundary_note,
+          notes: json.notes
+        };
+      },
+      toMarkdown: function (data) {
+        var missing = FormRuntime.rows(data.missing_evidence, ["gap", "severity"]);
+        var requests = FormRuntime.rows(data.repair_requests, ["request", "type"]);
+        var outcomes = FormRuntime.rows(data.acceptable_repair_outcomes, ["outcome", "disposition"]);
+        return "# Visible Thinking Repair Ticket: " + data.title + "\n\n" +
+          "**Status:** " + data.status + "  \n**Owner:** " + data.owner + "  \n**Purpose:** " + data.purpose + "  \n**Review cadence:** " + data.review_cadence + "\n\n" +
+          "## Missing evidence\n" + FormRuntime.list(missing.map(function (x) { return x.gap + " (severity: " + x.severity + ")"; })) + "\n\n" +
+          "## Repair request\n" + FormRuntime.list(requests.map(function (x) { return x.request + " (evidence type: " + x.type + ")"; })) + "\n\n" +
+          "## Acceptable repair outcomes\n" + FormRuntime.list(outcomes.map(function (x) { return x.outcome + " -> " + x.disposition; })) + "\n\n" +
+          "## Review flags\n" + FormRuntime.list(FormRuntime.lines(data.review_flags)) + "\n\n## Boundary note\n" + data.boundary_note + "\n\n## Notes\n" + data.notes + "\n";
+      }
+    };
+  </script>
+  <script src="shared/form_runtime.js"></script>
+</body>
+</html>

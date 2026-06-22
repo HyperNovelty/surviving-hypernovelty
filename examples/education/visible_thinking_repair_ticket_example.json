@@ -1,0 +1,82 @@
+{
+  "title": "Research paragraph missing source trail",
+  "owner": "Teacher / learning reviewer",
+  "purpose": "Give a learner a low-conflict repair path when submitted work lacks enough visible thinking evidence.",
+  "review_cadence": "Per assignment or after a weak-evidence submission.",
+  "status": "REPAIR NEEDED",
+  "missing_evidence": [
+    {
+      "gap": "Which source supports the main claim is unclear",
+      "severity": "high"
+    },
+    {
+      "gap": "Student reasoning between quote and conclusion is not visible",
+      "severity": "high"
+    },
+    {
+      "gap": "AI-use disclosure says \"grammar only,\" but revision trail is absent",
+      "severity": "medium"
+    }
+  ],
+  "repair_requests": [
+    {
+      "request": "Explain the paragraph claim aloud or in 5-7 sentences in your own words",
+      "evidence_type": "oral_explanation"
+    },
+    {
+      "request": "Mark which sentence is supported by which source note",
+      "evidence_type": "source_mapping"
+    },
+    {
+      "request": "Submit a short revision note naming any AI help and what you accepted/rejected",
+      "evidence_type": "revision_note"
+    }
+  ],
+  "acceptable_repair_outcomes": [
+    {
+      "outcome": "Evidence now supports the claim and learner can explain it",
+      "disposition": "accept"
+    },
+    {
+      "outcome": "Claim is narrowed or removed",
+      "disposition": "revise"
+    },
+    {
+      "outcome": "Teacher schedules a short conference if evidence remains unclear",
+      "disposition": "conference"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Missing evidence",
+      "items": [
+        "Which source supports the main claim is unclear",
+        "Student reasoning between quote and conclusion is not visible",
+        "AI-use disclosure says \u201cgrammar only,\u201d but revision trail is absent"
+      ]
+    },
+    {
+      "heading": "Repair request",
+      "items": [
+        "Explain the paragraph claim aloud or in 5\u20137 sentences in your own words",
+        "Mark which sentence is supported by which source note",
+        "Submit a short revision note naming any AI help and what you accepted/rejected"
+      ]
+    },
+    {
+      "heading": "Acceptable repair outcomes",
+      "items": [
+        "Evidence now supports the claim and learner can explain it",
+        "Claim is narrowed or removed",
+        "Teacher schedules a short conference if evidence remains unclear"
+      ]
+    }
+  ],
+  "review_flags": [
+    "Not proof of authorship",
+    "Do not use as detector evidence",
+    "Use local educator judgment for grading/conduct decisions"
+  ],
+  "boundary_note": "Review aid only. This is not forensic proof, misconduct determination, or detector validation. It is a learning-evidence repair workflow.",
+  "notes": "Synthetic example aligned with \u201cThe Next Classroom May Be a Folder.\u201d"
+}

@@ -2,12 +2,17 @@
 
 ## Phase 0 — Starter kit now
 
-Build the first five free primitives as Markdown/JSON/Python-local tools:
+Build the current starter-kit primitives as Markdown/JSON/Python-local tools:
 
 - Novelty Load Calculator
 - Change Triage Worksheet
 - AI Delegation Contract Card
 - Agent Permission Receipt Card
+- Agent Identity & Scope Roster
+- Platformized News Diet Receipt
+- Visible Thinking Repair Ticket
+- Adaptation Debt Ledger
+- AI Use Clarity Micro-Policy Card
 - Agent Toolchain Exposure Map
 - Learning Dossier Folder Template
 - Assessment Evidence Packet
@@ -107,12 +112,18 @@ Outputs should be review-only idea cards, not automatic publishing or product cl
 
 ## Current approved build order
 
-Jordan approved the 2026-06-11 expansion order:
+Jordan approved the 2026-06-18 expansion order:
 
-1. Agent Toolchain Exposure Map — built locally.
-2. Assessment Evidence Packet Lite — next bounded build.
-3. Answer-Layer Survival Receipt — public-page receipt example built locally.
-4. Policy Freshness Diff Card — built locally.
-5. Human Premium Work Surface Audit — Human Premium Trust Surface Card built locally.
+1. Agent Identity & Scope Roster — built locally from the 2026-06-18 approved order.
+2. AI Use Clarity Micro-Policy Card — built locally.
+3. Adaptation Debt Ledger — built locally.
+4. Visible Thinking Repair Ticket — built locally.
+5. Platformized News Diet Receipt — built locally.
 
-Record: `docs/approved-expansion-priority-2026-06-11.md`.
+Current 2026-06-22 research-scan extension started from the newest approved build priority:
+
+1. Non-Human Identity Review Receipt — built locally as an extension of the Agent Identity & Scope Roster with schema, renderer, synthetic quarterly example, and rendered Markdown.
+
+Previous 2026-06-11 expansion order remains mostly built: Agent Toolchain Exposure Map, Assessment Evidence Packet Lite, Answer-Layer Citation Readiness Card, Policy Freshness Diff Card, and Human Premium Trust Surface Card.
+
+Records: `docs/approved-expansion-priority-2026-06-11.md` and `_research_runs/2026-06-18T150403Z_tool_idea_scan.md`.

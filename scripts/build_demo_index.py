@@ -37,6 +37,42 @@ TOOL_DEMOS = [
         "description": "Documents what an agent can read, write, expose, spend, publish, or trigger.",
     },
     {
+        "name": "Agent Identity & Scope Roster",
+        "tool": "tools/agent-identity-scope-roster/render_roster.py",
+        "example": "examples/team/agent_identity_scope_roster_example.json",
+        "description": "Inventories non-human identities, owners, scopes, logs, expiry dates, and review gates.",
+    },
+    {
+        "name": "AI Use Clarity Micro-Policy Card",
+        "tool": "tools/ai-use-clarity-micro-policy-card/render_card.py",
+        "example": "examples/education/ai_use_clarity_micro_policy_card_example.json",
+        "description": "Translate a broad AI policy into one task-specific allowed/not-allowed/evidence/disclosure card.",
+    },
+    {
+        "name": "Adaptation Debt Ledger",
+        "tool": "tools/adaptation-debt-ledger/render_ledger.py",
+        "example": "examples/institution/adaptation_debt_ledger_example.json",
+        "description": "Name stale assumptions, symptoms, affected people, owners, cheap review actions, and top repair priorities.",
+    },
+    {
+        "name": "Visible Thinking Repair Ticket",
+        "tool": "tools/visible-thinking-repair-ticket/render_ticket.py",
+        "example": "examples/education/visible_thinking_repair_ticket_example.json",
+        "description": "Repair missing learning evidence without relying on AI-detector false certainty or punitive defaults.",
+    },
+    {
+        "name": "Platformized News Diet Receipt",
+        "tool": "tools/platformized-news-diet-receipt/render_receipt.py",
+        "example": "examples/media/platformized_news_diet_receipt_example.json",
+        "description": "Track where news came from this week: direct source, platform, creator, AI summary, confidence, and missing context.",
+    },
+    {
+        "name": "Non-Human Identity Review Receipt",
+        "tool": "tools/non-human-identity-review-receipt/render_receipt.py",
+        "example": "examples/team/non_human_identity_review_receipt_example.json",
+        "description": "Reviews non-human identities for renewal, pause, revoke, or escalation using permission evidence, log evidence, gates, gaps, and expiry dates.",
+    },
+    {
         "name": "Agent Toolchain Exposure Map",
         "tool": "tools/agent-toolchain-exposure-map/render_map.py",
         "example": "examples/team/agent_toolchain_exposure_map_example.json",
@@ -96,6 +132,7 @@ def summarize_json(data: dict[str, Any]) -> str:
         "subject",
         "purpose",
         "ledger",
+        "roster_name",
         "agent_name",
         "workflow_name",
         "page_title",
@@ -147,6 +184,36 @@ def render() -> str:
         f'          <li><a href="../{html.escape(path)}">{html.escape(path)}</a> - {html.escape(summary)}</li>'
         for path, summary in summaries.items()
     )
+    forms = "\n".join(
+        f'          <li><a href="../forms/{html.escape(form["href"])}">{html.escape(form["name"])}</a> - {html.escape(form["description"])}</li>'
+        for form in [
+            {
+                "name": "Agent Identity & Scope Roster",
+                "href": "agent-identity-scope-roster.html",
+                "description": "Browser-local roster form with Markdown and JSON downloads.",
+            },
+            {
+                "name": "AI Use Clarity Micro-Policy Card",
+                "href": "ai-use-clarity-micro-policy-card.html",
+                "description": "Browser-local task policy card form with editable evidence and triggers.",
+            },
+            {
+                "name": "Adaptation Debt Ledger",
+                "href": "adaptation-debt-ledger.html",
+                "description": "Browser-local ledger form for stale assumptions and repair priorities.",
+            },
+            {
+                "name": "Visible Thinking Repair Ticket",
+                "href": "visible-thinking-repair-ticket.html",
+                "description": "Browser-local repair ticket form for visible learning evidence.",
+            },
+            {
+                "name": "Platformized News Diet Receipt",
+                "href": "platformized-news-diet-receipt.html",
+                "description": "Browser-local source-chain receipt form for private media review.",
+            },
+        ]
+    )
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -170,6 +237,11 @@ def render() -> str:
     <section class="boundary">
       <b>Boundary:</b> review aid only. No private sources, customer data, account actions, network calls, funding claims, or adoption claims are included in this demo index.
     </section>
+    <h2>Offline Browser Forms</h2>
+    <p>These static forms work from <code>file://</code>, use synthetic examples, preview Markdown, and download Markdown/JSON locally.</p>
+    <ul>
+{forms}
+    </ul>
     <h2>Starter Tool Demos</h2>
     <div class="grid">
       {''.join(cards)}

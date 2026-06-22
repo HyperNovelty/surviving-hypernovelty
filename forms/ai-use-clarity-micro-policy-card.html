@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AI Use Clarity Micro-Policy Card Form</title>
+  <link rel="stylesheet" href="shared/form_styles.css">
+</head>
+<body>
+  <main>
+    <div class="topbar"><div><h1 id="form-title"></h1><p id="form-summary"></p></div><p><a href="index.html">All forms</a></p></div>
+    <section class="boundary"><strong>Boundary:</strong> <span id="boundary-text"></span></section>
+    <p class="links" id="source-links"></p>
+    <section class="layout">
+      <form id="primitive-form" class="panel form-grid"></form>
+      <section class="panel preview">
+        <h2>Markdown preview</h2>
+        <div class="actions"><button type="button" id="copy-markdown">Copy Markdown</button><button type="button" id="download-markdown" class="secondary">Download Markdown</button><button type="button" id="download-json" class="secondary">Download JSON</button><button type="button" id="reset-example" class="secondary">Reset to Example</button><button type="button" id="clear-draft" class="secondary">Clear Draft</button></div>
+        <pre id="markdown-preview"></pre><p id="form-status" class="status"></p>
+      </section>
+    </section>
+  </main>
+  <script>
+    window.FORM_SPEC = {
+      slug: "ai-use-clarity-micro-policy-card",
+      title: "AI Use Clarity Micro-Policy Card",
+      summary: "Edit one task-specific AI-use boundary with allowed uses, disallowed uses, evidence, and human review triggers.",
+      links: [
+        { label: "README", href: "../tools/ai-use-clarity-micro-policy-card/README.md" },
+        { label: "Example JSON", href: "../examples/education/ai_use_clarity_micro_policy_card_example.json" },
+        { label: "Schema", href: "../schemas/ai-use-clarity-micro-policy-card.schema.json" },
+        { label: "Rendered example", href: "../docs/rendered/ai_use_clarity_micro_policy_card_example.md" }
+      ],
+      requiredFields: ["title", "owner", "purpose", "review_cadence", "status", "policy_context", "allowed_uses", "disallowed_uses", "required_evidence", "human_review_triggers", "boundary_note"],
+      fields: [
+        { id: "title", label: "Title" },
+        { id: "status", label: "Status" },
+        { id: "owner", label: "Owner" },
+        { id: "purpose", label: "Purpose", type: "textarea", rows: 3 },
+        { id: "review_cadence", label: "Review cadence" },
+        { id: "setting", label: "Setting" },
+        { id: "task", label: "Task" },
+        { id: "learner_owned_work", label: "Learner-owned work", type: "textarea", rows: 3, hint: "One item per line." },
+        { id: "allowed_uses", label: "Allowed uses", type: "textarea", rows: 5, hint: "One per line: Use | timing | disclosure yes/no" },
+        { id: "disallowed_uses", label: "Disallowed uses", type: "textarea", rows: 5, hint: "One per line: Use | reason" },
+        { id: "required_evidence", label: "Required evidence", type: "textarea", rows: 5, hint: "One per line: Evidence | required when" },
+        { id: "human_review_triggers", label: "Human review triggers", type: "textarea", rows: 4, hint: "One per line: Trigger | response" },
+        { id: "review_flags", label: "Review flags", type: "textarea", rows: 3 },
+        { id: "boundary_note", label: "Boundary note", type: "textarea", rows: 3 },
+        { id: "notes", label: "Notes", type: "textarea", rows: 3 }
+      ],
+      example: {
+        title: "First-year writing assignment AI-use rule",
+        status: "REVIEW REQUIRED",
+        owner: "Course instructor",
+        purpose: "Make one assignment-level AI-use boundary clear before learners start work.",
+        review_cadence: "Before each assignment cycle or when institution policy changes.",
+        setting: "First-year writing course",
+        task: "Source-based research paragraph and revision",
+        learner_owned_work: "Thesis\nEvidence selection\nSource interpretation\nFinal wording",
+        allowed_uses: "Ask AI to generate possible research questions before choosing one | before_drafting | yes\nAsk for grammar or clarity feedback after writing a draft | after_drafting | yes\nAsk for a checklist of source-citation items to verify manually | manual_verification | yes",
+        disallowed_uses: "Submit AI-generated paragraphs as original work | Final wording and reasoning must remain learner-owned\nInvent or accept citations without checking the source | Citation trails must be manually verifiable\nUse AI to avoid reading assigned sources or explaining reasoning in your own words | The assignment assesses source interpretation and explanation",
+        required_evidence: "One short disclosure note describing any AI help used | any_ai_use\nSource notes showing which claims came from which assigned source | source_based_claim\nA visible revision note explaining what changed after feedback | revision_after_feedback",
+        human_review_triggers: "Student cannot explain a claim in their own words | clarify\nCitation trail is missing or source cannot be found | repair\nAI use falls outside the allowed list | escalate_to_local_policy_owner",
+        review_flags: "Requires local policy-owner/instructor approval before classroom use\nNot legal/compliance advice",
+        boundary_note: "Review aid only. Local school, instructor, or workplace policy controls final allowed use. Do not use this card as legal, academic-integrity, or compliance advice.",
+        notes: "Synthetic example designed to avoid shaming informal AI use while making boundaries concrete."
+      },
+      toJson: function (data) {
+        return {
+          title: data.title, owner: data.owner, purpose: data.purpose, review_cadence: data.review_cadence, status: data.status,
+          policy_context: { setting: data.setting, task: data.task, learner_owned_work: FormRuntime.lines(data.learner_owned_work) },
+          allowed_uses: FormRuntime.rows(data.allowed_uses, ["use", "timing", "requires_disclosure"]).map(function (item) {
+            item.requires_disclosure = FormRuntime.yesNo(item.requires_disclosure);
+            return item;
+          }),
+          disallowed_uses: FormRuntime.rows(data.disallowed_uses, ["use", "reason"]),
+          required_evidence: FormRuntime.rows(data.required_evidence, ["evidence", "required_when"]),
+          human_review_triggers: FormRuntime.rows(data.human_review_triggers, ["trigger", "response"]),
+          review_flags: FormRuntime.lines(data.review_flags), boundary_note: data.boundary_note, notes: data.notes
+        };
+      },
+      fromJson: function (json) {
+        var context = json.policy_context || {};
+        return {
+          title: json.title,
+          status: json.status,
+          owner: json.owner,
+          purpose: json.purpose,
+          review_cadence: json.review_cadence,
+          setting: context.setting,
+          task: context.task,
+          learner_owned_work: FormRuntime.joinList(context.learner_owned_work),
+          allowed_uses: FormRuntime.rowText(json.allowed_uses, ["use", "timing", "requires_disclosure"]),
+          disallowed_uses: FormRuntime.rowText(json.disallowed_uses, ["use", "reason"]),
+          required_evidence: FormRuntime.rowText(json.required_evidence, ["evidence", "required_when"]),
+          human_review_triggers: FormRuntime.rowText(json.human_review_triggers, ["trigger", "response"]),
+          review_flags: FormRuntime.joinList(json.review_flags),
+          boundary_note: json.boundary_note,
+          notes: json.notes
+        };
+      },
+      toMarkdown: function (data) {
+        var allowed = FormRuntime.rows(data.allowed_uses, ["use", "timing", "disclosure"]);
+        var disallowed = FormRuntime.rows(data.disallowed_uses, ["use", "reason"]);
+        var evidence = FormRuntime.rows(data.required_evidence, ["evidence", "when"]);
+        var triggers = FormRuntime.rows(data.human_review_triggers, ["trigger", "response"]);
+        return "# AI Use Clarity Micro-Policy Card: " + data.title + "\n\n" +
+          "**Status:** " + data.status + "  \n**Owner:** " + data.owner + "  \n**Purpose:** " + data.purpose + "  \n**Review cadence:** " + data.review_cadence + "\n\n" +
+          "## Task context\n**Setting:** " + data.setting + "  \n**Task:** " + data.task + "  \n**Learner-owned work:** " + FormRuntime.lines(data.learner_owned_work).join(", ") + "\n\n" +
+          "## Allowed uses\n" + FormRuntime.list(allowed.map(function (x) { return x.use + " (" + x.timing + "; disclosure: " + x.disclosure + ")"; })) + "\n\n" +
+          "## Disallowed uses\n" + FormRuntime.list(disallowed.map(function (x) { return x.use + " - " + x.reason; })) + "\n\n" +
+          "## Required evidence\n" + FormRuntime.list(evidence.map(function (x) { return x.evidence + " (when: " + x.when + ")"; })) + "\n\n" +
+          "## Human review triggers\n" + FormRuntime.list(triggers.map(function (x) { return x.trigger + " -> " + x.response; })) + "\n\n" +
+          "## Review flags\n" + FormRuntime.list(FormRuntime.lines(data.review_flags)) + "\n\n## Boundary note\n" + data.boundary_note + "\n\n## Notes\n" + data.notes + "\n";
+      }
+    };
+  </script>
+  <script src="shared/form_runtime.js"></script>
+</body>
+</html>

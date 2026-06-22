@@ -19,6 +19,12 @@ This repo is a local-first starter-kit candidate: small tools, templates, schema
 11. **Human Premium Trust Surface Card** — decide what AI should remove, support, protect, or leave human in trust-sensitive work. Current examples cover generic client onboarding, healthcare front desk/care navigation, and student support first response.
 12. **Human Premium Service Readiness Review** — consolidated practical screen for deciding whether a service workflow is ready for AI support without weakening trust-bearing human work.
 13. **Policy Freshness Diff Card** — compare a policy/rule against a new signal and propose a bounded, owner-reviewed interim update.
+14. **Agent Identity & Scope Roster** — inventory non-human identities, owners, scopes, logs, expiry dates, and escalation triggers before agents gain broader authority.
+15. **AI Use Clarity Micro-Policy Card** — translate broad AI rules into one task-specific allowed/not-allowed/evidence/disclosure card.
+16. **Adaptation Debt Ledger** — name stale assumptions, symptoms, owners, affected people, and cheap next reviews.
+17. **Visible Thinking Repair Ticket** — repair missing learning evidence without detector-first overclaiming.
+18. **Platformized News Diet Receipt** — track news source chains across platforms, creators, AI summaries, and direct sources.
+19. **Non-Human Identity Review Receipt** — periodically renew, pause, revoke, or escalate non-human identities with permission evidence, log evidence, gates, and expiry dates.
 
 ## Repo principles
 
@@ -35,6 +41,12 @@ python3 tools/novelty-load-calculator/novelty_load.py examples/individual/novelt
 python3 tools/change-triage/change_triage.py examples/individual/change_triage_example.json
 python3 tools/ai-delegation-contract-card/render_contract.py examples/creator/ai_delegation_contract_example.json
 python3 tools/agent-permission-receipt-card/render_receipt.py examples/team/agent_permission_receipt_example.json
+python3 tools/agent-identity-scope-roster/render_roster.py examples/team/agent_identity_scope_roster_example.json
+python3 tools/ai-use-clarity-micro-policy-card/render_card.py examples/education/ai_use_clarity_micro_policy_card_example.json
+python3 tools/adaptation-debt-ledger/render_ledger.py examples/institution/adaptation_debt_ledger_example.json
+python3 tools/visible-thinking-repair-ticket/render_ticket.py examples/education/visible_thinking_repair_ticket_example.json
+python3 tools/platformized-news-diet-receipt/render_receipt.py examples/media/platformized_news_diet_receipt_example.json
+python3 tools/non-human-identity-review-receipt/render_receipt.py examples/team/non_human_identity_review_receipt_example.json
 python3 tools/agent-toolchain-exposure-map/render_map.py examples/team/agent_toolchain_exposure_map_example.json
 python3 tools/assessment-evidence-packet-lite/render_packet.py examples/education/assessment_evidence_packet_lite_example.json
 python3 tools/answer-layer-citation-readiness-card/render_card.py examples/publishing/answer_layer_citation_readiness_example.json
@@ -46,6 +58,8 @@ python3 tools/human-premium-trust-surface-card/render_card.py examples/education
 # rendered example: docs/rendered/human_premium_student_support_card.md
 python3 tools/policy-freshness-diff-card/render_card.py examples/institution/policy_freshness_diff_card_example.json
 # rendered example: docs/rendered/policy_freshness_diff_card_example.md
+# rendered example: docs/rendered/agent_identity_scope_roster_example.md
+# rendered example: docs/rendered/non_human_identity_review_receipt_example.md
 python3 tools/source-confidence-ledger/source_ledger.py examples/publishing/source_confidence_example.json
 python3 scripts/validate_repo.py
 ```
@@ -54,6 +68,10 @@ Open `START_HERE.html` for a browser-readable overview.
 
 For publication boundaries, see `docs/PUBLICATION_BOUNDARY.md`. For a 5-minute
 review path, see `docs/REVIEWER_QUICKSTART.md`.
+
+Open `forms/index.html` for offline browser-local forms for the five June 18
+primitives. The forms work from `file://`, use synthetic defaults, preview
+Markdown, and download Markdown/JSON without network calls or account actions.
 
 Run `python3 scripts/build_demo_index.py` to generate `build/demo_index.html`, a
 local reviewer-friendly index of the synthetic starter-tool demos.

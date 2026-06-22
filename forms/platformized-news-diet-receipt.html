@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Platformized News Diet Receipt Form</title>
+  <link rel="stylesheet" href="shared/form_styles.css">
+</head>
+<body>
+  <main>
+    <div class="topbar"><div><h1 id="form-title"></h1><p id="form-summary"></p></div><p><a href="index.html">All forms</a></p></div>
+    <section class="boundary"><strong>Boundary:</strong> <span id="boundary-text"></span></section>
+    <p class="links" id="source-links"></p>
+    <section class="layout">
+      <form id="primitive-form" class="panel form-grid"></form>
+      <section class="panel preview">
+        <h2>Markdown preview</h2>
+        <div class="actions"><button type="button" id="copy-markdown">Copy Markdown</button><button type="button" id="download-markdown" class="secondary">Download Markdown</button><button type="button" id="download-json" class="secondary">Download JSON</button><button type="button" id="reset-example" class="secondary">Reset to Example</button><button type="button" id="clear-draft" class="secondary">Clear Draft</button></div>
+        <pre id="markdown-preview"></pre><p id="form-status" class="status"></p>
+      </section>
+    </section>
+  </main>
+  <script>
+    window.FORM_SPEC = {
+      slug: "platformized-news-diet-receipt",
+      title: "Platformized News Diet Receipt",
+      summary: "Edit source-chain items, confidence labels, missing context, and reflection prompts for private media-literacy review.",
+      links: [
+        { label: "README", href: "../tools/platformized-news-diet-receipt/README.md" },
+        { label: "Example JSON", href: "../examples/media/platformized_news_diet_receipt_example.json" },
+        { label: "Schema", href: "../schemas/platformized-news-diet-receipt.schema.json" },
+        { label: "Rendered example", href: "../docs/rendered/platformized_news_diet_receipt_example.md" }
+      ],
+      requiredFields: ["title", "owner", "purpose", "review_cadence", "status", "source_chain_items", "reflection_prompts", "boundary_note"],
+      fields: [
+        { id: "title", label: "Title" },
+        { id: "status", label: "Status" },
+        { id: "owner", label: "Owner" },
+        { id: "purpose", label: "Purpose", type: "textarea", rows: 3 },
+        { id: "review_cadence", label: "Review cadence" },
+        { id: "source_chain_items", label: "Source-chain items", type: "textarea", rows: 7, hint: "One per line: Item | channel | original source checked | intermediary | confidence | missing context" },
+        { id: "reflection_prompts", label: "Reflection prompts", type: "textarea", rows: 4 },
+        { id: "review_flags", label: "Review flags", type: "textarea", rows: 3 },
+        { id: "boundary_note", label: "Boundary note", type: "textarea", rows: 3 },
+        { id: "notes", label: "Notes", type: "textarea", rows: 3 }
+      ],
+      example: {
+        title: "Seven-day community news source-chain sample",
+        status: "PRIVATE REFLECTION AID",
+        owner: "Civic media facilitator",
+        purpose: "Help a person or group see how much news reached them through platforms, creators, or AI intermediaries before they act on it.",
+        review_cadence: "Weekly reflection or before a civic/media-literacy discussion.",
+        source_chain_items: "Local school AI policy change | short_video_clip | partly | Creator commentary | medium | Need direct district page and date\nElection-administration rumor | group_chat_screenshot | no | Unknown repost chain | low | Need official county source\nClimate-insurance premium story | news_app_article | yes | Publisher app | higher | Need state-specific data",
+        reflection_prompts: "Which item changed what you believed or planned to do?\nDid you check the original source before sharing?\nWhich source chain would you want a student/family member to understand better?",
+        review_flags: "Privacy-sensitive; do not require sharing browsing history\nNo objectivity or balanced-diet claim\nLabels are not fact checks",
+        boundary_note: "Private reflection/review aid only. Do not collect personal browsing history or use this as surveillance.",
+        notes: "Synthetic example tied to Source Confidence Ledger and media-trust work."
+      },
+      toJson: function (data) {
+        return {
+          title: data.title, owner: data.owner, purpose: data.purpose, review_cadence: data.review_cadence, status: data.status,
+          source_chain_items: FormRuntime.rows(data.source_chain_items, ["item", "channel", "original_source_checked", "intermediary", "confidence", "missing_context"]),
+          reflection_prompts: FormRuntime.lines(data.reflection_prompts),
+          review_flags: FormRuntime.lines(data.review_flags), boundary_note: data.boundary_note, notes: data.notes
+        };
+      },
+      fromJson: function (json) {
+        return {
+          title: json.title,
+          status: json.status,
+          owner: json.owner,
+          purpose: json.purpose,
+          review_cadence: json.review_cadence,
+          source_chain_items: FormRuntime.rowText(json.source_chain_items, ["item", "channel", "original_source_checked", "intermediary", "confidence", "missing_context"]),
+          reflection_prompts: FormRuntime.joinList(json.reflection_prompts),
+          review_flags: FormRuntime.joinList(json.review_flags),
+          boundary_note: json.boundary_note,
+          notes: json.notes
+        };
+      },
+      toMarkdown: function (data) {
+        var items = FormRuntime.rows(data.source_chain_items, ["item", "channel", "checked", "intermediary", "confidence", "missing"]);
+        return "# Platformized News Diet Receipt: " + data.title + "\n\n" +
+          "**Status:** " + data.status + "  \n**Owner:** " + data.owner + "  \n**Purpose:** " + data.purpose + "  \n**Review cadence:** " + data.review_cadence + "\n\n" +
+          "## Source-chain receipt\n" + FormRuntime.table(["Item", "Channel", "Original source checked?", "Intermediary", "Confidence", "Missing context"], items.map(function (x) { return [x.item, x.channel, x.checked, x.intermediary, x.confidence, x.missing]; })) + "\n\n" +
+          "## Reflection prompts\n" + FormRuntime.list(FormRuntime.lines(data.reflection_prompts)) + "\n\n" +
+          "## Review flags\n" + FormRuntime.list(FormRuntime.lines(data.review_flags)) + "\n\n## Boundary note\n" + data.boundary_note + "\n\n## Notes\n" + data.notes + "\n";
+      }
+    };
+  </script>
+  <script src="shared/form_runtime.js"></script>
+</body>
+</html>

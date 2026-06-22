@@ -28,6 +28,7 @@
       <li><a href="docs/approved-expansion-priority-2026-06-11.md">Approved Expansion Priority</a></li>
       <li><a href="docs/human_premium_service_readiness_review.md">Human Premium Service Readiness Review</a></li>
       <li><a href="build/demo_index.html">Generated Demo Index</a></li>
+      <li><a href="forms/index.html">Offline Browser Forms</a></li>
     </ul>
   </div>
   <div class="card">
@@ -37,6 +38,7 @@
       <li>Change Triage Worksheet</li>
       <li>AI Delegation Contract Card</li>
       <li>Agent Permission Receipt Card</li>
+      <li>Agent Identity &amp; Scope Roster</li>
       <li>Agent Toolchain Exposure Map</li>
       <li>Learning Dossier Folder Template</li>
       <li>Assessment Evidence Packet</li>
@@ -44,7 +46,34 @@
       <li>Answer-Layer Citation Readiness Card</li>
       <li>Human Premium Trust Surface Card</li>
       <li>Source Confidence Ledger</li>
+      <li>AI Use Clarity Micro-Policy Card</li>
+      <li>Adaptation Debt Ledger</li>
+      <li>Visible Thinking Repair Ticket</li>
+      <li>Platformized News Diet Receipt</li>
+      <li>Non-Human Identity Review Receipt</li>
     </ol>
+  </div>
+  <div class="card">
+    <h2>Agent identity roster</h2>
+    <p class="note">Use this when a team needs to know which agents exist, who owns them, what they can touch, where logs live, and what requires a fresh human review.</p>
+    <ul>
+      <li><a href="tools/agent-identity-scope-roster/README.md">Agent Identity &amp; Scope Roster README</a></li>
+      <li><a href="examples/team/agent_identity_scope_roster_example.json">Small nonprofit local AI helper example</a></li>
+      <li><a href="docs/rendered/agent_identity_scope_roster_example.md">Rendered roster example</a></li>
+      <li><a href="schemas/agent-identity-scope-roster.schema.json">Schema</a></li>
+    </ul>
+    <p>Local command: <code>python3 tools/agent-identity-scope-roster/render_roster.py examples/team/agent_identity_scope_roster_example.json</code></p>
+  </div>
+  <div class="card">
+    <h2>Non-human identity review receipt</h2>
+    <p class="note">Use this after an agent or automation appears in the roster and needs a concrete renew, pause, revoke, or escalate decision backed by permission evidence, log evidence, gates, gaps, and an expiry date.</p>
+    <ul>
+      <li><a href="tools/non-human-identity-review-receipt/README.md">Non-Human Identity Review Receipt README</a></li>
+      <li><a href="examples/team/non_human_identity_review_receipt_example.json">Quarterly review example</a></li>
+      <li><a href="docs/rendered/non_human_identity_review_receipt_example.md">Rendered review receipt</a></li>
+      <li><a href="schemas/non-human-identity-review-receipt.schema.json">Schema</a></li>
+    </ul>
+    <p>Local command: <code>python3 tools/non-human-identity-review-receipt/render_receipt.py examples/team/non_human_identity_review_receipt_example.json</code></p>
   </div>
   <div class="card">
     <h2>Human Premium card</h2>
@@ -59,6 +88,26 @@
       <li><a href="schemas/human-premium-trust-surface.schema.json">Schema</a></li>
     </ul>
     <p>Local commands: <code>python3 tools/human-premium-trust-surface-card/render_card.py examples/team/human_premium_healthcare_front_desk_example.json</code> or <code>python3 tools/human-premium-trust-surface-card/render_card.py examples/education/human_premium_student_support_example.json</code></p>
+  </div>
+
+  <div class="card">
+    <h2>June 18 approved queue</h2>
+    <p class="note">Five local primitives were built from the approved order: agent identity/scope, AI-use clarity, adaptation debt, visible-thinking repair, and platformized news diet receipts.</p>
+    <ul>
+      <li><a href="forms/index.html">Open all offline forms</a></li>
+      <li><a href="tools/agent-identity-scope-roster/README.md">Agent Identity &amp; Scope Roster README</a> · <a href="examples/team/agent_identity_scope_roster_example.json">example</a> · <a href="docs/rendered/agent_identity_scope_roster_example.md">rendered</a> · <a href="schemas/agent-identity-scope-roster.schema.json">schema</a></li>
+      <li><a href="tools/ai-use-clarity-micro-policy-card/README.md">AI Use Clarity Micro-Policy Card README</a> · <a href="examples/education/ai_use_clarity_micro_policy_card_example.json">example</a> · <a href="docs/rendered/ai_use_clarity_micro_policy_card_example.md">rendered</a> · <a href="schemas/ai-use-clarity-micro-policy-card.schema.json">schema</a></li>
+      <li><a href="tools/adaptation-debt-ledger/README.md">Adaptation Debt Ledger README</a> · <a href="examples/institution/adaptation_debt_ledger_example.json">example</a> · <a href="docs/rendered/adaptation_debt_ledger_example.md">rendered</a> · <a href="schemas/adaptation-debt-ledger.schema.json">schema</a></li>
+      <li><a href="tools/visible-thinking-repair-ticket/README.md">Visible Thinking Repair Ticket README</a> · <a href="examples/education/visible_thinking_repair_ticket_example.json">example</a> · <a href="docs/rendered/visible_thinking_repair_ticket_example.md">rendered</a> · <a href="schemas/visible-thinking-repair-ticket.schema.json">schema</a></li>
+      <li><a href="tools/platformized-news-diet-receipt/README.md">Platformized News Diet Receipt README</a> · <a href="examples/media/platformized_news_diet_receipt_example.json">example</a> · <a href="docs/rendered/platformized_news_diet_receipt_example.md">rendered</a> · <a href="schemas/platformized-news-diet-receipt.schema.json">schema</a></li>
+    </ul>
+    <p>Local commands: <code>python3 tools/agent-identity-scope-roster/render_roster.py examples/team/agent_identity_scope_roster_example.json</code>; <code>python3 tools/ai-use-clarity-micro-policy-card/render_card.py examples/education/ai_use_clarity_micro_policy_card_example.json</code>; <code>python3 tools/adaptation-debt-ledger/render_ledger.py examples/institution/adaptation_debt_ledger_example.json</code>; <code>python3 tools/visible-thinking-repair-ticket/render_ticket.py examples/education/visible_thinking_repair_ticket_example.json</code>; <code>python3 tools/platformized-news-diet-receipt/render_receipt.py examples/media/platformized_news_diet_receipt_example.json</code></p>
+    <ul>
+      <li><a href="docs/rendered/ai_use_clarity_micro_policy_card_example.md">AI Use Clarity rendered example</a></li>
+      <li><a href="docs/rendered/adaptation_debt_ledger_example.md">Adaptation Debt rendered example</a></li>
+      <li><a href="docs/rendered/visible_thinking_repair_ticket_example.md">Visible Thinking Repair rendered example</a></li>
+      <li><a href="docs/rendered/platformized_news_diet_receipt_example.md">Platformized News Diet rendered example</a></li>
+    </ul>
   </div>
   <div class="card">
     <h2>Verification</h2>

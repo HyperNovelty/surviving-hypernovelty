@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "required": [
+    "title",
+    "owner",
+    "purpose",
+    "review_cadence",
+    "status",
+    "source_chain_items",
+    "reflection_prompts",
+    "boundary_note"
+  ],
+  "properties": {
+    "title": { "type": "string" },
+    "owner": { "type": "string" },
+    "purpose": { "type": "string" },
+    "review_cadence": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["PRIVATE REFLECTION AID", "GROUP DISCUSSION AID", "REVIEW AID ONLY"]
+    },
+    "source_chain_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["item", "channel", "original_source_checked", "intermediary", "confidence", "missing_context"],
+        "properties": {
+          "item": { "type": "string" },
+          "channel": {
+            "type": "string",
+            "enum": ["short_video_clip", "group_chat_screenshot", "news_app_article", "publisher_site", "search_result", "ai_summary", "other"]
+          },
+          "original_source_checked": {
+            "type": "string",
+            "enum": ["yes", "partly", "no"]
+          },
+          "intermediary": { "type": "string" },
+          "confidence": {
+            "type": "string",
+            "enum": ["higher", "medium", "low", "unknown"]
+          },
+          "missing_context": { "type": "string" }
+        }
+      },
+      "minItems": 1
+    },
+    "reflection_prompts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "sections": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "review_flags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "boundary_note": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}

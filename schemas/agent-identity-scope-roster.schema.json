@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "required": [
+    "roster_name",
+    "roster_owner",
+    "purpose",
+    "data_boundary",
+    "review_cadence",
+    "agents",
+    "escalation_triggers",
+    "boundary_note"
+  ],
+  "properties": {
+    "roster_name": {"type": "string"},
+    "roster_owner": {"type": "string"},
+    "purpose": {"type": "string"},
+    "data_boundary": {"type": "string"},
+    "review_cadence": {"type": "string"},
+    "agents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "agent_name",
+          "owner",
+          "purpose",
+          "identity_type",
+          "auth_surface",
+          "data_classes",
+          "read_scopes",
+          "write_scopes",
+          "allowed_actions",
+          "blocked_actions",
+          "connected_tools",
+          "output_destinations",
+          "secrets_access",
+          "public_action",
+          "spend_authority",
+          "log_location",
+          "review_cadence",
+          "expiry_review_date",
+          "approval_state"
+        ],
+        "properties": {
+          "agent_name": {"type": "string"},
+          "owner": {"type": "string"},
+          "purpose": {"type": "string"},
+          "identity_type": {"type": "string"},
+          "auth_surface": {"type": "string"},
+          "data_classes": {"type": "array", "items": {"type": "string"}},
+          "read_scopes": {"type": "array", "items": {"type": "string"}},
+          "write_scopes": {"type": "array", "items": {"type": "string"}},
+          "allowed_actions": {"type": "array", "items": {"type": "string"}},
+          "blocked_actions": {"type": "array", "items": {"type": "string"}},
+          "connected_tools": {"type": "array", "items": {"type": "string"}},
+          "output_destinations": {"type": "array", "items": {"type": "string"}},
+          "secrets_access": {"enum": ["not_allowed", "review_required", "allowed"]},
+          "public_action": {"enum": ["not_allowed", "review_required", "allowed"]},
+          "spend_authority": {"enum": ["none", "review_required", "allowed"]},
+          "log_location": {"type": "string"},
+          "review_cadence": {"type": "string"},
+          "expiry_review_date": {"type": "string"},
+          "approval_state": {"enum": ["draft", "approved_local_only", "review_required", "retired"]},
+          "risk_notes": {"type": "string"}
+        }
+      }
+    },
+    "escalation_triggers": {"type": "array", "items": {"type": "string"}},
+    "boundary_note": {"type": "string"},
+    "notes": {"type": "string"}
+  }
+}

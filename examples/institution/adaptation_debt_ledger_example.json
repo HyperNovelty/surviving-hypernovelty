@@ -1,0 +1,100 @@
+{
+  "title": "Small college AI-policy adaptation debts",
+  "owner": "Academic operations lead",
+  "purpose": "Prioritize stale assumptions created by fast AI, platform, and policy change without blaming individuals.",
+  "review_cadence": "Monthly during policy-transition periods.",
+  "status": "REVIEW AID ONLY",
+  "adaptation_debts": [
+    {
+      "stale_assumption": "AI use is rare enough to handle case by case",
+      "visible_symptom": "Students and faculty ask the same boundary questions repeatedly",
+      "carriers": ["Students", "Instructors", "Advisors"],
+      "cheap_next_review": "Create assignment-level AI-use clarity cards for top 3 courses",
+      "owner": "Academic affairs",
+      "priority": "high"
+    },
+    {
+      "stale_assumption": "Academic integrity is mainly detector enforcement",
+      "visible_symptom": "False-positive fear and weak proof-of-learning records",
+      "carriers": ["Students", "Faculty", "Conduct staff"],
+      "cheap_next_review": "Pilot visible-thinking repair tickets before detector escalation",
+      "owner": "Teaching center",
+      "priority": "high"
+    },
+    {
+      "stale_assumption": "Policy pages only need annual review",
+      "visible_symptom": "Guidance goes stale after major platform or regulator updates",
+      "carriers": ["Department chairs", "Students"],
+      "cheap_next_review": "Add signal-to-policy diff check after major AI education updates",
+      "owner": "Policy owner",
+      "priority": "medium"
+    }
+  ],
+  "top_repair_queue": [
+    {
+      "action": "Convert one high-friction assignment into an AI Use Clarity Micro-Policy Card",
+      "owner": "Academic affairs",
+      "priority": "high"
+    },
+    {
+      "action": "Pilot Visible Thinking Repair Ticket for weak-evidence submissions",
+      "owner": "Teaching center",
+      "priority": "high"
+    },
+    {
+      "action": "Set a monthly owner-reviewed AI policy freshness check",
+      "owner": "Policy owner",
+      "priority": "medium"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Debt ledger",
+      "headers": [
+        "Stale assumption",
+        "Visible symptom",
+        "Who carries it",
+        "Cheap next review",
+        "Owner"
+      ],
+      "rows": [
+        [
+          "AI use is rare enough to handle case by case",
+          "Students and faculty ask the same boundary questions repeatedly",
+          "Students, instructors, advisors",
+          "Create assignment-level AI-use clarity cards for top 3 courses",
+          "Academic affairs"
+        ],
+        [
+          "Academic integrity is mainly detector enforcement",
+          "False-positive fear and weak proof-of-learning records",
+          "Students, faculty, conduct staff",
+          "Pilot visible-thinking repair tickets before detector escalation",
+          "Teaching center"
+        ],
+        [
+          "Policy pages only need annual review",
+          "Guidance goes stale after major platform or regulator updates",
+          "Department chairs, students",
+          "Add signal-to-policy diff check after major AI education updates",
+          "Policy owner"
+        ]
+      ]
+    },
+    {
+      "heading": "Top repair queue",
+      "items": [
+        "Convert one high-friction assignment into an AI Use Clarity Micro-Policy Card",
+        "Pilot Visible Thinking Repair Ticket for weak-evidence submissions",
+        "Set a monthly owner-reviewed AI policy freshness check"
+      ]
+    }
+  ],
+  "review_flags": [
+    "Qualitative prioritization only",
+    "Do not frame as compliance/risk score",
+    "Avoid blaming individuals for institutional lag"
+  ],
+  "boundary_note": "Review aid only. This ledger is not a formal risk assessment, legal review, compliance assurance, or accreditation document.",
+  "notes": "Synthetic example for local practice and Hypernovelty article/product development."
+}

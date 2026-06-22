@@ -21,6 +21,15 @@
     <section class="boundary">
       <b>Boundary:</b> review aid only. No private sources, customer data, account actions, network calls, funding claims, or adoption claims are included in this demo index.
     </section>
+    <h2>Offline Browser Forms</h2>
+    <p>These static forms work from <code>file://</code>, use synthetic examples, preview Markdown, and download Markdown/JSON locally.</p>
+    <ul>
+          <li><a href="../forms/agent-identity-scope-roster.html">Agent Identity &amp; Scope Roster</a> - Browser-local roster form with Markdown and JSON downloads.</li>
+          <li><a href="../forms/ai-use-clarity-micro-policy-card.html">AI Use Clarity Micro-Policy Card</a> - Browser-local task policy card form with editable evidence and triggers.</li>
+          <li><a href="../forms/adaptation-debt-ledger.html">Adaptation Debt Ledger</a> - Browser-local ledger form for stale assumptions and repair priorities.</li>
+          <li><a href="../forms/visible-thinking-repair-ticket.html">Visible Thinking Repair Ticket</a> - Browser-local repair ticket form for visible learning evidence.</li>
+          <li><a href="../forms/platformized-news-diet-receipt.html">Platformized News Diet Receipt</a> - Browser-local source-chain receipt form for private media review.</li>
+    </ul>
     <h2>Starter Tool Demos</h2>
     <div class="grid">
       
@@ -55,6 +64,54 @@
         <p><b>Example summary:</b> Collect candidate public signals and create local review notes</p>
         <p><b>Tool:</b> <a href="../tools/agent-permission-receipt-card/render_receipt.py">tools/agent-permission-receipt-card/render_receipt.py</a></p>
         <pre>python3 tools/agent-permission-receipt-card/render_receipt.py examples/team/agent_permission_receipt_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Agent Identity &amp; Scope Roster</h2>
+        <p>Inventories non-human identities, owners, scopes, logs, expiry dates, and review gates.</p>
+        <p><b>Example:</b> <a href="../examples/team/agent_identity_scope_roster_example.json">examples/team/agent_identity_scope_roster_example.json</a></p>
+        <p><b>Example summary:</b> Inventory draft-only AI helpers before deciding whether any should receive broader access, external outputs, or recurring automation.</p>
+        <p><b>Tool:</b> <a href="../tools/agent-identity-scope-roster/render_roster.py">tools/agent-identity-scope-roster/render_roster.py</a></p>
+        <pre>python3 tools/agent-identity-scope-roster/render_roster.py examples/team/agent_identity_scope_roster_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>AI Use Clarity Micro-Policy Card</h2>
+        <p>Translate a broad AI policy into one task-specific allowed/not-allowed/evidence/disclosure card.</p>
+        <p><b>Example:</b> <a href="../examples/education/ai_use_clarity_micro_policy_card_example.json">examples/education/ai_use_clarity_micro_policy_card_example.json</a></p>
+        <p><b>Example summary:</b> Make one assignment-level AI-use boundary clear before learners start work.</p>
+        <p><b>Tool:</b> <a href="../tools/ai-use-clarity-micro-policy-card/render_card.py">tools/ai-use-clarity-micro-policy-card/render_card.py</a></p>
+        <pre>python3 tools/ai-use-clarity-micro-policy-card/render_card.py examples/education/ai_use_clarity_micro_policy_card_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Adaptation Debt Ledger</h2>
+        <p>Name stale assumptions, symptoms, affected people, owners, cheap review actions, and top repair priorities.</p>
+        <p><b>Example:</b> <a href="../examples/institution/adaptation_debt_ledger_example.json">examples/institution/adaptation_debt_ledger_example.json</a></p>
+        <p><b>Example summary:</b> Prioritize stale assumptions created by fast AI, platform, and policy change without blaming individuals.</p>
+        <p><b>Tool:</b> <a href="../tools/adaptation-debt-ledger/render_ledger.py">tools/adaptation-debt-ledger/render_ledger.py</a></p>
+        <pre>python3 tools/adaptation-debt-ledger/render_ledger.py examples/institution/adaptation_debt_ledger_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Visible Thinking Repair Ticket</h2>
+        <p>Repair missing learning evidence without relying on AI-detector false certainty or punitive defaults.</p>
+        <p><b>Example:</b> <a href="../examples/education/visible_thinking_repair_ticket_example.json">examples/education/visible_thinking_repair_ticket_example.json</a></p>
+        <p><b>Example summary:</b> Give a learner a low-conflict repair path when submitted work lacks enough visible thinking evidence.</p>
+        <p><b>Tool:</b> <a href="../tools/visible-thinking-repair-ticket/render_ticket.py">tools/visible-thinking-repair-ticket/render_ticket.py</a></p>
+        <pre>python3 tools/visible-thinking-repair-ticket/render_ticket.py examples/education/visible_thinking_repair_ticket_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Platformized News Diet Receipt</h2>
+        <p>Track where news came from this week: direct source, platform, creator, AI summary, confidence, and missing context.</p>
+        <p><b>Example:</b> <a href="../examples/media/platformized_news_diet_receipt_example.json">examples/media/platformized_news_diet_receipt_example.json</a></p>
+        <p><b>Example summary:</b> Help a person or group see how much news reached them through platforms, creators, or AI intermediaries before they act on it.</p>
+        <p><b>Tool:</b> <a href="../tools/platformized-news-diet-receipt/render_receipt.py">tools/platformized-news-diet-receipt/render_receipt.py</a></p>
+        <pre>python3 tools/platformized-news-diet-receipt/render_receipt.py examples/media/platformized_news_diet_receipt_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Non-Human Identity Review Receipt</h2>
+        <p>Reviews non-human identities for renewal, pause, revoke, or escalation using permission evidence, log evidence, gates, gaps, and expiry dates.</p>
+        <p><b>Example:</b> <a href="../examples/team/non_human_identity_review_receipt_example.json">examples/team/non_human_identity_review_receipt_example.json</a></p>
+        <p><b>Example summary:</b> Synthetic example fixture.</p>
+        <p><b>Tool:</b> <a href="../tools/non-human-identity-review-receipt/render_receipt.py">tools/non-human-identity-review-receipt/render_receipt.py</a></p>
+        <pre>python3 tools/non-human-identity-review-receipt/render_receipt.py examples/team/non_human_identity_review_receipt_example.json</pre>
       </section>
       <section class="card">
         <h2>Agent Toolchain Exposure Map</h2>
@@ -108,18 +165,24 @@
     <h2>All Example Files Read</h2>
     <ul>
           <li><a href="../examples/creator/ai_delegation_contract_example.json">examples/creator/ai_delegation_contract_example.json</a> - Draft-only article research assistant</li>
+          <li><a href="../examples/education/ai_use_clarity_micro_policy_card_example.json">examples/education/ai_use_clarity_micro_policy_card_example.json</a> - Make one assignment-level AI-use boundary clear before learners start work.</li>
           <li><a href="../examples/education/assessment_evidence_packet_lite_example.json">examples/education/assessment_evidence_packet_lite_example.json</a> - Synthetic example fixture.</li>
           <li><a href="../examples/education/human_premium_student_support_example.json">examples/education/human_premium_student_support_example.json</a> - 5 surface steps</li>
+          <li><a href="../examples/education/visible_thinking_repair_ticket_example.json">examples/education/visible_thinking_repair_ticket_example.json</a> - Give a learner a low-conflict repair path when submitted work lacks enough visible thinking evidence.</li>
           <li><a href="../examples/individual/change_triage_example.json">examples/individual/change_triage_example.json</a> - solo operator weekly change triage</li>
           <li><a href="../examples/individual/novelty_load_example.json">examples/individual/novelty_load_example.json</a> - individual navigating AI/work/education change</li>
+          <li><a href="../examples/institution/adaptation_debt_ledger_example.json">examples/institution/adaptation_debt_ledger_example.json</a> - Prioritize stale assumptions created by fast AI, platform, and policy change without blaming individuals.</li>
           <li><a href="../examples/institution/policy_freshness_diff_card_example.json">examples/institution/policy_freshness_diff_card_example.json</a> - Synthetic example fixture.</li>
+          <li><a href="../examples/media/platformized_news_diet_receipt_example.json">examples/media/platformized_news_diet_receipt_example.json</a> - Help a person or group see how much news reached them through platforms, creators, or AI intermediaries before they act on it.</li>
           <li><a href="../examples/publishing/answer_layer_citation_readiness_example.json">examples/publishing/answer_layer_citation_readiness_example.json</a> - Surviving Hypernovelty: Why Source Receipts Matter</li>
           <li><a href="../examples/publishing/publisher_page_receipt_example.json">examples/publishing/publisher_page_receipt_example.json</a> - Local AI Policy FAQ for Families</li>
           <li><a href="../examples/publishing/source_confidence_example.json">examples/publishing/source_confidence_example.json</a> - example article source ledger</li>
+          <li><a href="../examples/team/agent_identity_scope_roster_example.json">examples/team/agent_identity_scope_roster_example.json</a> - Inventory draft-only AI helpers before deciding whether any should receive broader access, external outputs, or recurring automation.</li>
           <li><a href="../examples/team/agent_permission_receipt_example.json">examples/team/agent_permission_receipt_example.json</a> - Collect candidate public signals and create local review notes</li>
           <li><a href="../examples/team/agent_toolchain_exposure_map_example.json">examples/team/agent_toolchain_exposure_map_example.json</a> - Draft internal knowledge-base updates from approved meeting notes and route them to a human editor before publication.</li>
           <li><a href="../examples/team/human_premium_healthcare_front_desk_example.json">examples/team/human_premium_healthcare_front_desk_example.json</a> - 4 surface steps</li>
           <li><a href="../examples/team/human_premium_trust_surface_example.json">examples/team/human_premium_trust_surface_example.json</a> - 4 surface steps</li>
+          <li><a href="../examples/team/non_human_identity_review_receipt_example.json">examples/team/non_human_identity_review_receipt_example.json</a> - Synthetic example fixture.</li>
     </ul>
   </main>
 </body>

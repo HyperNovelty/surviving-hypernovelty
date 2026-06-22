@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "required": [
+    "title",
+    "owner",
+    "purpose",
+    "review_cadence",
+    "status",
+    "adaptation_debts",
+    "top_repair_queue",
+    "boundary_note"
+  ],
+  "properties": {
+    "title": { "type": "string" },
+    "owner": { "type": "string" },
+    "purpose": { "type": "string" },
+    "review_cadence": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["DRAFT", "REVIEW AID ONLY", "REVIEW REQUIRED", "LOCAL OWNER REVIEWED"]
+    },
+    "adaptation_debts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["stale_assumption", "visible_symptom", "carriers", "cheap_next_review", "owner", "priority"],
+        "properties": {
+          "stale_assumption": { "type": "string" },
+          "visible_symptom": { "type": "string" },
+          "carriers": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          },
+          "cheap_next_review": { "type": "string" },
+          "owner": { "type": "string" },
+          "priority": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "top_repair_queue": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["action", "owner", "priority"],
+        "properties": {
+          "action": { "type": "string" },
+          "owner": { "type": "string" },
+          "priority": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          }
+        }
+      },
+      "minItems": 1
+    },
+    "sections": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "review_flags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "boundary_note": { "type": "string" },
+    "notes": { "type": "string" }
+  }
+}

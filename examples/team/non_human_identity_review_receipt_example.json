@@ -1,0 +1,131 @@
+{
+  "receipt_name": "Quarterly review of grant, CRM, and website helper identities",
+  "review_owner": "Operations director",
+  "review_date": "2026-06-30",
+  "review_cadence": "Quarterly, plus any new public-action, spend, secrets, or sensitive-data scope",
+  "identity_reviews": [
+    {
+      "identity_name": "Grant Drafting Agent",
+      "business_owner": "Development lead",
+      "identity_type": "LLM workspace bot using a shared service account",
+      "purpose": "Draft first-pass grant narratives from approved program notes and public funder instructions.",
+      "roster_link": "examples/team/agent_identity_scope_roster_example.json#grant-drafting-agent",
+      "data_touched": [
+        "Approved program descriptions",
+        "Public funder guidance",
+        "Non-sensitive budget category summaries"
+      ],
+      "current_permissions": [
+        "Read approved grant-prep folder",
+        "Write drafts to local review folder",
+        "No submission, email, or funder portal access"
+      ],
+      "delta_since_last_review": [
+        "Added read access to the 2026 program outcomes summary",
+        "Removed access to unrestricted staff notes folder"
+      ],
+      "permission_evidence": [
+        "Workspace permission screenshot stored in local governance folder",
+        "Folder ACL export reviewed by operations director"
+      ],
+      "log_evidence": [
+        "Weekly usage log reviewed for unusual file access",
+        "No public submissions or outgoing messages found"
+      ],
+      "public_action_gate": "not_allowed",
+      "spend_gate": "none",
+      "secrets_gate": "not_allowed",
+      "expiry_or_next_review": "2026-09-30",
+      "decision": "renew_with_changes",
+      "unresolved_gaps": [
+        "Need clearer label on budget summaries that are safe for drafting"
+      ],
+      "required_next_action": "Development lead will add approved-for-agent labels before the next proposal cycle.",
+      "notes": "Human reviewer remains responsible for factual checks, tone, eligibility, and final submission."
+    },
+    {
+      "identity_name": "CRM Enrichment Bot",
+      "business_owner": "Partnerships manager",
+      "identity_type": "Automation connected to CRM export/import jobs",
+      "purpose": "Suggest missing organization categories for partner records using local CSV exports.",
+      "roster_link": "examples/team/agent_identity_scope_roster_example.json#crm-enrichment-bot",
+      "data_touched": [
+        "Partner organization names",
+        "Public website URLs",
+        "Relationship notes marked non-confidential"
+      ],
+      "current_permissions": [
+        "Read manually exported local CSV",
+        "Write suggested category CSV",
+        "No direct CRM writeback"
+      ],
+      "delta_since_last_review": [
+        "Pilot expanded from 50 records to 300 records",
+        "Direct CRM API writeback requested but not granted"
+      ],
+      "permission_evidence": [
+        "Automation config export shows no API token stored",
+        "Import step requires human upload by partnerships manager"
+      ],
+      "log_evidence": [
+        "Run logs stored in local operations folder",
+        "Sample of 25 suggestions checked before upload"
+      ],
+      "public_action_gate": "not_allowed",
+      "spend_gate": "none",
+      "secrets_gate": "not_allowed",
+      "expiry_or_next_review": "2026-07-31",
+      "decision": "escalate",
+      "unresolved_gaps": [
+        "Scale increase changes review burden",
+        "No written rule for which relationship notes are safe to include"
+      ],
+      "required_next_action": "Pause expansion beyond 300 records until safe-export rules and sample-review size are approved.",
+      "notes": "This receipt does not approve direct CRM write access."
+    },
+    {
+      "identity_name": "Website Update Agent",
+      "business_owner": "Communications lead",
+      "identity_type": "Local static-site helper with repository write access only",
+      "purpose": "Prepare draft webpage copy updates and pull-request notes for human review.",
+      "roster_link": "examples/team/agent_identity_scope_roster_example.json#website-update-agent",
+      "data_touched": [
+        "Published website copy",
+        "Approved event descriptions",
+        "Draft changelog notes"
+      ],
+      "current_permissions": [
+        "Read website repository",
+        "Write local branch drafts",
+        "No deploy, hosting, DNS, social posting, or newsletter access"
+      ],
+      "delta_since_last_review": [
+        "Added draft changelog generation",
+        "Deploy credentials confirmed absent from local environment"
+      ],
+      "permission_evidence": [
+        "Repository remote is read/write only for local draft branch workflow",
+        "No deploy token present in local config review"
+      ],
+      "log_evidence": [
+        "Git history reviewed for generated commits",
+        "No direct production deployment recorded"
+      ],
+      "public_action_gate": "human_approval_required",
+      "spend_gate": "none",
+      "secrets_gate": "not_allowed",
+      "expiry_or_next_review": "2026-09-30",
+      "decision": "renew",
+      "unresolved_gaps": [],
+      "required_next_action": "Communications lead will keep deploy and publication actions outside the agent account.",
+      "notes": "Public website changes remain human-approved and manually deployed."
+    }
+  ],
+  "cross_roster_questions": [
+    "Do any identities now have public-action, spend, secrets, or sensitive-data scope not shown in the main roster?",
+    "Can every active identity be traced to a named business owner and log location?",
+    "Which temporary pilots should expire instead of becoming background infrastructure?"
+  ],
+  "boundary_note": "Local review receipt only. Not a security certification, IAM system, compliance audit, legal opinion, or permission grant. Do not store secrets here; use authorized security/governance review for sensitive environments.",
+  "notes": "Synthetic quarterly example for reviewing three non-human identities without touching real accounts."
+}

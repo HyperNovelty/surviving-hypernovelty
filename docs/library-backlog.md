@@ -8,6 +8,28 @@
 - Add JSON schemas for every machine-readable example.
 - Extend source/provenance tools with page-level citation readiness examples and templates.
 - Extend agent visibility tools with richer role-specific examples after the first Agent Toolchain Exposure Map.
+- Extend agent visibility tools with a maintained Agent Identity & Scope Roster for non-human identities, owners, logs, expiry dates, and public/spend/secrets gates.
+- Extend agent visibility tools with a Non-Human Identity Review Receipt for periodic renew/pause/revoke decisions backed by permission evidence, log evidence, unresolved gaps, and expiry dates — built locally.
+
+## Research-scan priority — 2026-06-22
+
+Source: `_research_runs/2026-06-22T150154Z_tool_idea_scan.md`.
+
+1. Non-Human Identity Review Receipt — built locally with schema, renderer, synthetic quarterly example, rendered Markdown, README, and validation.
+2. Human Recourse Path Card.
+3. AI Coordinator Starter Binder.
+4. Shadow AI Disclosure Ladder.
+5. Verification Literacy Mini-Lab.
+
+## Jordan-approved next expansion order — 2026-06-18
+
+Source: `_research_runs/2026-06-18T150403Z_tool_idea_scan.md`. Approved by Jordan in Telegram.
+
+1. Agent Identity & Scope Roster — built locally with schema, renderer, synthetic example, rendered Markdown, and launcher links.
+2. AI Use Clarity Micro-Policy Card — built locally with schema, renderer, synthetic example, rendered Markdown, and launcher links.
+3. Adaptation Debt Ledger — built locally with schema, renderer, synthetic example, rendered Markdown, and launcher links.
+4. Visible Thinking Repair Ticket — built locally with schema, renderer, synthetic example, rendered Markdown, and launcher links.
+5. Platformized News Diet Receipt — built locally with schema, renderer, synthetic example, rendered Markdown, and launcher links.
 
 ## Jordan-approved next expansion order — 2026-06-11
 

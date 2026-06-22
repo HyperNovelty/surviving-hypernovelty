@@ -1,0 +1,92 @@
+{
+  "title": "Seven-day community news source-chain sample",
+  "owner": "Civic media facilitator",
+  "purpose": "Help a person or group see how much news reached them through platforms, creators, or AI intermediaries before they act on it.",
+  "review_cadence": "Weekly reflection or before a civic/media-literacy discussion.",
+  "status": "PRIVATE REFLECTION AID",
+  "source_chain_items": [
+    {
+      "item": "Local school AI policy change",
+      "channel": "short_video_clip",
+      "original_source_checked": "partly",
+      "intermediary": "Creator commentary",
+      "confidence": "medium",
+      "missing_context": "Need direct district page and date"
+    },
+    {
+      "item": "Election-administration rumor",
+      "channel": "group_chat_screenshot",
+      "original_source_checked": "no",
+      "intermediary": "Unknown repost chain",
+      "confidence": "low",
+      "missing_context": "Need official county source"
+    },
+    {
+      "item": "Climate-insurance premium story",
+      "channel": "news_app_article",
+      "original_source_checked": "yes",
+      "intermediary": "Publisher app",
+      "confidence": "higher",
+      "missing_context": "Need state-specific data"
+    }
+  ],
+  "reflection_prompts": [
+    "Which item changed what you believed or planned to do?",
+    "Did you check the original source before sharing?",
+    "Which source chain would you want a student/family member to understand better?"
+  ],
+  "sections": [
+    {
+      "heading": "Source-chain receipt",
+      "headers": [
+        "Item",
+        "Channel",
+        "Original source checked?",
+        "Intermediary",
+        "Confidence",
+        "Missing context"
+      ],
+      "rows": [
+        [
+          "Local school AI policy change",
+          "Short video clip",
+          "Partly",
+          "Creator commentary",
+          "Medium",
+          "Need direct district page and date"
+        ],
+        [
+          "Election-administration rumor",
+          "Group chat screenshot",
+          "No",
+          "Unknown repost chain",
+          "Low",
+          "Need official county source"
+        ],
+        [
+          "Climate-insurance premium story",
+          "News app article",
+          "Yes",
+          "Publisher app",
+          "Higher",
+          "Need state-specific data"
+        ]
+      ]
+    },
+    {
+      "heading": "Reflection prompts",
+      "items": [
+        "Which item changed what you believed or planned to do?",
+        "Did you check the original source before sharing?",
+        "Which source chain would you want a student/family member to understand better?"
+      ]
+    }
+  ],
+  "review_flags": [
+    "Privacy-sensitive; do not require sharing browsing history",
+    "No objectivity or balanced-diet claim",
+    "Labels are not fact checks"
+  ],
+  "boundary_note": "Private reflection/review aid only. Do not collect personal browsing history or use this as surveillance.",
+  "notes": "Synthetic example tied to Source Confidence Ledger and media-trust work."
+}
