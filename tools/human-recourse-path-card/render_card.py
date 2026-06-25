@@ -58,6 +58,16 @@ def risk_status(data):
 def render(data):
     errors = validate(data)
     recourse = data.get('recourse_path', {}) if isinstance(data.get('recourse_path', {}), dict) else {}
+    verification = data.get('verification_context', {}) if isinstance(data.get('verification_context', {}), dict) else {}
+    verification_section = ''
+    if verification:
+        verification_section = f"""
+## Verification context
+- Claimed authority: {verification.get('claimed_authority', 'Not specified')}
+- Source of truth: {verification.get('source_of_truth', 'Not specified')}
+- Evidence to preserve before action:
+{bullets(verification.get('evidence_to_preserve_before_action', []))}
+"""
     trigger_blocks = []
     for idx, item in enumerate(data.get('human_review_triggers', []), 1):
         trigger_blocks.append(f"""### Trigger {idx}: {item.get('trigger', 'Untitled trigger')}
@@ -74,7 +84,7 @@ def render(data):
 
 ## AI role
 {data.get('ai_role', 'Not specified')}
-
+{verification_section}
 ## The AI/tool does not decide
 {bullets(data.get('not_ai_decisions', []))}
 

@@ -11,6 +11,16 @@
 - Extend agent visibility tools with a maintained Agent Identity & Scope Roster for non-human identities, owners, logs, expiry dates, and public/spend/secrets gates.
 - Extend agent visibility tools with a Non-Human Identity Review Receipt for periodic renew/pause/revoke decisions backed by permission evidence, log evidence, unresolved gaps, and expiry dates — built locally.
 
+## Research-scan priority — 2026-06-25 Exa rerun
+
+Source: local 2026-06-25 Exa research rerun artifact, approved by Jordan in Telegram. Raw research-run logs stay local-only; this backlog records the public-safe build decision.
+
+1. Scam Attention Receipt — built locally with schema, renderer, synthetic example, rendered Markdown, README, and validation.
+2. Shared Device Risk Ledger — not yet approved/built in this batch.
+3. Body Policy Interface Map — not yet approved/built in this batch.
+4. Verification Literacy Mini-Lab: Scam Edition — built locally with schema, renderer, synthetic example, rendered Markdown, README, and validation.
+5. AI Recourse Path Card v2 — built locally as a scam-contact extension/example for the existing Human Recourse Path Card.
+
 ## Research-scan priority — 2026-06-22
 
 Source: `_research_runs/2026-06-22T150154Z_tool_idea_scan.md`.

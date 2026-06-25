@@ -120,6 +120,12 @@ Jordan approved the 2026-06-18 expansion order:
 4. Visible Thinking Repair Ticket — built locally.
 5. Platformized News Diet Receipt — built locally.
 
+Current 2026-06-25 Exa rerun approval from Jordan:
+
+1. Scam Attention Receipt — built locally with schema, renderer, synthetic three-contact example, rendered Markdown, README, and validation.
+2. Verification Literacy Mini-Lab: Scam Edition — built locally with schema, renderer, synthetic 20–30 minute lab example, rendered Markdown, README, and validation.
+3. AI Recourse Path Card v2 — built locally as a scam-contact example and optional verification-context extension to the existing Human Recourse Path Card.
+
 Current 2026-06-22 research-scan extension started from the newest approved build priority:
 
 1. Non-Human Identity Review Receipt — built locally as an extension of the Agent Identity & Scope Roster with schema, renderer, synthetic quarterly example, and rendered Markdown.

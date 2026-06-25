@@ -79,6 +79,24 @@ TOOL_DEMOS = [
         "description": "Makes the human review, appeal, repair, and fallback path visible when an AI-supported service answer is confusing, wrong, incomplete, or consequential.",
     },
     {
+        "name": "Scam Attention Receipt",
+        "tool": "tools/scam-attention-receipt/render_receipt.py",
+        "example": "examples/media/scam_attention_receipt_example.json",
+        "description": "Turns suspicious calls, texts, and emails into a calm verification receipt before anyone clicks, pays, shares codes, or replies under pressure.",
+    },
+    {
+        "name": "Verification Literacy Mini-Lab: Scam Edition",
+        "tool": "tools/verification-literacy-mini-lab/render_lab.py",
+        "example": "examples/education/verification_literacy_scam_lab_example.json",
+        "description": "A 20–30 minute synthetic scam-message lab for practicing source-chain checks and confidence before/after verification.",
+    },
+    {
+        "name": "Human Recourse Path Card v2 — Scam Contact Example",
+        "tool": "tools/human-recourse-path-card/render_card.py",
+        "example": "examples/media/human_recourse_scam_contact_example.json",
+        "description": "Extends the recourse path primitive with claimed authority, source-of-truth, evidence preservation, and safe escalation for scam-contact pressure.",
+    },
+    {
         "name": "Agent Toolchain Exposure Map",
         "tool": "tools/agent-toolchain-exposure-map/render_map.py",
         "example": "examples/team/agent_toolchain_exposure_map_example.json",

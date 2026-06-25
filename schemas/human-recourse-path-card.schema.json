@@ -90,6 +90,17 @@
         "type": "string"
       }
     },
+    "verification_context": {
+      "type": "object",
+      "properties": {
+        "claimed_authority": {"type": "string"},
+        "source_of_truth": {"type": "string"},
+        "evidence_to_preserve_before_action": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
     "repair_commitments": {
       "type": "array",
       "minItems": 1,

@@ -1,0 +1,57 @@
+{
+  "receipt_name": "Three suspicious contacts in one afternoon",
+  "scenario": "A person receives a bank text, a package-delivery SMS, and a boss-style gift-card email while trying to work.",
+  "review_owner": "Individual or household account owner",
+  "last_reviewed": "2026-06-25",
+  "status": "ready_for_personal_use",
+  "contact_events": [
+    {
+      "channel": "SMS",
+      "claimed_sender": "Bank fraud department",
+      "requested_action": "Tap a link and enter login details to stop a suspicious transfer.",
+      "pressure_tactic": "Account-locked urgency and fear of losing money.",
+      "risk_if_true": "A real account issue could need prompt attention through the bank's official channel.",
+      "risk_if_fake": "Login details, one-time codes, or payment information could be stolen.",
+      "source_of_truth": "Known bank app, card-back phone number, or official website typed manually.",
+      "notes": "Do not use the SMS link or reply thread."
+    },
+    {
+      "channel": "SMS",
+      "claimed_sender": "Package delivery company",
+      "requested_action": "Pay a small redelivery fee through a shortened link.",
+      "pressure_tactic": "Small fee plus delivery deadline.",
+      "risk_if_true": "A real delivery may need rescheduling through the carrier account.",
+      "risk_if_fake": "Card information and address details could be captured.",
+      "source_of_truth": "Carrier app, merchant order page, or tracking number typed into the official carrier site.",
+      "notes": "Check whether a package is actually expected."
+    },
+    {
+      "channel": "Email",
+      "claimed_sender": "Manager",
+      "requested_action": "Buy gift cards quickly and send photos of the codes.",
+      "pressure_tactic": "Authority, secrecy, and hurry.",
+      "risk_if_true": "A real manager request should still follow purchasing rules.",
+      "risk_if_fake": "Gift-card codes are effectively cash and usually cannot be recovered.",
+      "source_of_truth": "Known internal chat, direct call to the manager, or finance/purchasing policy.",
+      "notes": "Never send gift-card codes by email."
+    }
+  ],
+  "verification_route": [
+    "Pause before responding; screenshot or save the message without clicking its links.",
+    "Use a known-good route: official app, bookmarked site, card-back number, internal directory, or in-person confirmation.",
+    "Check whether the requested action matches normal policy or past behavior.",
+    "If money, login, identity, codes, downloads, or secrecy are involved, escalate to the relevant owner before acting."
+  ],
+  "do_not_do": [
+    "Do not click links in the suspicious message.",
+    "Do not share one-time codes, passwords, gift-card codes, identity numbers, or payment details.",
+    "Do not call phone numbers supplied only inside the suspicious message.",
+    "Do not let urgency substitute for a known source of truth."
+  ],
+  "safe_next_step": "Verify the highest-risk message first through a known-good route, then block/report/delete only after preserving any evidence needed for the account owner or workplace process.",
+  "boundary_notes": [
+    "Synthetic example only; do not paste real scam messages containing private information into public tools.",
+    "This is not legal, banking, cybersecurity, or identity-theft recovery advice.",
+    "Emergency threats, financial loss, account compromise, and identity exposure require official reporting routes."
+  ]
+}

@@ -26,6 +26,9 @@ This repo is a local-first starter-kit candidate: small tools, templates, schema
 18. **Platformized News Diet Receipt** — track news source chains across platforms, creators, AI summaries, and direct sources.
 19. **Non-Human Identity Review Receipt** — periodically renew, pause, revoke, or escalate non-human identities with permission evidence, log evidence, gates, and expiry dates.
 20. **Human Recourse Path Card** — make the human review, appeal, repair, and fallback path visible when an AI-supported service gives a confusing, wrong, incomplete, or consequential answer.
+21. **Scam Attention Receipt** — turn suspicious calls, texts, emails, DMs, ads, or social messages into a calm verification receipt before anyone clicks, pays, shares codes, or replies under pressure.
+22. **Verification Literacy Mini-Lab: Scam Edition** — a 20–30 minute synthetic-message lab for practicing source-chain checks and confidence before/after verification.
+23. **Human Recourse Path Card v2 — scam-contact example** — extends the recourse path primitive with claimed authority, source-of-truth, evidence preservation, and safe escalation for scam pressure.
 
 ## Repo principles
 
@@ -51,6 +54,9 @@ python3 tools/non-human-identity-review-receipt/render_receipt.py examples/team/
 python3 tools/human-recourse-path-card/render_card.py examples/education/human_recourse_student_financial_aid_example.json
 python3 tools/human-recourse-path-card/render_card.py examples/team/human_recourse_healthcare_scheduling_example.json
 python3 tools/human-recourse-path-card/render_card.py examples/team/human_recourse_hr_benefits_example.json
+python3 tools/scam-attention-receipt/render_receipt.py examples/media/scam_attention_receipt_example.json
+python3 tools/verification-literacy-mini-lab/render_lab.py examples/education/verification_literacy_scam_lab_example.json
+python3 tools/human-recourse-path-card/render_card.py examples/media/human_recourse_scam_contact_example.json
 python3 tools/agent-toolchain-exposure-map/render_map.py examples/team/agent_toolchain_exposure_map_example.json
 python3 tools/assessment-evidence-packet-lite/render_packet.py examples/education/assessment_evidence_packet_lite_example.json
 python3 tools/answer-layer-citation-readiness-card/render_card.py examples/publishing/answer_layer_citation_readiness_example.json
