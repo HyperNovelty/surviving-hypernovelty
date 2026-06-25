@@ -16,7 +16,7 @@
 Source: `_research_runs/2026-06-22T150154Z_tool_idea_scan.md`.
 
 1. Non-Human Identity Review Receipt — built locally with schema, renderer, synthetic quarterly example, rendered Markdown, README, and validation.
-2. Human Recourse Path Card.
+2. Human Recourse Path Card — built locally with schema, renderer, synthetic student financial-aid / healthcare scheduling / HR benefits examples, rendered Markdown, README, and validation.
 3. AI Coordinator Starter Binder.
 4. Shadow AI Disclosure Ladder.
 5. Verification Literacy Mini-Lab.

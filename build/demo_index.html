@@ -114,6 +114,14 @@
         <pre>python3 tools/non-human-identity-review-receipt/render_receipt.py examples/team/non_human_identity_review_receipt_example.json</pre>
       </section>
       <section class="card">
+        <h2>Human Recourse Path Card</h2>
+        <p>Makes the human review, appeal, repair, and fallback path visible when an AI-supported service answer is confusing, wrong, incomplete, or consequential.</p>
+        <p><b>Example:</b> <a href="../examples/education/human_recourse_student_financial_aid_example.json">examples/education/human_recourse_student_financial_aid_example.json</a></p>
+        <p><b>Example summary:</b> A college financial-aid chatbot explains deadlines, document status, and next steps for students. It must not decide eligibility, denial, aid amount,...</p>
+        <p><b>Tool:</b> <a href="../tools/human-recourse-path-card/render_card.py">tools/human-recourse-path-card/render_card.py</a></p>
+        <pre>python3 tools/human-recourse-path-card/render_card.py examples/education/human_recourse_student_financial_aid_example.json</pre>
+      </section>
+      <section class="card">
         <h2>Agent Toolchain Exposure Map</h2>
         <p>Maps agent/tool workflows across identities, data touched, outputs, and checkpoints.</p>
         <p><b>Example:</b> <a href="../examples/team/agent_toolchain_exposure_map_example.json">examples/team/agent_toolchain_exposure_map_example.json</a></p>
@@ -168,6 +176,7 @@
           <li><a href="../examples/education/ai_use_clarity_micro_policy_card_example.json">examples/education/ai_use_clarity_micro_policy_card_example.json</a> - Make one assignment-level AI-use boundary clear before learners start work.</li>
           <li><a href="../examples/education/assessment_evidence_packet_lite_example.json">examples/education/assessment_evidence_packet_lite_example.json</a> - Synthetic example fixture.</li>
           <li><a href="../examples/education/human_premium_student_support_example.json">examples/education/human_premium_student_support_example.json</a> - 5 surface steps</li>
+          <li><a href="../examples/education/human_recourse_student_financial_aid_example.json">examples/education/human_recourse_student_financial_aid_example.json</a> - A college financial-aid chatbot explains deadlines, document status, and next steps for students. It must not decide eligibility, denial, aid amount,...</li>
           <li><a href="../examples/education/visible_thinking_repair_ticket_example.json">examples/education/visible_thinking_repair_ticket_example.json</a> - Give a learner a low-conflict repair path when submitted work lacks enough visible thinking evidence.</li>
           <li><a href="../examples/individual/change_triage_example.json">examples/individual/change_triage_example.json</a> - solo operator weekly change triage</li>
           <li><a href="../examples/individual/novelty_load_example.json">examples/individual/novelty_load_example.json</a> - individual navigating AI/work/education change</li>
@@ -182,6 +191,8 @@
           <li><a href="../examples/team/agent_toolchain_exposure_map_example.json">examples/team/agent_toolchain_exposure_map_example.json</a> - Draft internal knowledge-base updates from approved meeting notes and route them to a human editor before publication.</li>
           <li><a href="../examples/team/human_premium_healthcare_front_desk_example.json">examples/team/human_premium_healthcare_front_desk_example.json</a> - 4 surface steps</li>
           <li><a href="../examples/team/human_premium_trust_surface_example.json">examples/team/human_premium_trust_surface_example.json</a> - 4 surface steps</li>
+          <li><a href="../examples/team/human_recourse_healthcare_scheduling_example.json">examples/team/human_recourse_healthcare_scheduling_example.json</a> - A healthcare scheduling assistant helps patients find appointment options, preparation instructions, and routine follow-up routes. It must not triage...</li>
+          <li><a href="../examples/team/human_recourse_hr_benefits_example.json">examples/team/human_recourse_hr_benefits_example.json</a> - An HR benefits assistant explains open enrollment windows, plan documents, and routine routing. It must not decide eligibility, discipline, leave app...</li>
           <li><a href="../examples/team/non_human_identity_review_receipt_example.json">examples/team/non_human_identity_review_receipt_example.json</a> - Synthetic example fixture.</li>
     </ul>
   </main>

@@ -73,6 +73,12 @@ TOOL_DEMOS = [
         "description": "Reviews non-human identities for renewal, pause, revoke, or escalation using permission evidence, log evidence, gates, gaps, and expiry dates.",
     },
     {
+        "name": "Human Recourse Path Card",
+        "tool": "tools/human-recourse-path-card/render_card.py",
+        "example": "examples/education/human_recourse_student_financial_aid_example.json",
+        "description": "Makes the human review, appeal, repair, and fallback path visible when an AI-supported service answer is confusing, wrong, incomplete, or consequential.",
+    },
+    {
         "name": "Agent Toolchain Exposure Map",
         "tool": "tools/agent-toolchain-exposure-map/render_map.py",
         "example": "examples/team/agent_toolchain_exposure_map_example.json",

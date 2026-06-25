@@ -123,6 +123,7 @@ Jordan approved the 2026-06-18 expansion order:
 Current 2026-06-22 research-scan extension started from the newest approved build priority:
 
 1. Non-Human Identity Review Receipt — built locally as an extension of the Agent Identity & Scope Roster with schema, renderer, synthetic quarterly example, and rendered Markdown.
+2. Human Recourse Path Card — built locally as a Human Premium extension with schema, renderer, synthetic student financial-aid / healthcare scheduling / HR benefits examples, and rendered Markdown.
 
 Previous 2026-06-11 expansion order remains mostly built: Agent Toolchain Exposure Map, Assessment Evidence Packet Lite, Answer-Layer Citation Readiness Card, Policy Freshness Diff Card, and Human Premium Trust Surface Card.
 

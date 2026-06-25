@@ -1,0 +1,52 @@
+{
+  "card_name": "Healthcare scheduling assistant recourse path",
+  "service_context": "A healthcare scheduling assistant helps patients find appointment options, preparation instructions, and routine follow-up routes. It must not triage urgent symptoms, make clinical decisions, deny access, or promise costs/outcomes.",
+  "review_owner": "Clinic operations lead with clinician and privacy/compliance owner review",
+  "last_reviewed": "2026-06-25",
+  "ai_role": "Collect routine scheduling preferences, offer approved appointment instructions, and prepare private staff notes for human review when a patient needs escalation or accommodation.",
+  "not_ai_decisions": [
+    "Medical urgency, diagnosis, treatment, medication, cost promise, eligibility, refusal of care, or privacy/safety escalation decision.",
+    "Whether a patient should delay urgent or emergency care."
+  ],
+  "human_review_triggers": [
+    {
+      "trigger": "Patient describes urgent, worsening, safety-related, or confusing symptoms.",
+      "human_owner": "Nurse/clinician escalation owner",
+      "why": "The assistant cannot assess urgency or clinical risk."
+    },
+    {
+      "trigger": "Patient cannot access a needed appointment, interpreter, disability accommodation, transport option, or caregiver support through the automated path.",
+      "human_owner": "Care-navigation or front-desk lead",
+      "why": "Access barriers require accountable human repair."
+    },
+    {
+      "trigger": "Patient disputes a scheduling instruction, cost-related message, privacy issue, or cancellation/no-show consequence.",
+      "human_owner": "Clinic operations lead or privacy/compliance owner",
+      "why": "The case may affect trust, privacy, money, or care continuity."
+    }
+  ],
+  "recourse_path": {
+    "visible_label": "Need a person to review this scheduling answer?",
+    "contact_route": "Call the clinic front desk or use the secure patient portal message category 'Scheduling answer review'.",
+    "appeal_or_review_step": "A staff member checks the scheduling record and routes clinical, privacy, access, or cost questions to the right human owner.",
+    "fallback_if_no_response": "If symptoms may be urgent, use the clinic's approved urgent-care instructions or emergency guidance; otherwise ask for the operations lead callback queue."
+  },
+  "evidence_to_include": [
+    "Date/time of assistant interaction and copied answer if available.",
+    "Appointment type requested and any appointment/case reference number.",
+    "What part of the answer seems unsafe, inaccessible, conflicting, or incorrect.",
+    "Do not paste sensitive medical details beyond what the approved clinic channel requests."
+  ],
+  "repair_commitments": [
+    "Provide a visible human fallback in every scheduling path.",
+    "Review disputed access/cancellation/cost messages before applying consequences.",
+    "Update approved scripts when recurring confusion appears."
+  ],
+  "response_time_expectation": "Synthetic example: same business day for access, cancellation, or confusing-care-route issues; routine questions by next business day. Real timelines require clinic approval.",
+  "status": "do_not_use_until_reviewed",
+  "boundary_notes": [
+    "Review aid only; not medical, legal, privacy/compliance, insurance, or emergency advice.",
+    "Use synthetic/demo data only in repo examples.",
+    "Actual urgent-care language and escalation authority require clinician and privacy/compliance approval."
+  ]
+}

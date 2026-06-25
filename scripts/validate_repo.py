@@ -15,6 +15,7 @@ required = [
  'tools/agent-permission-receipt-card/render_receipt.py',
  'tools/agent-identity-scope-roster/render_roster.py',
  'tools/non-human-identity-review-receipt/render_receipt.py',
+ 'tools/human-recourse-path-card/render_card.py',
  'tools/agent-toolchain-exposure-map/render_map.py',
  'tools/answer-layer-citation-readiness-card/render_card.py',
  'tools/assessment-evidence-packet-lite/render_packet.py',
@@ -32,12 +33,16 @@ required = [
  'schemas/agent-toolchain-exposure-map.schema.json',
  'schemas/agent-identity-scope-roster.schema.json',
  'schemas/non-human-identity-review-receipt.schema.json',
+ 'schemas/human-recourse-path-card.schema.json',
  'schemas/assessment-evidence-packet-lite.schema.json',
  'schemas/human-premium-trust-surface.schema.json',
  'schemas/policy-freshness-diff-card.schema.json',
  'examples/team/agent_toolchain_exposure_map_example.json',
  'examples/team/agent_identity_scope_roster_example.json',
  'examples/team/non_human_identity_review_receipt_example.json',
+ 'examples/education/human_recourse_student_financial_aid_example.json',
+ 'examples/team/human_recourse_healthcare_scheduling_example.json',
+ 'examples/team/human_recourse_hr_benefits_example.json',
  'examples/education/assessment_evidence_packet_lite_example.json',
  'examples/team/human_premium_trust_surface_example.json',
  'examples/team/human_premium_healthcare_front_desk_example.json',
@@ -48,6 +53,9 @@ required = [
  'docs/rendered/policy_freshness_diff_card_example.md',
  'docs/rendered/agent_identity_scope_roster_example.md',
  'docs/rendered/non_human_identity_review_receipt_example.md',
+ 'docs/rendered/human_recourse_student_financial_aid_example.md',
+ 'docs/rendered/human_recourse_healthcare_scheduling_example.md',
+ 'docs/rendered/human_recourse_hr_benefits_example.md',
  'tools/ai-use-clarity-micro-policy-card/render_card.py',
  'schemas/ai-use-clarity-micro-policy-card.schema.json',
  'examples/education/ai_use_clarity_micro_policy_card_example.json',
@@ -84,6 +92,9 @@ commands = [
  ['python3','tools/agent-permission-receipt-card/render_receipt.py','examples/team/agent_permission_receipt_example.json'],
  ['python3','tools/agent-identity-scope-roster/render_roster.py','examples/team/agent_identity_scope_roster_example.json'],
  ['python3','tools/non-human-identity-review-receipt/render_receipt.py','examples/team/non_human_identity_review_receipt_example.json'],
+ ['python3','tools/human-recourse-path-card/render_card.py','examples/education/human_recourse_student_financial_aid_example.json'],
+ ['python3','tools/human-recourse-path-card/render_card.py','examples/team/human_recourse_healthcare_scheduling_example.json'],
+ ['python3','tools/human-recourse-path-card/render_card.py','examples/team/human_recourse_hr_benefits_example.json'],
  ['python3','tools/agent-toolchain-exposure-map/render_map.py','examples/team/agent_toolchain_exposure_map_example.json'],
  ['python3','tools/answer-layer-citation-readiness-card/render_card.py','examples/publishing/answer_layer_citation_readiness_example.json'],
  ['python3','tools/answer-layer-citation-readiness-card/render_card.py','examples/publishing/publisher_page_receipt_example.json'],
@@ -238,6 +249,9 @@ if 'Agent Identity & Scope Roster' not in rendered_roster or 'Visibility and rev
 
 queued_specs = [
     ('schemas/non-human-identity-review-receipt.schema.json', 'examples/team/non_human_identity_review_receipt_example.json', 'docs/rendered/non_human_identity_review_receipt_example.md', 'Non-Human Identity Review Receipt', ['python3','tools/non-human-identity-review-receipt/render_receipt.py','examples/team/non_human_identity_review_receipt_example.json']),
+    ('schemas/human-recourse-path-card.schema.json', 'examples/education/human_recourse_student_financial_aid_example.json', 'docs/rendered/human_recourse_student_financial_aid_example.md', 'Human Recourse Path Card', ['python3','tools/human-recourse-path-card/render_card.py','examples/education/human_recourse_student_financial_aid_example.json']),
+    ('schemas/human-recourse-path-card.schema.json', 'examples/team/human_recourse_healthcare_scheduling_example.json', 'docs/rendered/human_recourse_healthcare_scheduling_example.md', 'Human Recourse Path Card', ['python3','tools/human-recourse-path-card/render_card.py','examples/team/human_recourse_healthcare_scheduling_example.json']),
+    ('schemas/human-recourse-path-card.schema.json', 'examples/team/human_recourse_hr_benefits_example.json', 'docs/rendered/human_recourse_hr_benefits_example.md', 'Human Recourse Path Card', ['python3','tools/human-recourse-path-card/render_card.py','examples/team/human_recourse_hr_benefits_example.json']),
     ('schemas/ai-use-clarity-micro-policy-card.schema.json', 'examples/education/ai_use_clarity_micro_policy_card_example.json', 'docs/rendered/ai_use_clarity_micro_policy_card_example.md', 'AI Use Clarity Micro-Policy Card', ['python3','tools/ai-use-clarity-micro-policy-card/render_card.py','examples/education/ai_use_clarity_micro_policy_card_example.json']),
     ('schemas/adaptation-debt-ledger.schema.json', 'examples/institution/adaptation_debt_ledger_example.json', 'docs/rendered/adaptation_debt_ledger_example.md', 'Adaptation Debt Ledger', ['python3','tools/adaptation-debt-ledger/render_ledger.py','examples/institution/adaptation_debt_ledger_example.json']),
     ('schemas/visible-thinking-repair-ticket.schema.json', 'examples/education/visible_thinking_repair_ticket_example.json', 'docs/rendered/visible_thinking_repair_ticket_example.md', 'Visible Thinking Repair Ticket', ['python3','tools/visible-thinking-repair-ticket/render_ticket.py','examples/education/visible_thinking_repair_ticket_example.json']),
@@ -368,7 +382,7 @@ if errors:
 print('validation=ok')
 print('checked_files=', len(required))
 print('checked_commands=', len(commands))
-print('schema_checks= 16')
+print('schema_checks= 17')
 
 form_files = [
     'forms/agent-identity-scope-roster.html',

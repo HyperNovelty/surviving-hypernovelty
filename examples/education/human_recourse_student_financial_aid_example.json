@@ -1,0 +1,52 @@
+{
+  "card_name": "Student financial-aid chatbot recourse path",
+  "service_context": "A college financial-aid chatbot explains deadlines, document status, and next steps for students. It must not decide eligibility, denial, aid amount, dependency overrides, satisfactory academic progress appeals, or emergency support.",
+  "review_owner": "Financial aid operations lead with student-services review",
+  "last_reviewed": "2026-06-25",
+  "ai_role": "Answer routine questions from approved aid-office guidance, help students find forms, summarize missing-document checklists, and route complex or consequential cases to a named human team.",
+  "not_ai_decisions": [
+    "Aid eligibility, award amount, denial, repayment, satisfactory academic progress status, dependency override, emergency grant, or disciplinary/student-record consequence.",
+    "Whether a student should stop attending, drop a course, take debt, or ignore an official notice."
+  ],
+  "human_review_triggers": [
+    {
+      "trigger": "The student says the answer would affect enrollment, housing, food, debt, eligibility, or ability to stay in school.",
+      "human_owner": "Financial aid counselor or student emergency support lead",
+      "why": "The consequence is material and may require context, discretion, or emergency routing."
+    },
+    {
+      "trigger": "The chatbot gives conflicting deadlines, missing-document statuses, or denial reasons.",
+      "human_owner": "Financial aid operations lead",
+      "why": "Records and policy interpretation must be reconciled before the student acts."
+    },
+    {
+      "trigger": "The student asks for appeal, exception, dependency override, disability-related accommodation, or hardship review.",
+      "human_owner": "Authorized aid-office reviewer with student-services support",
+      "why": "The AI cannot grant exceptions or evaluate protected/sensitive circumstances."
+    }
+  ],
+  "recourse_path": {
+    "visible_label": "Need a human review of this financial-aid answer?",
+    "contact_route": "Use the aid-office secure message form or visit the student-services desk; include the chatbot answer and date.",
+    "appeal_or_review_step": "A human counselor reviews the issue, identifies the governing policy/process, and tells the student the official appeal or correction path if one exists.",
+    "fallback_if_no_response": "If no response arrives by the stated window, contact the student-services escalation desk or the aid-office supervisor."
+  },
+  "evidence_to_include": [
+    "Screenshot or copied text of the chatbot answer with date/time.",
+    "Student ID or case/reference number if appropriate; do not include passwords or unnecessary private details.",
+    "The official notice, form, or deadline that conflicts with the answer.",
+    "What decision or deadline the student is worried about."
+  ],
+  "repair_commitments": [
+    "Correct or withdraw misleading chatbot guidance after owner review.",
+    "Route time-sensitive hardship or enrollment-impact cases to a human before a deadline when possible.",
+    "Log recurring confusion as a policy/content update candidate."
+  ],
+  "response_time_expectation": "Synthetic example: one business day for deadline/eligibility-impact issues; three business days for routine explanation questions. Real timelines require owner approval.",
+  "status": "needs_owner_review",
+  "boundary_notes": [
+    "Review aid only; not legal, financial, counseling, academic, or institutional policy advice.",
+    "Do not store real student records, aid documents, or private hardship details in this repo example.",
+    "Actual appeal rights, response times, and authority must be approved by the institution."
+  ]
+}
