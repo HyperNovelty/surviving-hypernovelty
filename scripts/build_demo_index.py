@@ -97,6 +97,12 @@ TOOL_DEMOS = [
         "description": "Extends the recourse path primitive with claimed authority, source-of-truth, evidence preservation, and safe escalation for scam-contact pressure.",
     },
     {
+        "name": "Provenance Breakage Receipt",
+        "tool": "tools/provenance-breakage-receipt/render_receipt.py",
+        "example": "examples/media/provenance_breakage_receipt_example.json",
+        "description": "Tracks where provenance or content-credential signals survive, transform, disappear, or become unverifiable across exports, reposts, screenshots, and reuse.",
+    },
+    {
         "name": "Agent Toolchain Exposure Map",
         "tool": "tools/agent-toolchain-exposure-map/render_map.py",
         "example": "examples/team/agent_toolchain_exposure_map_example.json",

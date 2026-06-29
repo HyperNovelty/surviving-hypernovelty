@@ -126,6 +126,10 @@ Current 2026-06-25 Exa rerun approval from Jordan:
 2. Verification Literacy Mini-Lab: Scam Edition — built locally with schema, renderer, synthetic 20–30 minute lab example, rendered Markdown, README, and validation.
 3. AI Recourse Path Card v2 — built locally as a scam-contact example and optional verification-context extension to the existing Human Recourse Path Card.
 
+Current 2026-06-29 research-scan extension started from the newest suggested build priority:
+
+1. Provenance Breakage Receipt — built locally as a media/provenance extension with schema, renderer, synthetic newsroom/classroom example, rendered Markdown, README, demo-index entry, and validation.
+
 Current 2026-06-22 research-scan extension started from the newest approved build priority:
 
 1. Non-Human Identity Review Receipt — built locally as an extension of the Agent Identity & Scope Roster with schema, renderer, synthetic quarterly example, and rendered Markdown.

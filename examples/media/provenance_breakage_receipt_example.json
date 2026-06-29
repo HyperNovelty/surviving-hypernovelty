@@ -1,0 +1,71 @@
+{
+  "receipt_name": "Synthetic newsroom image provenance chain",
+  "scenario": "A local newsroom receives a synthetic example image with a checked credential, then tracks what happens as the image is resized for a CMS, reposted to a social platform, screenshotted into a group chat, and reused in a classroom slide.",
+  "review_owner": "Audience-trust editor",
+  "review_date": "2026-06-29",
+  "original_item": {
+    "description": "Synthetic storm-shelter photo supplied directly by a staff photographer for media-literacy practice.",
+    "source_or_holder": "Newsroom asset folder; synthetic file only; no real person or event depicted.",
+    "credential_check": "Credential inspected in the newsroom asset tool before export; signer and timestamp recorded in local notes, not reproduced here.",
+    "credential_result": "present_and_checked"
+  },
+  "chain_steps": [
+    {
+      "step": "1",
+      "location_or_tool": "Original newsroom asset folder",
+      "transformation": "No export yet; first trusted copy retained.",
+      "credential_status": "present_and_checked",
+      "what_broke_or_changed": "Nothing observed at this step.",
+      "review_note": "Credential supports chain-of-custody for the file copy, not whether the caption is complete or whether the scene represents a broader trend."
+    },
+    {
+      "step": "2",
+      "location_or_tool": "CMS image resize/export",
+      "transformation": "Image resized and compressed for article layout.",
+      "credential_status": "transformed",
+      "what_broke_or_changed": "Credential indicator remains visible in the asset system but export metadata is reduced.",
+      "review_note": "Keep the original asset link and caption notes with the story package."
+    },
+    {
+      "step": "3",
+      "location_or_tool": "Social platform repost",
+      "transformation": "Article image preview is copied into a platform card.",
+      "credential_status": "unknown",
+      "what_broke_or_changed": "Platform preview does not show the newsroom credential state to ordinary viewers.",
+      "review_note": "Viewer should follow back to the publisher page and asset note rather than relying on the preview."
+    },
+    {
+      "step": "4",
+      "location_or_tool": "Group chat screenshot",
+      "transformation": "A reader screenshots the social post and shares it in a private chat.",
+      "credential_status": "stripped",
+      "what_broke_or_changed": "Screenshot has no usable file provenance from the original image.",
+      "review_note": "Treat screenshot as a pointer to investigate, not as a verified copy."
+    },
+    {
+      "step": "5",
+      "location_or_tool": "Classroom slide deck",
+      "transformation": "Teacher pastes the screenshot beside a discussion question.",
+      "credential_status": "missing",
+      "what_broke_or_changed": "Students see a static image without original credential context unless the teacher adds the source-chain note.",
+      "review_note": "Slide should include the publisher link, original credential note, and explicit caveat that provenance is not truth."
+    }
+  ],
+  "alternate_corroboration": [
+    "Compare the classroom screenshot against the publisher page and original synthetic asset note.",
+    "Check whether the caption, date, and location were preserved across each reuse.",
+    "Ask a human editor or teacher to decide whether the slide needs a separate context note before use."
+  ],
+  "confidence_after_review": "medium",
+  "do_not_claim": [
+    "Do not claim the credential proves the depicted event happened as captioned.",
+    "Do not claim the screenshot is fake just because credentials were stripped.",
+    "Do not use this synthetic example as evidence about real storms, shelters, platforms, or credential tool performance."
+  ],
+  "next_review_step": "Attach this receipt to the media-literacy lesson and keep the original synthetic asset separate from screenshots or exported copies.",
+  "boundary_notes": [
+    "Synthetic example only; no live political, emergency, medical, legal, or real-person claim is evaluated.",
+    "Local review aid only; no network call, account action, public posting, or forensic claim is made.",
+    "Credential survival is only one trust signal; context and source corroboration still require human review."
+  ]
+}

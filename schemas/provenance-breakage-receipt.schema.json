@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "required": [
+    "receipt_name",
+    "scenario",
+    "review_owner",
+    "review_date",
+    "original_item",
+    "chain_steps",
+    "alternate_corroboration",
+    "confidence_after_review",
+    "do_not_claim",
+    "next_review_step",
+    "boundary_notes"
+  ],
+  "properties": {
+    "receipt_name": {"type": "string"},
+    "scenario": {"type": "string"},
+    "review_owner": {"type": "string"},
+    "review_date": {"type": "string"},
+    "original_item": {
+      "type": "object",
+      "required": ["description", "source_or_holder", "credential_check", "credential_result"],
+      "properties": {
+        "description": {"type": "string"},
+        "source_or_holder": {"type": "string"},
+        "credential_check": {"type": "string"},
+        "credential_result": {
+          "type": "string",
+          "enum": ["present_and_checked", "present_not_checked", "missing", "stripped", "transformed", "unknown", "not_applicable"]
+        }
+      }
+    },
+    "chain_steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["step", "location_or_tool", "transformation", "credential_status", "what_broke_or_changed", "review_note"],
+        "properties": {
+          "step": {"type": "string"},
+          "location_or_tool": {"type": "string"},
+          "transformation": {"type": "string"},
+          "credential_status": {
+            "type": "string",
+            "enum": ["present_and_checked", "present_not_checked", "missing", "stripped", "transformed", "unknown", "not_applicable"]
+          },
+          "what_broke_or_changed": {"type": "string"},
+          "review_note": {"type": "string"}
+        }
+      }
+    },
+    "alternate_corroboration": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "confidence_after_review": {"type": "string", "enum": ["higher", "medium", "low", "unknown"]},
+    "do_not_claim": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "next_review_step": {"type": "string"},
+    "boundary_notes": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  }
+}

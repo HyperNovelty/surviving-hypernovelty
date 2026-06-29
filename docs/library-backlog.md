@@ -111,3 +111,18 @@ A paid version should pass all of these:
 - It creates a repeatable artifact people can actually use.
 - It has a clear buyer/user and painful current job.
 - It preserves trust boundaries and avoids fake authority.
+
+
+## 2026-06-29 approval update
+
+Jordan re-approved the repo-library research scan's suggested next build priority. `Assessment Evidence Packet Lite` is confirmed as the active/next bounded free primitive. Local files and validation are present; no public/GitHub action has been taken. See `docs/approved-expansion-priority-2026-06-29.md`.
+
+## Research-scan priority — 2026-06-29
+
+Source: `_research_runs/2026-06-29T150114Z_tool_idea_scan.md`.
+
+1. Provenance Breakage Receipt — built locally with schema, renderer, synthetic newsroom/classroom example, rendered Markdown, README, demo-index entry, and validation.
+2. Agent Review Bench Card — not yet built.
+3. Teacher AI Workload Tradeoff Ledger — not yet built.
+4. Policy-to-Practice Feedback Loop Receipt — not yet built.
+5. Agent Kill-Switch Drill Card — not yet built.
