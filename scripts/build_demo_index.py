@@ -103,6 +103,12 @@ TOOL_DEMOS = [
         "description": "Tracks where provenance or content-credential signals survive, transform, disappear, or become unverifiable across exports, reposts, screenshots, and reuse.",
     },
     {
+        "name": "Agent Revocation Reality Check",
+        "tool": "tools/agent-revocation-reality-check/render_check.py",
+        "example": "examples/team/agent_revocation_reality_check_example.json",
+        "description": "Checks whether an agent pause/revoke path names connected systems, owners, downstream effects, preserved evidence, and restart criteria before broader delegation.",
+    },
+    {
         "name": "Agent Toolchain Exposure Map",
         "tool": "tools/agent-toolchain-exposure-map/render_map.py",
         "example": "examples/team/agent_toolchain_exposure_map_example.json",

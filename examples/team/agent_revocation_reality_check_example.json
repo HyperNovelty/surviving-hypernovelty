@@ -1,0 +1,94 @@
+{
+  "check_name": "CRM research assistant pause/revoke preflight",
+  "review_owner": "Operations director",
+  "review_date": "2026-07-02",
+  "agent_identity": "CRM Research Assistant",
+  "roster_link": "examples/team/agent_identity_scope_roster_example.json#crm-research-assistant",
+  "scenario": "Synthetic pre-deployment review for an assistant that drafts partner-research notes from approved CRM exports and public web pages, with no direct CRM writeback or public outreach authority.",
+  "connected_systems": [
+    {
+      "system_name": "Local CRM export folder",
+      "access_type": "Read approved redacted CSV exports only",
+      "revocation_method": "Remove folder ACL entry and rotate the export folder path",
+      "revocation_owner": "Operations analyst",
+      "verified_status": "partly_verified",
+      "notes": "ACL removal was tested; path rotation has not been included in the drill yet."
+    },
+    {
+      "system_name": "Research notes workspace",
+      "access_type": "Write draft Markdown notes to a local review folder",
+      "revocation_method": "Disable workspace service account and archive pending draft folder read-only",
+      "revocation_owner": "Knowledge manager",
+      "verified_status": "verified",
+      "notes": "No customer-facing publishing or email connector is attached."
+    },
+    {
+      "system_name": "Scheduled weekly batch runner",
+      "access_type": "Runs a local enrichment job every Monday morning during the pilot",
+      "revocation_method": "Disable scheduled job and preserve last run log",
+      "revocation_owner": "IT support lead",
+      "verified_status": "not_verified",
+      "notes": "The pause button in the project board does not stop the scheduler by itself."
+    }
+  ],
+  "permissions_to_revoke": [
+    "Read access to the approved CRM export folder",
+    "Write access to the draft research notes workspace",
+    "Scheduled weekly batch-run permission",
+    "Any cached local copy of the previous export after the review window"
+  ],
+  "pause_owner": "Operations director",
+  "pause_trigger": "Any unexpected sensitive field in the export, unreviewed writeback request, unexplained run log, or partner complaint about generated notes.",
+  "revocation_steps": [
+    {
+      "step": "Freeze new runs and disable the scheduled job before reviewing drafts",
+      "owner": "IT support lead",
+      "evidence": "Scheduler screenshot or local job config export showing disabled state; no secrets copied into this card",
+      "status": "needs_work"
+    },
+    {
+      "step": "Remove read access to the CRM export folder and move the current export to an archive path",
+      "owner": "Operations analyst",
+      "evidence": "Folder ACL export and archive manifest stored in the internal governance folder",
+      "status": "ready"
+    },
+    {
+      "step": "Preserve generated draft notes, run logs, and review comments before deleting working cache",
+      "owner": "Knowledge manager",
+      "evidence": "Archive checklist with filenames and timestamps, excluding credentials or private tokens",
+      "status": "ready"
+    },
+    {
+      "step": "Notify the human review queue that AI-generated partner notes are paused and must not be imported",
+      "owner": "Partnerships manager",
+      "evidence": "Local queue note and meeting decision record",
+      "status": "ready"
+    }
+  ],
+  "dependent_workflows": [
+    "Partnerships team will lose weekly draft categorization notes while paused",
+    "Quarterly partner cleanup metric may slip by one week",
+    "Human reviewers need a fallback spreadsheet template for urgent partner updates"
+  ],
+  "evidence_to_preserve": [
+    "Last successful run log",
+    "Draft notes awaiting human review",
+    "Export schema used for the run",
+    "Human review comments that explain why the pause was triggered"
+  ],
+  "restart_criteria": [
+    "Scheduler disable/enable path tested by IT support lead",
+    "Export schema excludes sensitive relationship notes by default",
+    "Partnerships manager signs off on fallback review queue",
+    "One dry-run produces no direct CRM writeback and no public outreach"
+  ],
+  "open_gaps": [
+    "Project-board pause status does not disable the scheduler",
+    "No written maximum age for cached export files",
+    "Fallback spreadsheet template exists but is not linked in the pause procedure"
+  ],
+  "decision": "test_before_deploy",
+  "required_next_action": "Run a local revocation drill that disables the scheduler and preserves evidence before expanding the pilot beyond synthetic data.",
+  "boundary_note": "Local review aid only. Not an IAM system, security control, incident-response plan, compliance audit, legal opinion, vendor certification, or guarantee that revocation works. Do not store secrets, tokens, credentials, or sensitive logs here.",
+  "notes": "Synthetic example; no real CRM, account, or scheduler was touched."
+}

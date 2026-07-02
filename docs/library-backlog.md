@@ -126,3 +126,13 @@ Source: `_research_runs/2026-06-29T150114Z_tool_idea_scan.md`.
 3. Teacher AI Workload Tradeoff Ledger — not yet built.
 4. Policy-to-Practice Feedback Loop Receipt — not yet built.
 5. Agent Kill-Switch Drill Card — not yet built.
+
+## Research-scan priority — 2026-07-02
+
+Source: `_research_runs/2026-07-02T150418Z_tool_idea_scan.md`.
+
+1. Agent Revocation Reality Check — built locally with schema, renderer, synthetic CRM research assistant example, rendered Markdown, README, demo-index entry, and validation.
+2. Workslop Review Receipt — not yet built.
+3. Assessment Goal Drift Repair Card — not yet built.
+4. Policy Awareness Gap Receipt — not yet built.
+5. Provenance Interpretation Label Card — not yet built.

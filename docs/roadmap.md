@@ -130,6 +130,10 @@ Current 2026-06-29 research-scan extension started from the newest suggested bui
 
 1. Provenance Breakage Receipt — built locally as a media/provenance extension with schema, renderer, synthetic newsroom/classroom example, rendered Markdown, README, demo-index entry, and validation.
 
+Current 2026-07-02 research-scan extension started from the newest suggested build priority:
+
+1. Agent Revocation Reality Check — built locally as an extension of Agent Identity & Scope Roster / Non-Human Identity Review Receipt with schema, renderer, synthetic CRM research assistant example, rendered Markdown, README, demo-index entry, and validation.
+
 Current 2026-06-22 research-scan extension started from the newest approved build priority:
 
 1. Non-Human Identity Review Receipt — built locally as an extension of the Agent Identity & Scope Roster with schema, renderer, synthetic quarterly example, and rendered Markdown.

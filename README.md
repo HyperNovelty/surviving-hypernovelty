@@ -30,6 +30,7 @@ This repo is a local-first starter-kit candidate: small tools, templates, schema
 22. **Verification Literacy Mini-Lab: Scam Edition** — a 20–30 minute synthetic-message lab for practicing source-chain checks and confidence before/after verification.
 23. **Human Recourse Path Card v2 — scam-contact example** — extends the recourse path primitive with claimed authority, source-of-truth, evidence preservation, and safe escalation for scam pressure.
 24. **Provenance Breakage Receipt** — record where content-credential/provenance signals survive, transform, disappear, or become unverifiable as media moves through exports, reposts, screenshots, and slide decks.
+25. **Agent Revocation Reality Check** — verify whether an agent pause/revoke path names the systems, owners, downstream effects, evidence preservation, and restart criteria needed before broader delegation.
 
 ## Repo principles
 
@@ -59,6 +60,7 @@ python3 tools/scam-attention-receipt/render_receipt.py examples/media/scam_atten
 python3 tools/verification-literacy-mini-lab/render_lab.py examples/education/verification_literacy_scam_lab_example.json
 python3 tools/human-recourse-path-card/render_card.py examples/media/human_recourse_scam_contact_example.json
 python3 tools/provenance-breakage-receipt/render_receipt.py examples/media/provenance_breakage_receipt_example.json
+python3 tools/agent-revocation-reality-check/render_check.py examples/team/agent_revocation_reality_check_example.json
 python3 tools/agent-toolchain-exposure-map/render_map.py examples/team/agent_toolchain_exposure_map_example.json
 python3 tools/assessment-evidence-packet-lite/render_packet.py examples/education/assessment_evidence_packet_lite_example.json
 python3 tools/answer-layer-citation-readiness-card/render_card.py examples/publishing/answer_layer_citation_readiness_example.json
