@@ -162,6 +162,46 @@
         <pre>python3 tools/agent-revocation-reality-check/render_check.py examples/team/agent_revocation_reality_check_example.json</pre>
       </section>
       <section class="card">
+        <h2>Workslop Review Receipt</h2>
+        <p>Separates generated/drafted work from reviewed/defensible work with checks, weak spots, human edits, and next reviewer.</p>
+        <p><b>Example:</b> <a href="../examples/team/workslop_review_receipt_example.json">examples/team/workslop_review_receipt_example.json</a></p>
+        <p><b>Example summary:</b> Synthetic example fixture.</p>
+        <p><b>Tool:</b> <a href="../tools/workslop-review-receipt/render_receipt.py">tools/workslop-review-receipt/render_receipt.py</a></p>
+        <pre>python3 tools/workslop-review-receipt/render_receipt.py examples/team/workslop_review_receipt_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Assessment Goal Drift Repair Card</h2>
+        <p>Repairs assignments when AI changes what the old task measures, centering evidence and recourse instead of detector certainty.</p>
+        <p><b>Example:</b> <a href="../examples/education/assessment_goal_drift_repair_card_example.json">examples/education/assessment_goal_drift_repair_card_example.json</a></p>
+        <p><b>Example summary:</b> Synthetic example fixture.</p>
+        <p><b>Tool:</b> <a href="../tools/assessment-goal-drift-repair-card/render_card.py">tools/assessment-goal-drift-repair-card/render_card.py</a></p>
+        <pre>python3 tools/assessment-goal-drift-repair-card/render_card.py examples/education/assessment_goal_drift_repair_card_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Provenance Interpretation Label Card</h2>
+        <p>Explains what a provenance/content-credential signal supports and what remains unverified.</p>
+        <p><b>Example:</b> <a href="../examples/media/provenance_interpretation_label_card_example.json">examples/media/provenance_interpretation_label_card_example.json</a></p>
+        <p><b>Example summary:</b> A community newsletter receives an image with a valid-looking content credential, but the caption claims it shows a specific local event.</p>
+        <p><b>Tool:</b> <a href="../tools/provenance-interpretation-label-card/render_card.py">tools/provenance-interpretation-label-card/render_card.py</a></p>
+        <pre>python3 tools/provenance-interpretation-label-card/render_card.py examples/media/provenance_interpretation_label_card_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Shadow AI Amnesty Triage Sheet</h2>
+        <p>Non-punitive intake for shadow-AI use patterns that reveal an unmet official workflow need.</p>
+        <p><b>Example:</b> <a href="../examples/team/shadow_ai_amnesty_triage_sheet_example.json">examples/team/shadow_ai_amnesty_triage_sheet_example.json</a></p>
+        <p><b>Example summary:</b> Synthetic example fixture.</p>
+        <p><b>Tool:</b> <a href="../tools/shadow-ai-amnesty-triage-sheet/render_sheet.py">tools/shadow-ai-amnesty-triage-sheet/render_sheet.py</a></p>
+        <pre>python3 tools/shadow-ai-amnesty-triage-sheet/render_sheet.py examples/team/shadow_ai_amnesty_triage_sheet_example.json</pre>
+      </section>
+      <section class="card">
+        <h2>Human Recourse Drill Card</h2>
+        <p>Rehearses whether a human fallback path actually works when an AI-supported answer is confusing or consequential.</p>
+        <p><b>Example:</b> <a href="../examples/education/human_recourse_drill_card_example.json">examples/education/human_recourse_drill_card_example.json</a></p>
+        <p><b>Example summary:</b> Synthetic community-college financial-aid help page with an AI-supported FAQ answer and a human fallback route.</p>
+        <p><b>Tool:</b> <a href="../tools/human-recourse-drill-card/render_card.py">tools/human-recourse-drill-card/render_card.py</a></p>
+        <pre>python3 tools/human-recourse-drill-card/render_card.py examples/education/human_recourse_drill_card_example.json</pre>
+      </section>
+      <section class="card">
         <h2>Agent Toolchain Exposure Map</h2>
         <p>Maps agent/tool workflows across identities, data touched, outputs, and checkpoints.</p>
         <p><b>Example:</b> <a href="../examples/team/agent_toolchain_exposure_map_example.json">examples/team/agent_toolchain_exposure_map_example.json</a></p>
@@ -215,7 +255,9 @@
           <li><a href="../examples/creator/ai_delegation_contract_example.json">examples/creator/ai_delegation_contract_example.json</a> - Draft-only article research assistant</li>
           <li><a href="../examples/education/ai_use_clarity_micro_policy_card_example.json">examples/education/ai_use_clarity_micro_policy_card_example.json</a> - Make one assignment-level AI-use boundary clear before learners start work.</li>
           <li><a href="../examples/education/assessment_evidence_packet_lite_example.json">examples/education/assessment_evidence_packet_lite_example.json</a> - Synthetic example fixture.</li>
+          <li><a href="../examples/education/assessment_goal_drift_repair_card_example.json">examples/education/assessment_goal_drift_repair_card_example.json</a> - Synthetic example fixture.</li>
           <li><a href="../examples/education/human_premium_student_support_example.json">examples/education/human_premium_student_support_example.json</a> - 5 surface steps</li>
+          <li><a href="../examples/education/human_recourse_drill_card_example.json">examples/education/human_recourse_drill_card_example.json</a> - Synthetic community-college financial-aid help page with an AI-supported FAQ answer and a human fallback route.</li>
           <li><a href="../examples/education/human_recourse_student_financial_aid_example.json">examples/education/human_recourse_student_financial_aid_example.json</a> - A college financial-aid chatbot explains deadlines, document status, and next steps for students. It must not decide eligibility, denial, aid amount,...</li>
           <li><a href="../examples/education/verification_literacy_scam_lab_example.json">examples/education/verification_literacy_scam_lab_example.json</a> - A 25-minute workshop uses three synthetic messages to practice source-chain checks without clicking suspicious links.</li>
           <li><a href="../examples/education/visible_thinking_repair_ticket_example.json">examples/education/visible_thinking_repair_ticket_example.json</a> - Give a learner a low-conflict repair path when submitted work lacks enough visible thinking evidence.</li>
@@ -226,6 +268,7 @@
           <li><a href="../examples/media/human_recourse_scam_contact_example.json">examples/media/human_recourse_scam_contact_example.json</a> - A household, school office, or small organization receives suspicious calls/texts/emails that claim to represent banks, delivery services, managers,...</li>
           <li><a href="../examples/media/platformized_news_diet_receipt_example.json">examples/media/platformized_news_diet_receipt_example.json</a> - Help a person or group see how much news reached them through platforms, creators, or AI intermediaries before they act on it.</li>
           <li><a href="../examples/media/provenance_breakage_receipt_example.json">examples/media/provenance_breakage_receipt_example.json</a> - A local newsroom receives a synthetic example image with a checked credential, then tracks what happens as the image is resized for a CMS, reposted t...</li>
+          <li><a href="../examples/media/provenance_interpretation_label_card_example.json">examples/media/provenance_interpretation_label_card_example.json</a> - A community newsletter receives an image with a valid-looking content credential, but the caption claims it shows a specific local event.</li>
           <li><a href="../examples/media/scam_attention_receipt_example.json">examples/media/scam_attention_receipt_example.json</a> - A person receives a bank text, a package-delivery SMS, and a boss-style gift-card email while trying to work.</li>
           <li><a href="../examples/publishing/answer_layer_citation_readiness_example.json">examples/publishing/answer_layer_citation_readiness_example.json</a> - Surviving Hypernovelty: Why Source Receipts Matter</li>
           <li><a href="../examples/publishing/publisher_page_receipt_example.json">examples/publishing/publisher_page_receipt_example.json</a> - Local AI Policy FAQ for Families</li>
@@ -239,6 +282,8 @@
           <li><a href="../examples/team/human_recourse_healthcare_scheduling_example.json">examples/team/human_recourse_healthcare_scheduling_example.json</a> - A healthcare scheduling assistant helps patients find appointment options, preparation instructions, and routine follow-up routes. It must not triage...</li>
           <li><a href="../examples/team/human_recourse_hr_benefits_example.json">examples/team/human_recourse_hr_benefits_example.json</a> - An HR benefits assistant explains open enrollment windows, plan documents, and routine routing. It must not decide eligibility, discipline, leave app...</li>
           <li><a href="../examples/team/non_human_identity_review_receipt_example.json">examples/team/non_human_identity_review_receipt_example.json</a> - Synthetic example fixture.</li>
+          <li><a href="../examples/team/shadow_ai_amnesty_triage_sheet_example.json">examples/team/shadow_ai_amnesty_triage_sheet_example.json</a> - Synthetic example fixture.</li>
+          <li><a href="../examples/team/workslop_review_receipt_example.json">examples/team/workslop_review_receipt_example.json</a> - Synthetic example fixture.</li>
     </ul>
   </main>
 </body>

@@ -108,6 +108,37 @@ TOOL_DEMOS = [
         "example": "examples/team/agent_revocation_reality_check_example.json",
         "description": "Checks whether an agent pause/revoke path names connected systems, owners, downstream effects, preserved evidence, and restart criteria before broader delegation.",
     },
+
+    {
+        "name": "Workslop Review Receipt",
+        "tool": "tools/workslop-review-receipt/render_receipt.py",
+        "example": "examples/team/workslop_review_receipt_example.json",
+        "description": "Separates generated/drafted work from reviewed/defensible work with checks, weak spots, human edits, and next reviewer.",
+    },
+    {
+        "name": "Assessment Goal Drift Repair Card",
+        "tool": "tools/assessment-goal-drift-repair-card/render_card.py",
+        "example": "examples/education/assessment_goal_drift_repair_card_example.json",
+        "description": "Repairs assignments when AI changes what the old task measures, centering evidence and recourse instead of detector certainty.",
+    },
+    {
+        "name": "Provenance Interpretation Label Card",
+        "tool": "tools/provenance-interpretation-label-card/render_card.py",
+        "example": "examples/media/provenance_interpretation_label_card_example.json",
+        "description": "Explains what a provenance/content-credential signal supports and what remains unverified.",
+    },
+    {
+        "name": "Shadow AI Amnesty Triage Sheet",
+        "tool": "tools/shadow-ai-amnesty-triage-sheet/render_sheet.py",
+        "example": "examples/team/shadow_ai_amnesty_triage_sheet_example.json",
+        "description": "Non-punitive intake for shadow-AI use patterns that reveal an unmet official workflow need.",
+    },
+    {
+        "name": "Human Recourse Drill Card",
+        "tool": "tools/human-recourse-drill-card/render_card.py",
+        "example": "examples/education/human_recourse_drill_card_example.json",
+        "description": "Rehearses whether a human fallback path actually works when an AI-supported answer is confusing or consequential.",
+    },
     {
         "name": "Agent Toolchain Exposure Map",
         "tool": "tools/agent-toolchain-exposure-map/render_map.py",

@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Workslop Review Receipt",
+  "type": "object",
+  "required": [
+    "receipt_name",
+    "work_context",
+    "review_owner",
+    "review_date",
+    "artifact",
+    "intended_use",
+    "review_checks",
+    "known_weak_spots",
+    "human_edits",
+    "confidence_after_review",
+    "next_reviewer",
+    "do_not_claim",
+    "boundary_note"
+  ],
+  "properties": {
+    "receipt_name": {
+      "type": "string"
+    },
+    "work_context": {
+      "type": "string"
+    },
+    "review_owner": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string"
+    },
+    "artifact": {
+      "type": "object",
+      "required": [
+        "title",
+        "source",
+        "status_before_review",
+        "ai_assistance_disclosed"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "status_before_review": {
+          "type": "string",
+          "enum": [
+            "generated",
+            "drafted",
+            "partly_reviewed",
+            "reviewed"
+          ]
+        },
+        "ai_assistance_disclosed": {
+          "type": "boolean"
+        }
+      }
+    },
+    "intended_use": {
+      "type": "string"
+    },
+    "review_checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "check",
+          "result",
+          "evidence"
+        ],
+        "properties": {
+          "check": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "passed",
+              "needs_work",
+              "not_checked",
+              "not_applicable"
+            ]
+          },
+          "evidence": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "known_weak_spots": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "human_edits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence_after_review": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low",
+        "unknown"
+      ]
+    },
+    "next_reviewer": {
+      "type": "string"
+    },
+    "do_not_claim": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "boundary_note": {
+      "type": "string"
+    }
+  }
+}

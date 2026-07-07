@@ -32,6 +32,12 @@ This repo is a local-first starter-kit candidate: small tools, templates, schema
 24. **Provenance Breakage Receipt** — record where content-credential/provenance signals survive, transform, disappear, or become unverifiable as media moves through exports, reposts, screenshots, and slide decks.
 25. **Agent Revocation Reality Check** — verify whether an agent pause/revoke path names the systems, owners, downstream effects, evidence preservation, and restart criteria needed before broader delegation.
 
+26. **Workslop Review Receipt** — separate generated/drafted work from reviewed/defensible work with owner, checks, weak spots, edits, and next reviewer.
+27. **Assessment Goal Drift Repair Card** — repair assignments when AI changes what the old task measures, without detector-first certainty.
+28. **Provenance Interpretation Label Card** — explain what a provenance/content-credential label supports and what it does not prove.
+29. **Shadow AI Amnesty Triage Sheet** — non-punitive intake for shadow-AI use patterns that reveal unmet workflow demand.
+30. **Human Recourse Drill Card** — rehearse whether a human fallback path actually works after a confusing AI-supported answer.
+
 ## Repo principles
 
 - Useful before clever.
@@ -61,6 +67,11 @@ python3 tools/verification-literacy-mini-lab/render_lab.py examples/education/ve
 python3 tools/human-recourse-path-card/render_card.py examples/media/human_recourse_scam_contact_example.json
 python3 tools/provenance-breakage-receipt/render_receipt.py examples/media/provenance_breakage_receipt_example.json
 python3 tools/agent-revocation-reality-check/render_check.py examples/team/agent_revocation_reality_check_example.json
+python3 tools/workslop-review-receipt/render_receipt.py examples/team/workslop_review_receipt_example.json
+python3 tools/assessment-goal-drift-repair-card/render_card.py examples/education/assessment_goal_drift_repair_card_example.json
+python3 tools/provenance-interpretation-label-card/render_card.py examples/media/provenance_interpretation_label_card_example.json
+python3 tools/shadow-ai-amnesty-triage-sheet/render_sheet.py examples/team/shadow_ai_amnesty_triage_sheet_example.json
+python3 tools/human-recourse-drill-card/render_card.py examples/education/human_recourse_drill_card_example.json
 python3 tools/agent-toolchain-exposure-map/render_map.py examples/team/agent_toolchain_exposure_map_example.json
 python3 tools/assessment-evidence-packet-lite/render_packet.py examples/education/assessment_evidence_packet_lite_example.json
 python3 tools/answer-layer-citation-readiness-card/render_card.py examples/publishing/answer_layer_citation_readiness_example.json

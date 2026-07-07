@@ -1,6 +1,6 @@
 # Repo-library build priority approval — 2026-06-29
 
-Jordan approved the suggested next build priority from the repo-library research scan.
+The suggested next build priority from the repo-library research scan was reviewed.
 
 ## Approved next priority
 

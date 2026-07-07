@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Assessment Goal Drift Repair Card",
+  "type": "object",
+  "required": [
+    "card_name",
+    "context",
+    "review_owner",
+    "review_date",
+    "original_assignment",
+    "original_learning_goal",
+    "ai_offload_risk",
+    "evidence_still_needed",
+    "redesigned_proof_artifact",
+    "allowed_ai_role",
+    "equity_access_check",
+    "recourse_path",
+    "do_not_claim",
+    "boundary_note"
+  ],
+  "properties": {
+    "card_name": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string"
+    },
+    "review_owner": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string"
+    },
+    "original_assignment": {
+      "type": "string"
+    },
+    "original_learning_goal": {
+      "type": "string"
+    },
+    "ai_offload_risk": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_still_needed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "redesigned_proof_artifact": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_ai_role": {
+      "type": "string"
+    },
+    "equity_access_check": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recourse_path": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "do_not_claim": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "boundary_note": {
+      "type": "string"
+    }
+  }
+}

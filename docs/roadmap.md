@@ -82,7 +82,7 @@ Add tools for organizations adapting to hypernovelty:
 
 Free form: checklists, self-assessment templates, example reports.
 
-Paid later: Hypernovelty readiness review, institutional adaptation report, retainer/briefing product.
+Later review-only service ideas: Hypernovelty readiness review, institutional adaptation report, and recurring briefing product.
 
 ## Phase 5 — Media/information survival pack
 
@@ -110,9 +110,9 @@ A regular research run should inspect incoming signals/tools and ask:
 
 Outputs should be review-only idea cards, not automatic publishing or product claims.
 
-## Current approved build order
+## Current reviewed build order
 
-Jordan approved the 2026-06-18 expansion order:
+The 2026-06-18 expansion order was reviewed:
 
 1. Agent Identity & Scope Roster — built locally from the 2026-06-18 approved order.
 2. AI Use Clarity Micro-Policy Card — built locally.
@@ -120,7 +120,7 @@ Jordan approved the 2026-06-18 expansion order:
 4. Visible Thinking Repair Ticket — built locally.
 5. Platformized News Diet Receipt — built locally.
 
-Current 2026-06-25 Exa rerun approval from Jordan:
+Current 2026-06-25 Exa rerun reviewed build priority:
 
 1. Scam Attention Receipt — built locally with schema, renderer, synthetic three-contact example, rendered Markdown, README, and validation.
 2. Verification Literacy Mini-Lab: Scam Edition — built locally with schema, renderer, synthetic 20–30 minute lab example, rendered Markdown, README, and validation.
@@ -142,3 +142,11 @@ Current 2026-06-22 research-scan extension started from the newest approved buil
 Previous 2026-06-11 expansion order remains mostly built: Agent Toolchain Exposure Map, Assessment Evidence Packet Lite, Answer-Layer Citation Readiness Card, Policy Freshness Diff Card, and Human Premium Trust Surface Card.
 
 Records: `docs/approved-expansion-priority-2026-06-11.md` and `_research_runs/2026-06-18T150403Z_tool_idea_scan.md`.
+
+Current 2026-07-06 research-scan extension started from the local public-good build priority:
+
+1. Workslop Review Receipt — built locally.
+2. Assessment Goal Drift Repair Card — built locally.
+3. Provenance Interpretation Label Card — built locally.
+4. Shadow AI Amnesty Triage Sheet — built locally.
+5. Human Recourse Drill Card — built locally.

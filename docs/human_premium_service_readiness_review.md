@@ -83,7 +83,7 @@ Small offer shape, review-only:
 
 Do not market this as compliance automation, clinical triage, counseling support, special-education guidance, legal guidance, HR decision support, or guaranteed cost reduction.
 
-## Jordan review decision
+## Review decision
 
 Choose one:
 

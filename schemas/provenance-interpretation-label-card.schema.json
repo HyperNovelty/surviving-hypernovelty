@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Provenance Interpretation Label Card",
+  "type": "object",
+  "required": [
+    "card_name",
+    "scenario",
+    "review_owner",
+    "review_date",
+    "credential_signal",
+    "what_it_supports",
+    "what_it_does_not_prove",
+    "context_checks",
+    "audience_safe_language",
+    "next_review_step",
+    "boundary_note"
+  ],
+  "properties": {
+    "card_name": {
+      "type": "string"
+    },
+    "scenario": {
+      "type": "string"
+    },
+    "review_owner": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string"
+    },
+    "credential_signal": {
+      "type": "object",
+      "required": [
+        "present",
+        "issuer_or_tool",
+        "credential_status"
+      ],
+      "properties": {
+        "present": {
+          "type": "boolean"
+        },
+        "issuer_or_tool": {
+          "type": "string"
+        },
+        "credential_status": {
+          "type": "string",
+          "enum": [
+            "present_checked",
+            "present_not_checked",
+            "absent",
+            "stripped",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "what_it_supports": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "what_it_does_not_prove": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "context_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "audience_safe_language": {
+      "type": "string"
+    },
+    "next_review_step": {
+      "type": "string"
+    },
+    "boundary_note": {
+      "type": "string"
+    }
+  }
+}

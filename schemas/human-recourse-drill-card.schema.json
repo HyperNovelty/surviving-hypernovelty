@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Human Recourse Drill Card",
+  "type": "object",
+  "required": [
+    "drill_name",
+    "service_context",
+    "review_owner",
+    "review_date",
+    "confusing_ai_supported_answer",
+    "human_recourse_path_tested",
+    "time_to_human",
+    "evidence_preserved",
+    "repair_outcome",
+    "blocked_step",
+    "owner_to_fix",
+    "next_drill_date",
+    "do_not_claim",
+    "boundary_note"
+  ],
+  "properties": {
+    "drill_name": {
+      "type": "string"
+    },
+    "service_context": {
+      "type": "string"
+    },
+    "review_owner": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string"
+    },
+    "confusing_ai_supported_answer": {
+      "type": "string"
+    },
+    "human_recourse_path_tested": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "time_to_human": {
+      "type": "string"
+    },
+    "evidence_preserved": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "repair_outcome": {
+      "type": "string"
+    },
+    "blocked_step": {
+      "type": "string"
+    },
+    "owner_to_fix": {
+      "type": "string"
+    },
+    "next_drill_date": {
+      "type": "string"
+    },
+    "do_not_claim": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "boundary_note": {
+      "type": "string"
+    }
+  }
+}

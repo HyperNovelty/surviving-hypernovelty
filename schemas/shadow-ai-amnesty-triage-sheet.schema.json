@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Shadow AI Amnesty Triage Sheet",
+  "type": "object",
+  "required": [
+    "sheet_name",
+    "context",
+    "review_owner",
+    "review_date",
+    "job_to_be_done",
+    "why_approved_tools_failed",
+    "data_touched",
+    "risk_exposure",
+    "safer_workaround",
+    "policy_or_product_owner",
+    "non_punitive_next_step",
+    "do_not_claim",
+    "boundary_note"
+  ],
+  "properties": {
+    "sheet_name": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string"
+    },
+    "review_owner": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string"
+    },
+    "job_to_be_done": {
+      "type": "string"
+    },
+    "why_approved_tools_failed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "data_touched": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risk_exposure": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "safer_workaround": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "policy_or_product_owner": {
+      "type": "string"
+    },
+    "non_punitive_next_step": {
+      "type": "string"
+    },
+    "do_not_claim": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "boundary_note": {
+      "type": "string"
+    }
+  }
+}

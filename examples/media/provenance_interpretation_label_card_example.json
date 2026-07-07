@@ -1,0 +1,29 @@
+{
+  "card_name": "Newsroom image provenance label interpretation",
+  "scenario": "A community newsletter receives an image with a valid-looking content credential, but the caption claims it shows a specific local event.",
+  "review_owner": "Editor",
+  "review_date": "2026-07-06",
+  "credential_signal": {
+    "present": true,
+    "issuer_or_tool": "Synthetic camera/app credential in demo fixture",
+    "credential_status": "present_checked"
+  },
+  "what_it_supports": [
+    "The file appears to have an inspectable origin/edit history in this synthetic example",
+    "The credential may help separate original capture from later screenshot/repost copies"
+  ],
+  "what_it_does_not_prove": [
+    "It does not prove the caption is true",
+    "It does not prove consent, fairness, or newsworthiness",
+    "It does not prove the image was taken at the claimed event"
+  ],
+  "context_checks": [
+    "Check event date/location against primary organizer page",
+    "Ask source how they obtained the file",
+    "Do not reuse a screenshot as if credentials survived",
+    "Verify caption separately from image origin"
+  ],
+  "audience_safe_language": "This image includes inspectable provenance information for the file we reviewed, but the caption and event context were checked separately.",
+  "next_review_step": "Confirm the event context before publication; if context cannot be confirmed, label as illustrative or do not use.",
+  "boundary_note": "Local interpretation aid only. Provenance is not truth; absence is not fakery; valid credentials do not prove consent, context, fairness, or accuracy."
+}

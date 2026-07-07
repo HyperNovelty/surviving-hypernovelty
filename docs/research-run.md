@@ -9,7 +9,7 @@ Run cadence: twice weekly by default, plus ad hoc when major signals arrive.
 - education/learning signals
 - legal/healthcare/institutional trust signals
 - media-trust/synthetic consensus examples
-- user-shared links and Telegram notes
+- user-shared links and private notes
 - repo/tool launches relevant to adaptation
 
 ## Scoring questions

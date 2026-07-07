@@ -20,6 +20,27 @@ required = [
  'tools/verification-literacy-mini-lab/render_lab.py',
  'tools/provenance-breakage-receipt/render_receipt.py',
  'tools/agent-revocation-reality-check/render_check.py',
+
+ 'tools/workslop-review-receipt/render_receipt.py',
+ 'tools/assessment-goal-drift-repair-card/render_card.py',
+ 'tools/provenance-interpretation-label-card/render_card.py',
+ 'tools/shadow-ai-amnesty-triage-sheet/render_sheet.py',
+ 'tools/human-recourse-drill-card/render_card.py',
+ 'schemas/workslop-review-receipt.schema.json',
+ 'schemas/assessment-goal-drift-repair-card.schema.json',
+ 'schemas/provenance-interpretation-label-card.schema.json',
+ 'schemas/shadow-ai-amnesty-triage-sheet.schema.json',
+ 'schemas/human-recourse-drill-card.schema.json',
+ 'examples/team/workslop_review_receipt_example.json',
+ 'examples/education/assessment_goal_drift_repair_card_example.json',
+ 'examples/media/provenance_interpretation_label_card_example.json',
+ 'examples/team/shadow_ai_amnesty_triage_sheet_example.json',
+ 'examples/education/human_recourse_drill_card_example.json',
+ 'docs/rendered/workslop_review_receipt_example.md',
+ 'docs/rendered/assessment_goal_drift_repair_card_example.md',
+ 'docs/rendered/provenance_interpretation_label_card_example.md',
+ 'docs/rendered/shadow_ai_amnesty_triage_sheet_example.md',
+ 'docs/rendered/human_recourse_drill_card_example.md',
  'tools/agent-toolchain-exposure-map/render_map.py',
  'tools/answer-layer-citation-readiness-card/render_card.py',
  'tools/assessment-evidence-packet-lite/render_packet.py',
@@ -115,6 +136,12 @@ commands = [
  ['python3','tools/human-recourse-path-card/render_card.py','examples/media/human_recourse_scam_contact_example.json'],
  ['python3','tools/provenance-breakage-receipt/render_receipt.py','examples/media/provenance_breakage_receipt_example.json'],
  ['python3','tools/agent-revocation-reality-check/render_check.py','examples/team/agent_revocation_reality_check_example.json'],
+
+ ['python3','tools/workslop-review-receipt/render_receipt.py','examples/team/workslop_review_receipt_example.json'],
+ ['python3','tools/assessment-goal-drift-repair-card/render_card.py','examples/education/assessment_goal_drift_repair_card_example.json'],
+ ['python3','tools/provenance-interpretation-label-card/render_card.py','examples/media/provenance_interpretation_label_card_example.json'],
+ ['python3','tools/shadow-ai-amnesty-triage-sheet/render_sheet.py','examples/team/shadow_ai_amnesty_triage_sheet_example.json'],
+ ['python3','tools/human-recourse-drill-card/render_card.py','examples/education/human_recourse_drill_card_example.json'],
  ['python3','tools/agent-toolchain-exposure-map/render_map.py','examples/team/agent_toolchain_exposure_map_example.json'],
  ['python3','tools/answer-layer-citation-readiness-card/render_card.py','examples/publishing/answer_layer_citation_readiness_example.json'],
  ['python3','tools/answer-layer-citation-readiness-card/render_card.py','examples/publishing/publisher_page_receipt_example.json'],
@@ -467,6 +494,21 @@ demo_text = demo_index.read_text(encoding='utf-8')
 if 'Surviving Hypernovelty Demo Index' not in demo_text or 'Local starter-kit demos' not in demo_text:
     print('demo_index_check=failed unexpected content')
     sys.exit(1)
+
+# 2026-07-06 primitives: lightweight required-field validation.
+for schema_path, example_path in [
+    ('schemas/workslop-review-receipt.schema.json','examples/team/workslop_review_receipt_example.json'),
+    ('schemas/assessment-goal-drift-repair-card.schema.json','examples/education/assessment_goal_drift_repair_card_example.json'),
+    ('schemas/provenance-interpretation-label-card.schema.json','examples/media/provenance_interpretation_label_card_example.json'),
+    ('schemas/shadow-ai-amnesty-triage-sheet.schema.json','examples/team/shadow_ai_amnesty_triage_sheet_example.json'),
+    ('schemas/human-recourse-drill-card.schema.json','examples/education/human_recourse_drill_card_example.json'),
+]:
+    schema = json.loads((ROOT / schema_path).read_text())
+    example = json.loads((ROOT / example_path).read_text())
+    for field in schema.get('required', []):
+        if field not in example or example.get(field) in ('', None, []):
+            errors.append(f'{example_path} missing required field: {field}')
+
 if args.check:
     sys.dont_write_bytecode = True
     sys.path.insert(0, str(ROOT))

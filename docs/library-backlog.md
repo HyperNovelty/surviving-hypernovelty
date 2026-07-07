@@ -13,7 +13,7 @@
 
 ## Research-scan priority — 2026-06-25 Exa rerun
 
-Source: local 2026-06-25 Exa research rerun artifact, approved by Jordan in Telegram. Raw research-run logs stay local-only; this backlog records the public-safe build decision.
+Source: local 2026-06-25 Exa research rerun artifact. Raw research-run logs stay local-only; this backlog records the public-safe build decision.
 
 1. Scam Attention Receipt — built locally with schema, renderer, synthetic example, rendered Markdown, README, and validation.
 2. Shared Device Risk Ledger — not yet approved/built in this batch.
@@ -31,9 +31,9 @@ Source: `_research_runs/2026-06-22T150154Z_tool_idea_scan.md`.
 4. Shadow AI Disclosure Ladder.
 5. Verification Literacy Mini-Lab.
 
-## Jordan-approved next expansion order — 2026-06-18
+## Reviewed next expansion order — 2026-06-18
 
-Source: `_research_runs/2026-06-18T150403Z_tool_idea_scan.md`. Approved by Jordan in Telegram.
+Source: local 2026-06-18 research-scan priority. Raw research-run logs stay local-only; this backlog records the public-safe build decision.
 
 1. Agent Identity & Scope Roster — built locally with schema, renderer, synthetic example, rendered Markdown, and launcher links.
 2. AI Use Clarity Micro-Policy Card — built locally with schema, renderer, synthetic example, rendered Markdown, and launcher links.
@@ -41,7 +41,7 @@ Source: `_research_runs/2026-06-18T150403Z_tool_idea_scan.md`. Approved by Jorda
 4. Visible Thinking Repair Ticket — built locally with schema, renderer, synthetic example, rendered Markdown, and launcher links.
 5. Platformized News Diet Receipt — built locally with schema, renderer, synthetic example, rendered Markdown, and launcher links.
 
-## Jordan-approved next expansion order — 2026-06-11
+## Reviewed next expansion order — 2026-06-11
 
 See `docs/approved-expansion-priority-2026-06-11.md` for the local planning record.
 
@@ -115,7 +115,7 @@ A paid version should pass all of these:
 
 ## 2026-06-29 approval update
 
-Jordan re-approved the repo-library research scan's suggested next build priority. `Assessment Evidence Packet Lite` is confirmed as the active/next bounded free primitive. Local files and validation are present; no public/GitHub action has been taken. See `docs/approved-expansion-priority-2026-06-29.md`.
+The repo-library research scan's suggested next build priority was reviewed. `Assessment Evidence Packet Lite` is confirmed as the active/next bounded free primitive. Local files and validation are present; no public/GitHub action has been taken. See `docs/approved-expansion-priority-2026-06-29.md`.
 
 ## Research-scan priority — 2026-06-29
 
@@ -136,3 +136,13 @@ Source: `_research_runs/2026-07-02T150418Z_tool_idea_scan.md`.
 3. Assessment Goal Drift Repair Card — not yet built.
 4. Policy Awareness Gap Receipt — not yet built.
 5. Provenance Interpretation Label Card — not yet built.
+
+## Research-scan priority — 2026-07-06
+
+Source: 2026-07-06 local research-scan priority. Raw research-run logs stay local-only; this backlog records the public-safe build decision.
+
+1. Workslop Review Receipt — built locally with schema, renderer, synthetic workplace example, rendered Markdown, README, demo-index entry, and validation.
+2. Assessment Goal Drift Repair Card — built locally with schema, renderer, synthetic writing-assignment example, rendered Markdown, README, demo-index entry, and validation.
+3. Provenance Interpretation Label Card — built locally with schema, renderer, synthetic newsroom image example, rendered Markdown, README, demo-index entry, and validation.
+4. Shadow AI Amnesty Triage Sheet — built locally with schema, renderer, synthetic nonprofit comment-summary example, rendered Markdown, README, demo-index entry, and validation.
+5. Human Recourse Drill Card — built locally with schema, renderer, synthetic student-aid recourse drill example, rendered Markdown, README, demo-index entry, and validation.
