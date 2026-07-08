@@ -3,3 +3,11 @@ __pycache__/
 .DS_Store
 _auto_reports/
 _research_runs/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+validation/*.tmp
+tmp/
+.env
+.env.*
