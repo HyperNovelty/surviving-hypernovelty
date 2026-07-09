@@ -91,6 +91,11 @@ python3 scripts/validate_repo.py
 
 Open `START_HERE.html` for a browser-readable overview.
 
+For the open-source packaging plan, see `docs/KIT_INDEX.md` and
+`docs/OPEN_SOURCE_TRIAGE.md`. The v0.1 recommendation is to freeze the 30
+primitive list and package the repo into five public-facing kits before adding
+new standalone tools.
+
 For publication boundaries, see `docs/PUBLICATION_BOUNDARY.md`. For a 5-minute
 review path, see `docs/REVIEWER_QUICKSTART.md`.
 

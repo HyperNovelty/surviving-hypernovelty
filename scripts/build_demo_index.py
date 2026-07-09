@@ -134,6 +134,12 @@ TOOL_DEMOS = [
         "description": "Non-punitive intake for shadow-AI use patterns that reveal an unmet official workflow need.",
     },
     {
+        "name": "Shadow AI Habit-to-Curriculum Translation Example",
+        "tool": "tools/shadow-ai-amnesty-triage-sheet/render_sheet.py",
+        "example": "examples/education/shadow_ai_habit_to_curriculum_debugging_example.json",
+        "description": "Education-specific example that translates hidden AI debugging help into disclosure, allowed support, and concept-check evidence without creating a new standalone primitive.",
+    },
+    {
         "name": "Human Recourse Drill Card",
         "tool": "tools/human-recourse-drill-card/render_card.py",
         "example": "examples/education/human_recourse_drill_card_example.json",
