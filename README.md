@@ -99,6 +99,10 @@ new standalone tools.
 For publication boundaries, see `docs/PUBLICATION_BOUNDARY.md`. For a 5-minute
 review path, see `docs/REVIEWER_QUICKSTART.md`.
 
+For public project health and contribution expectations, see `CHANGELOG.md`,
+`GOVERNANCE.md`, `ROADMAP.md`, `AGENTS.md`, and
+`docs/RELEASE_CHECKLIST.md`.
+
 Open `forms/index.html` for offline browser-local forms for the five June 18
 primitives. The forms work from `file://`, use synthetic defaults, preview
 Markdown, and download Markdown/JSON without network calls or account actions.
